@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+#
+# wo - "work on"
+# This lets you quickly jump into a project directory.
+#
+# Usage:
+#   wo <tab>
+
+if [ -n "$1" ]; then
+    gh_path="$PROJECT_HOME/github.com/$1"
+    bb_path="$PROJECT_HOME/bitbucket.org/$1"
+
+    if [ -d "$gh_path" ] && [ -d "$bb_path" ]; then
+        if [ -n "$WO_CONFLICT_WINNER" ]; then
+            cd "$PROJECT_HOME/$WO_CONFLICT_WINNER/$1"
+        else
+            echo "wo: error: ambiguous argument"
+            echo "wo: info: $1 exists in multiple directories"
+            echo "wo: info: Set \$WO_CONFLICT_WINNER for automatic resolution"
+        fi
+    elif [ -d "$gh_path" ]; then
+        cd "$gh_path"
+    elif [ -d "$bb_path" ]; then
+        cd "$bb_path"
+    fi
+else
+  cd "$PROJECT_HOME/$1"
+fi

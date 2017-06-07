@@ -1,0 +1,3 @@
+#compdef wo
+_files -W $PROJECT_HOME/bitbucket.org -/
+_files -W $PROJECT_HOME/github.com -/

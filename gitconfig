@@ -1,0 +1,99 @@
+[user]
+    name = Benjamin Denhartog
+    email = bddenhartog@gmail.com
+    signingkey = 1F3358A137D0D25C
+[core]
+    editor = vim
+[commit]
+    gpgsign = true
+[push]
+    default = simple
+[pull]
+    rebase = true
+[merge]
+    ff = false
+[gpg]
+    program = /usr/bin/gpg2
+[filter "lfs"]
+    required = true
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+[alias]
+    # moving around
+    co = checkout
+    cob = checkout -b
+
+    # resetting
+    unstage = reset HEAD -- .
+    undo = reset HEAD~1 --mixed
+    redo = reset 'HEAD@{1}'
+
+    # committing
+    amend = !git add -A && git commit -a --amend
+
+    # auditing
+    s = status
+    d = diff
+    l = log --oneline --no-abbrev --date=relative
+    ll = log --show-signature
+    lp = !git ll -p
+    history = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+
+    # miscellaneous
+    e = config -e
+    ec = config --global -e
+    el = !git config --file ~/.gitconfig.local -e
+    aliases = config --get-regexp '^alias\\.'
+[alias]
+    cm = "!f() { \
+        if [[ $1 != \"-\" ]]; then \
+            git add --all; \
+        else \
+            shift; \
+        fi; \
+        if ! git show-ref --quiet --head; then \
+            git commit -m 'initial commit'; \
+            exit; \
+        fi; \
+        local message="${@}"; \
+        if [[ ${message} ]]; then \
+            local tag=$(git rev-parse --abbrev-ref HEAD | sed -r 's/(.*\\/|master|develop)?(\\w+-[0-9]+)?(-.*)?/\\2/'); \
+            if [[ ${tag} ]]; then message=\"${message}\n\n${tag}\"; fi; \
+            git commit -m \"${message}\"; \
+        else \
+            git commit; \
+        fi \
+    }; f"
+
+    # temporary changes
+    st = -c commit.gpgsign=false stash -u
+    ss = -c commit.gpgsign=false stash -u save
+    sl = stash list --pretty=format:'%C(cyan)%gd%C(cyan): %C(yellow)%s'
+    sp = stash pop
+    sd = stash drop
+
+    # branch management
+    b = branch
+    up = !git pull --prune $@ && git submodule update --init --recursive
+    p = push
+    pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+    pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
+    delete = "!f() { \
+        if [[ $1 == 'master' ]] || [[ $1 == 'develop' ]]; then echo 'Cannot delete master or develop. Exiting.' && exit; fi; \
+        local current=$(git rev-parse --abbrev-ref HEAD); \
+        if [[ $1 == $current ]]; then git checkout ${2-master}; fi; \
+        git branch -d $1; \
+    }; f"
+    cleanup = "!filter() { \
+        if [[ $1 == master ]] || [[ $1 == 'develop' ]]; then \
+            grep -v 'master' | grep -v 'develop'; \
+        else \
+            grep -v $1 | grep -v 'master' | grep -v 'develop'; \
+        fi \
+    }; f() { \
+        git checkout ${1-master} && \
+        git pull --prune && \
+        if [ -e .gitmodules ]; then git submodule update --init --recursive; fi && \
+        git branch --merged | filter $(git rev-parse --abbrev-ref HEAD) | xargs -r git branch -d; \
+    }; f"

@@ -1,0 +1,45 @@
+urxvt.font: xft:Inconsolata:size=10:antialias=true:hinting=true
+urxvt.scrollBar: false
+
+
+! special
+*.foreground:   #bfc7d9
+*.background:   #0e1118
+*.cursorColor:  #bfc7d9
+
+! black
+*.color0:       #171c25
+*.color8:       #72b579
+
+! red
+*.color1:       #1f2430
+*.color9:       #df78d8
+
+! green
+*.color2:       #2e3544
+*.color10:      #9b883f
+
+! yellow
+*.color3:       #424d61
+*.color11:      #93834c
+
+! blue
+*.color4:       #5c6a84
+*.color12:      #d692d1
+
+! magenta
+*.color5:       #7b8daf
+*.color13:      #e5787b
+
+! cyan
+*.color6:       #aab5cd
+*.color14:      #de9597
+
+! white
+*.color7:       #dfe2eb
+*.color15:      #67acab
+
+
+! custom keybinding
+urxvt.perl-ext-common: fullscreen
+urxvt.keysym.F11: perl:fullscreen:switch
