@@ -14,7 +14,7 @@ Installation with `rcup` is fairly straightforward:
 ```bash
 $ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ rcup -v -x '*.md'
+$ rcup -v -x 'README.md'
 ```
 
 
