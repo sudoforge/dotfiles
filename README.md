@@ -17,6 +17,15 @@ $ cd ~/.dotfiles
 $ rcup -v -x 'README.md'
 ```
 
+## Subsequent updates
+
+To update from this repository, simply `cd ~/.dotfiles` and execute the
+following:
+
+```bash
+$ git pull
+$ rcup
+```
 
 ## License
 
