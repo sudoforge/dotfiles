@@ -12,13 +12,11 @@ the installation instructions below.
 Installation with `rcup` is fairly straightforward:
 
 ```bash
-$ git clone https://github.com/bddenhartog/dotfiles.git
-$ cd dotfiles
-$ rcup -v -x '*.md' -x 'Makefile'
+$ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles
+$ rcup -v -x '*.md'
 ```
 
-Alternatively, you can run `make install`, which takes care of excluding
-the proper patterns.
 
 ## License
 
