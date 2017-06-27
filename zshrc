@@ -36,13 +36,12 @@ fi
 # get all files with .zsh extension
 script_files=("$ZSHFILES"/*.zsh)
 
+# Autoload functions
+autoload -Uz spectrum && spectrum
+autoload -Uz wo
 
-# source the env file
-. "${ZSHFILES}/env.zsh"
-
-
-# load everything except env and completion files
-for file in ${${script_files:#*/env.zsh}:#*/completion.zsh}; do
+# load everything except completion files
+for file in ${script_files:#*/completion.zsh}; do
   . "$file"
 done
 

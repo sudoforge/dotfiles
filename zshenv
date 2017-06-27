@@ -1,15 +1,14 @@
-#!/usr/bin/env zsh
-
-# environment.zsh: Sets up environment variables and settings.
-
-
 #########################
 # GENERAL
 #########################
-umask 022
 
 # Set the current tty for GPG_TTY
 export GPG_TTY=$(tty)
+
+# General vars
+export EDITOR=vim
+export BROWSER=firefox
+export XDG_CONFIG_HOME="$HOME/.config"
 
 
 #########################
@@ -35,10 +34,10 @@ export PIP_BIN="${PYTHONUSERBASE}/bin"
 export WORKON_HOME="${HOME}/.virtualenvs"
 export PROJECT_HOME="${GOPATH}/src"
 
-# [general] Standard environment variables
-export EDITOR=vim
-export BROWSER=firefox
-export XDG_CONFIG_HOME="$HOME/.config"
+
+#########################
+# ZSH OPTIONS
+#########################
 
 # [zsh] history settings
 export SAVEHIST=1000
@@ -67,10 +66,3 @@ PATH="${YARN_GLOBAL_BIN}:${PATH}"
 
 # Add functions and completion scripts
 FPATH="${HOME}/.functions:${FPATH}"
-
-
-#########################
-# AUTOLOADING
-#########################
-autoload -Uz spectrum && spectrum
-autoload -Uz wo
