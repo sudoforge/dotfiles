@@ -7,8 +7,13 @@ case $TERM in
             # Set the terminal title to the current working directory.
             print -Pn "\e]0;%n@%m:%~\a"
 
-            # Print a newline before the prompt.
-            print ""
+            # Print a newline before the prompt, unless it's the first
+            # prompt in the parent process.
+            if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+                NEW_LINE_BEFORE_PROMPT=1
+            elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+                print ""
+            fi
         }
 
         # Special function preexec, executed before running each command.
