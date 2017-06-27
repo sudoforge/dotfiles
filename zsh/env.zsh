@@ -11,8 +11,6 @@ umask 022
 # Set the current tty for GPG_TTY
 export GPG_TTY=$(tty)
 
-# Auto-eval ssh-agent if PID is not found
-if [ -z "$SSH_AGENT_PID" ]; then eval $(ssh-agent) > /dev/null 2>&1; fi
 
 #########################
 # UTILIES AND TOOLS
@@ -49,7 +47,6 @@ export HISTFILE="${HOME}/.zsh_history"
 
 # [zsh] Display time and usage for long-running commands
 export REPORTTIME=5
-
 
 
 #########################
