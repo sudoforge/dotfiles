@@ -1,6 +1,13 @@
 #!/usr/bin/env zsh
 
-# .zshrc: Configuration for ZSH
+# attach to or create a tmux session
+if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
+    if command tmux list-sessions > /dev/null 2>&1; then
+        exec tmux attach
+    else
+        exec tmux new-session
+    fi
+fi
 
 # shortcut to dotfiles
 export ZSHFILES="$HOME/.zsh"
