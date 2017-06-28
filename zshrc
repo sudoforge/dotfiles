@@ -43,9 +43,12 @@ fi
 # get all files with .zsh extension
 script_files=("$ZSHFILES"/*.zsh)
 
+
 # Autoload functions
 autoload -Uz spectrum && spectrum
 autoload -Uz wo
+autoload -Uz mp
+
 
 # load everything except completion files
 for file in ${script_files:#*/completion.zsh}; do

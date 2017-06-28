@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+#
+# mp - "make project"
+# This lets you quickly create a new project within a predefined
+# directory tree.
+#
+# Usage:
+#   mp domain/user/repo
+
+if [ -n "$1" ]; then
+    project="${PROJECT_HOME}/${1}"
+
+    if [ -d "$project" ]; then
+        echo "mp: info: $1 already exists, changing directories..."
+    fi
+
+    if command mkdir -p "$project"; then
+        cd "$project"
+    fi
+fi
