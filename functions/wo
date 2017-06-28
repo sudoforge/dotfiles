@@ -6,23 +6,28 @@
 # Usage:
 #   wo <tab>
 
-if [ -n "$1" ]; then
-    gh_path="$PROJECT_HOME/github.com/$1"
-    bb_path="$PROJECT_HOME/bitbucket.org/$1"
 
-    if [ -d "$gh_path" ] && [ -d "$bb_path" ]; then
-        if [ -n "$WO_CONFLICT_WINNER" ]; then
-            cd "$PROJECT_HOME/$WO_CONFLICT_WINNER/$1"
-        else
-            echo "wo: error: ambiguous argument"
-            echo "wo: info: $1 exists in multiple directories"
-            echo "wo: info: Set \$WO_CONFLICT_WINNER for automatic resolution"
+if [ -n "$1" ]; then
+    if ! cd "$PROJECT_HOME/$1" > /dev/null 2>&1; then
+        echo "wo: error: argument '$1' not found"
+
+        local -a matches
+        matches=()
+        for dir in "$PROJECT_HOME"/*; do
+            if [ -d "$dir/$1" ]; then
+                shortname=$(basename "$dir")
+                matches=("$shortname/$1" "$matches")
+            fi
+
+        done
+
+        if [ "${#matches}" -gt 0 ]; then
+            echo "wo: info: we found the following alternative(s):"
+            for match in $matches; do
+                echo "  - $match"
+            done
         fi
-    elif [ -d "$gh_path" ]; then
-        cd "$gh_path"
-    elif [ -d "$bb_path" ]; then
-        cd "$bb_path"
     fi
 else
-  cd "$PROJECT_HOME/$1"
+    cd "$PROJECT_HOME"
 fi
