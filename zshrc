@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # attach to or create a tmux session
 if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
     if command tmux list-sessions > /dev/null 2>&1; then
@@ -12,19 +10,18 @@ fi
 # shortcut to dotfiles
 export ZSHFILES="$HOME/.zsh"
 
-log() {
+__log() {
     preLabel="dotfiles: zsh"
 
     case "$1" in
         info)
-            echo "${preLabel}: info: ${*:2}"
+            echo "${preLabel}: info: ${@:2}"
             ;;
         error)
-            echo "${preLabel}: error: ${*:2}"
+            echo "${preLabel}: error: ${@:2}"
             ;;
         fatal)
-            echo "${preLabel}: fatal: ${*:2}"
-            exit 1
+            echo "${preLabel}: fatal: ${@:2}"
             ;;
         *)
             log error "unsupported label: '$1'"
