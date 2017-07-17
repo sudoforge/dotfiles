@@ -14,9 +14,9 @@ __git_prompt_status() {
         ! command git rev-parse --git-dir &> /dev/null;
     then return; fi
 
-    # coloring
-    FULLINDEX=$(command git status 2> /dev/null) || ""
+    FULLINDEX=$(command git status 2> /dev/null) 
     ref_color="030"
+
     if echo "${FULLINDEX}" | grep '^Your branch.*behind' &> /dev/null; then
         ref_color="160"
     fi
@@ -31,9 +31,9 @@ __git_prompt_status() {
     fi
 
     # status
-    ref=$(git symbolic-ref HEAD 2> /dev/null | sed -r 's,refs/[^/]+/,,' ||\
-          git rev-parse --short HEAD 2> /dev/null) ||\
-          return
+    ref=$(git symbolic-ref HEAD 2> /dev/null ||\
+          git rev-parse --short HEAD 2> /dev/null) || return
+    ref=$(echo "$ref" | sed -r 's,refs/[^/]+/,,')
     INDEX=$(command git status --porcelain -b 2> /dev/null)
     STATUS=""
     INDEXED=""
