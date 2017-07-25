@@ -93,14 +93,14 @@ if command -v zplug > /dev/null 2>&1; then
     zplug "containerly/cli-tools", \
         depth:1, \
         as:command, \
-        use:'components/(composer|terraform)'
+        use:'components/*'
 
     # Command completion
     zplug "docker/compose", depth:1, use:contrib/completion/zsh
     zplug "docker/docker", depth:1, use:contrib/completion/zsh
 
     # Git extensions
-    zplug "git-scripts/library", \
+    zplug "bddenhartog/git-scripts", \
         depth:1, \
         as:command, \
         use:'git-*/git-*'
