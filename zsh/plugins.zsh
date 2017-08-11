@@ -97,8 +97,7 @@ if command -v zplug > /dev/null 2>&1; then
         use:'components/*'
 
     # Command completion
-    zplug "docker/compose", depth:1, use:contrib/completion/zsh
-    zplug "docker/docker", depth:1, use:contrib/completion/zsh
+    zplug "felixr/docker-zsh-completion", depth:1, use:contrib/completion/zsh
 
     # Git extensions
     zplug "bddenhartog/git-scripts", \
