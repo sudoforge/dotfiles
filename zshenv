@@ -52,17 +52,7 @@ export REPORTTIME=5
 # PATH MANAGEMENT
 #########################
 
-# Installed via `pip install --user` or `pipsi install`
-PATH="${PIP_BIN}:${PATH}"
-
-# For things installed via cargo
-PATH="${CARGO_BIN}:${PATH}"
-
-# Installed via `go get`
-PATH="${GO_BIN}:${PATH}"
-
-# Installed via `yarn global add`
-PATH="${YARN_GLOBAL_BIN}:${PATH}"
+# PATH is set in zprofile
 
 # Add functions and completion scripts
 FPATH="${HOME}/.functions:${FPATH}"
