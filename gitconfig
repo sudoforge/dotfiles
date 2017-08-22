@@ -85,15 +85,3 @@
         if [[ $1 == $current ]]; then git checkout ${2-master}; fi; \
         git branch -d $1; \
     }; f"
-    cleanup = "!filter() { \
-        if [[ $1 == master ]] || [[ $1 == 'develop' ]]; then \
-            grep -v 'master' | grep -v 'develop'; \
-        else \
-            grep -v $1 | grep -v 'master' | grep -v 'develop'; \
-        fi \
-    }; f() { \
-        git checkout ${1-master} && \
-        git pull --prune && \
-        if [ -e .gitmodules ]; then git submodule update --init --recursive; fi && \
-        git branch --merged | filter $(git rev-parse --abbrev-ref HEAD) | xargs -r git branch -d; \
-    }; f"
