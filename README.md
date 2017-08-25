@@ -14,7 +14,7 @@ Installation with `rcup` is fairly straightforward:
 ```bash
 $ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ rcup -v -x 'README.md'
+$ rcup -v
 ```
 
 ## Subsequent updates
@@ -23,9 +23,9 @@ To update from this repository, simply `cd ~/.dotfiles` and execute the
 following:
 
 ```bash
-$ rcdn -x 'rcrc'
+$ rcdn
 $ git pull
-$ rcup
+$ rcup -v
 ```
 
 ## License
