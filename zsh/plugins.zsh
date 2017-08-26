@@ -36,11 +36,6 @@ if command -v zplug > /dev/null 2>&1; then
         defer:2
 
     # Utilities and tools
-    zplug "peco/peco", \
-        depth:1, \
-        from:gh-r, \
-        as:command
-
     zplug "VundleVim/Vundle.vim", \
         depth:1, \
         hook-build:"\\
