@@ -43,8 +43,8 @@ export DOTFILES_DIRS="${PROJECT_HOME}/github.com/bddenhartog/dotfiles"
 #########################
 
 # [zsh] history settings
-export SAVEHIST=1000
-export HISTSIZE=1000
+export SAVEHIST=5000
+export HISTSIZE=5000
 export HISTFILE="${HOME}/.zsh_history"
 
 # [zsh] Display time and usage for long-running commands
