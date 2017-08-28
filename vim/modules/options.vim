@@ -4,9 +4,10 @@ filetype plugin indent on
 set background=dark
 
 " indentation
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set expandtab
+autocmd FileType toml setlocal shiftwidth=2 tabstop=2
 
 " enable current _and_ relative line numbering
 set number
