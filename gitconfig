@@ -79,9 +79,3 @@
     p = push
     pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
-    delete = "!f() { \
-        if [[ $1 == 'master' ]] || [[ $1 == 'develop' ]]; then echo 'Cannot delete master or develop. Exiting.' && exit; fi; \
-        local current=$(git rev-parse --abbrev-ref HEAD); \
-        if [[ $1 == $current ]]; then git checkout ${2-master}; fi; \
-        git branch -d $1; \
-    }; f"
