@@ -25,7 +25,7 @@ key[CtrlLeft]='^[[1;5D'
 key[ShiftLeft]='^[[1;2D'
 key[Down]='^[[B'
 key[Right]='^[[C'
-key[AltRight]='^[[1;3C'
+key[AltRight]='^[[;3C'
 key[CtrlRight]='^[[1;5C'
 key[ShiftRight]='^[[1;2C'
 
@@ -47,9 +47,8 @@ zle -N insert-composed-char
 bindkey "$key[Delete]" delete-char
 bindkey "$key[Backspace]" backward-delete-char
 
-bindkey "$key[CtrlDelete]" delete-word
-bindkey "$key[AltDelete]" delete-word
-bindkey "$key[CtrlBackspace]" backward-delete-word
+bindkey "^W" delete-word
+bindkey "^[w" backward-delete-word
 
 bindkey "$key[Right]" forward-char
 bindkey "$key[Left]" backward-char
@@ -67,8 +66,7 @@ bindkey "$key[ShiftTab]" reverse-menu-complete
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
-bindkey "^S" history-incremental-search-forward
-
+bindkey "^S" history-incremental-search-forward 
 bindkey "^V" quoted-insert
 
 bindkey "^U" kill-whole-line
