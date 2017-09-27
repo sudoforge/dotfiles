@@ -92,7 +92,13 @@ if command -v zplug > /dev/null 2>&1; then
         use:'components/*'
 
     # Command completion
-    zplug "felixr/docker-zsh-completion", depth:1, use:contrib/completion/zsh
+    zplug "felixr/docker-zsh-completion", \
+        depth:1, \
+        use:contrib/completion/zsh
+
+    zplug "hashicorp/terraform", \
+        depth:1, \
+        use:contrib/zsh-completion/_terraform
 
     # Git extensions
     zplug "bddenhartog/git-scripts", \
