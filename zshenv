@@ -27,7 +27,7 @@ export CARGOPATH="${HOME}/.cargo"
 export CARGO_BIN="${CARGOPATH}/bin"
 
 # [yarn]
-export YARN_GLOBAL_BIN="${HOME}/.config/yarn/global/node_modules/.bin"
+export YARN_GLOBAL_BIN="${HOME}/.yarn/bin"
 
 # [python] location for user-installed site packages
 export PYTHONUSERBASE="${HOME}/.local"
