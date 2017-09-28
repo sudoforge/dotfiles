@@ -14,16 +14,16 @@ Installation with `rcup` is fairly straightforward:
 ```bash
 $ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ rcup -v
+$ DOTFILES_DIRS=$(pwd) rcup -v
 ```
 
-## Subsequent updates
+## Updating 
 
 To update from this repository, simply `cd ~/.dotfiles` and execute the
 following:
 
 ```bash
-$ rcdn
+$ rcdn -x rcrc
 $ git pull
 $ rcup -v
 ```
