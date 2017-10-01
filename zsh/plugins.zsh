@@ -39,8 +39,8 @@ if command -v zplug > /dev/null 2>&1; then
     zplug "VundleVim/Vundle.vim", \
         depth:1, \
         hook-build:"\\
-            mkdir -p ~/.vim/bundle && \\
-            rsync --recursive . ~/.vim/bundle/Vundle.vim"
+            mkdir -p ${HOME}/.vim/bundle && \\
+            rsync --recursive --delete --exclude='.git' . ${HOME}/.vim/bundle/Vundle.vim"
 
     zplug "docker/machine", \
         from:gh-r, \
