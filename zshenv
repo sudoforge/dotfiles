@@ -5,9 +5,6 @@
 # Set the current tty for GPG_TTY
 export GPG_TTY=$(tty)
 
-# Use gpg-agent for ssh passphrase management
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-
 # General vars
 export EDITOR=vim
 export BROWSER=firefox
