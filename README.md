@@ -15,7 +15,7 @@ Installation with `rcup` is fairly straightforward:
 ```bash
 $ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ DOTFILES_DIRS=$(pwd) rcup -v
+$ rcup -v
 ```
 
 ## Updating 

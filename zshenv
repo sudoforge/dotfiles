@@ -34,9 +34,6 @@ export PIP_BIN="${PYTHONUSERBASE}/bin"
 export WORKON_HOME="${HOME}/.virtualenvs"
 export PROJECT_HOME="${GOPATH}/src"
 
-# [rcm] Settings for thoughtbot's rcm
-export DOTFILES_DIRS="${PROJECT_HOME}/github.com/bddenhartog/dotfiles"
-
 
 #########################
 # ZSH OPTIONS
