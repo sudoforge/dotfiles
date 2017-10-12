@@ -52,4 +52,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "view the thoughtbot/rcm repository"
+[gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "view thoughtbot/rcm"
