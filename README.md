@@ -6,6 +6,7 @@ the installation instructions below.
 ## Dependencies
 
 - [`rcm`][gh-thoughtbot-rcm]
+- [`git-lfs`][gh-git-lfs]
 
 ## Installation
 
@@ -53,3 +54,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "view thoughtbot/rcm"
+[gh-git-lfs]: https://github.com/git-lfs/git-lfs "view git-lfs/git-lfs"

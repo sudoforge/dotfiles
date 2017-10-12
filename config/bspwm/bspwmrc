@@ -3,7 +3,7 @@
 sxhkd &
 
 # wallpaper
-hsetroot -full /home/bddenhartog/downloads/pic.jpg
+feh --bg-center ~/.wallpapers/red-mountains.png
 
 # load polybar
 ~/bin/launch
