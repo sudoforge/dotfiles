@@ -31,6 +31,7 @@
 
     # committing
     amend = !git add -A && git commit -a --amend
+    mend = !git add -A && git commit -a --amend --no-edit
 
     # auditing
     s = status
