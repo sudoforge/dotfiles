@@ -2,9 +2,6 @@
 
 sxhkd &
 
-# wallpaper
-feh --bg-center ~/.wallpapers/red-mountains.png
-
 # load polybar
 ~/bin/launch
 xset m 1/2 4
