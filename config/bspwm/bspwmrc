@@ -3,7 +3,7 @@
 sxhkd &
 
 # load polybar
-~/bin/launch
+polybar top &
 xset m 1/2 4
 
 # bspc rules for bspwm
@@ -40,4 +40,3 @@ bspc rule -a URxvt:weechat desktop=^2 follow=on
 bspc rule -a Gimp desktop=^4 follow=on
 bspc rule -a URxvt:vpn desktop=^5 follow=on state=floating
 bspc rule -a URxvt:upass state=floating
-
