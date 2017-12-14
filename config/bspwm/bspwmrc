@@ -3,7 +3,7 @@
 sxhkd &
 
 # load polybar
-polybar top &
+polybar-launch
 xset m 1/2 4
 
 # bspc rules for bspwm

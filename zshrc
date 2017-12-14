@@ -45,6 +45,7 @@ script_files=("$ZSHFILES"/*.zsh)
 autoload -Uz spectrum && spectrum
 autoload -Uz wo
 autoload -Uz mp
+autoload -Uz polybar-launch
 
 
 # load everything except completion files
