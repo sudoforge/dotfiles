@@ -20,6 +20,8 @@ alt + Tab
 super + Escape
 	pkill -USR1 -x sxhkd
 
+
+# lock the screen
 super + l
     /usr/bin/physlock -md
 
