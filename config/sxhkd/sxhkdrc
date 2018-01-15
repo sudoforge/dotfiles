@@ -16,9 +16,24 @@ super + alt + space
 alt + Tab
     rofi -show window
 
+#
+# screenshots
+#
+
+# capture current window
+super + p
+    maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
+
+# capture a region
+super + alt + p
+    maim -s ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+# capture the entire desktop
+super + alt + x
+    maim ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
 
 
 # lock the screen
