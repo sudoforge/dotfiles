@@ -1,20 +1,27 @@
 #
-# wm independent hotkeys
+# generic hotkeys
 #
 
 # terminal emulator
 super + Return
 	urxvt
 
-# program launcher
+# show executable commands
 super + space
 	rofi -show run
 
+# show password-store entries
 super + alt + space
     rofi-pass
 
+# show all windows
 alt + Tab
     rofi -show window
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
 
 #
 # screenshots
@@ -28,9 +35,6 @@ super + p
 super + alt + p
     maim -s ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
 # capture the entire desktop
 super + alt + x
     maim ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
