@@ -29,15 +29,15 @@ super + Escape
 
 # capture current window
 super + p
-    maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
+    maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
 
 # capture a region
 super + alt + p
-    maim -s ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
+    maim -s ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
 
 # capture the entire desktop
 super + alt + x
-    maim ~/Pictures/$(date +%Y%M%D_%H%M%S%3N).png
+    maim ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
 
 
 # lock the screen
