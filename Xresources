@@ -9,7 +9,8 @@ urxvt*borderless: 1
 urxvt*secondaryScroll: true
 urxvt*saveLines: 5000
 urxvt*termName: rxvt-unicode
-urxvt*font: xft:Inconsolata:size=10:antialias=true
+urxvt*font: xft:Inconsolata:size=10:antialias=true,\
+            xft:FontAwesome:size=10:antialias=true
 urxvt.perl-ext-common: default.matcher
 urxvt.urlLauncher: firefox
 urxvt.matcher.button: 1
