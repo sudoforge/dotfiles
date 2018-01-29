@@ -4,7 +4,6 @@ width = 100%
 height = 32
 offset-x = 0
 offset-y = -1
-;bottom = true
 
 background = #5a000000
 foreground = #eee
