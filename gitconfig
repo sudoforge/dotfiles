@@ -1,6 +1,6 @@
 [user]
     name = Benjamin Denhartog
-    email = ben@bddenhartog.com
+    email = ben@denhartog.io
     signingkey = 1F3358A137D0D25C
 [core]
     editor = vim
