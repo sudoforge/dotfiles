@@ -40,7 +40,7 @@ if command -v zplug > /dev/null 2>&1; then
         depth:1, \
         hook-build:"\\
             mkdir -p ${HOME}/.vim/bundle && \\
-            rsync --recursive --delete --exclude='.git' . ${HOME}/.vim/bundle/Vundle.vim"
+            rsync --recursive --delete . ${HOME}/.vim/bundle/Vundle.vim"
 
     zplug "docker/machine", \
         from:gh-r, \
