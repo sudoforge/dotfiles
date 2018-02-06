@@ -54,6 +54,14 @@ if command -v zplug > /dev/null 2>&1; then
         use:"*docker-compose-`uname -s`-`uname -m`", \
         rename-to:docker-compose
 
+    TPM_DIR="~/.tmux/plugins/tpm"
+    zplug "tmux-plugins/tpm", \
+        depth:1, \
+        if:"command -v tmux", \
+        hook-build:"\\
+            mkdir -p ${TPM_DIR} && \\
+            rsync --recursive --delete . ${TPM_DIR}"
+
 
     # Gnome extensions
     EXTENSION_DIR="~/.local/share/gnome-shell/extensions"
