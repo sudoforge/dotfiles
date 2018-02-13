@@ -10,8 +10,7 @@ zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in comp
 
 third_party_scripts() {
     # AWS CLI completer
-    # Install awscli: pip install --user awscli
-    local aws_cli_completion="$HOME/.local/bin/aws_zsh_completer.sh"
+    local aws_cli_completion="$(dirname $(which aws))/aws_zsh_completer.sh"
     if [ -e "${aws_cli_completion}" ]; then
         . "${aws_cli_completion}"
     fi
