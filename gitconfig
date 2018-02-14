@@ -80,3 +80,6 @@
     p = push
     pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
+
+[include]
+    path = ~/.gitconfig.local
