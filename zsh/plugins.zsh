@@ -63,36 +63,6 @@ if command -v zplug > /dev/null 2>&1; then
             rsync --recursive --delete . ${TPM_DIR}"
 
 
-    # Gnome extensions
-    EXTENSION_DIR="~/.local/share/gnome-shell/extensions"
-
-    zplug "micheleg/dash-to-dock", \
-        depth:1, \
-        if:"command -v gnome-shell", \
-        hook-build:"make install"
-
-    zplug "phocean/TopIcons-plus", \
-        depth:1, \
-        if:"command -v gnome-shell", \
-        hook-build:"make install"
-
-    zplug "HROMANO/nohotcorner", \
-        depth:1, \
-        if:"command -v gnome-shell", \
-        hook-build:"\\
-            mkdir -p ${EXTENSION_DIR} && \\
-            rsync --recursive --delete --exclude='.git' . ${EXTENSION_DIR}/nohotcorner@azuri.free.fr"
-
-    zplug "Tudmotu/gnome-shell-extension-bettervolume", \
-        depth:1, \
-        if:"command -v gnome-shell", \
-        hook-build:"\\
-            mkdir -p ${EXTENSION_DIR} && \\
-            rsync --recursive --delete --exclude='.git' . ${EXTENSION_DIR}/bettervolume@tudmotu.com"
-
-    unset EXTENSION_DIR
-
-
     # Container CLI tools
     zplug "containerly/cli-tools", \
         depth:1, \
