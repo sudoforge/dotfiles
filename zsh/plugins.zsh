@@ -67,16 +67,12 @@ if command -v zplug > /dev/null 2>&1; then
     zplug "containerly/cli-tools", \
         depth:1, \
         as:command, \
-        use:'components/*'
+        use:'components/(composer|createrepo)'
 
     # Command completion
     zplug "felixr/docker-zsh-completion", \
         depth:1, \
         use:contrib/completion/zsh
-
-    zplug "hashicorp/terraform", \
-        depth:1, \
-        use:contrib/zsh-completion/_terraform
 
     # Git extensions
     zplug "bddenhartog/git-scripts", \
