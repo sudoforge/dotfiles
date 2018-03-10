@@ -110,9 +110,22 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# focus the given workspace
+# a "workspace" is a pairing of desktops across multiple monitors
+super + {1-4}
+    for i in 1 2 3 4; do;\
+        bspc monitor -f $i;\
+        bspc desktop -f $i-{1-4};\
+    done
+
+# send node to the given monitor
+super + ctrl + {1-4}
+    bspc node focused -m {1-4};\
+    bspc node -f last
+
+# send node to the given desktop
+super + alt + {1-4}
+    bspc node focused -d $(bspc query -M -m --names)-{1-4}
 
 #
 # preselect
@@ -121,10 +134,6 @@ super + {_,shift + }{1-9,0}
 # preselect the direction
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
