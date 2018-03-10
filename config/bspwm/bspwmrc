@@ -38,7 +38,7 @@ bspc config presel_feedback_color "#804f4e"
 bspc monitor eDP-1 -n 1 -d 1-1 1-2 1-3 1-4
 bspc monitor DP-1 -n 2 -d 2-1 2-2 2-3 2-4
 
-bspc rule -a Steam desktop=^3 follow=on split_dir=right
+bspc rule -a Firefox monitor=DP-1 desktop=2-1 follow=on split_dir=right
 bspc rule -a URxvt:updates state=floating
 bspc rule -a URxvt:pulsemixer state=floating
 bspc rule -a URxvt:mutt desktop=^2 follow=on
