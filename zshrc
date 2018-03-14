@@ -58,6 +58,7 @@ done
 ###############################
 
 # Generic aliases
+alias dirs="dirs -v"
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
 alias reload=". ~/.zshrc"
