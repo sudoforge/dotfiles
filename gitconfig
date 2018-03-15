@@ -47,26 +47,6 @@
     el = !git config --file ~/.gitconfig.local -e
     aliases = config --get-regexp '^alias\\.'
 [alias]
-    cm = "!f() { \
-        if [[ $1 != \"-\" ]]; then \
-            git add --all; \
-        else \
-            shift; \
-        fi; \
-        if ! git show-ref --quiet --head; then \
-            git commit -m 'initial commit'; \
-            exit; \
-        fi; \
-        local message="${@}"; \
-        if [[ ${message} ]]; then \
-            local tag=$(git rev-parse --abbrev-ref HEAD | sed -r 's/(.*\\/|master|develop)?(\\w+-[0-9]+)?(-.*)?/\\2/'); \
-            if [[ ${tag} ]]; then message=\"${message}\n\n${tag}\"; fi; \
-            git commit -m \"${message}\"; \
-        else \
-            git commit; \
-        fi \
-    }; f"
-
     # temporary changes
     st = -c commit.gpgsign=false stash -u
     ss = -c commit.gpgsign=false stash -u save
