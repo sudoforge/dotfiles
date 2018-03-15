@@ -47,11 +47,27 @@ autoload -Uz wo
 autoload -Uz mp
 autoload -Uz polybar-launch
 
-
 # load everything except completion files
-for file in ${script_files:#*/completion.zsh}; do
+for file in ${script_files}; do
   . "$file"
 done
+
+
+# COMMAND COMPLETION
+###############################
+
+# Enable completion
+autoload -Uz compinit && compinit
+
+# Completion configuration
+zstyle ':completion:*' list-colors "${LS_COLORS}" # Complete with same colors as ls.
+zstyle ':completion:*' max-errors 2 # Be lenient to 2 errors.
+zstyle ':completion:*' completer _expand _complete _correct _approximate # Completion modifiers.
+zstyle ':completion:*' use-cache true # Use a completion cache.
+zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in completions.
+
+# Source completion for aws-cli
+[ -e "/usr/bin/aws_zsh_completer.sh" ] && . "/usr/bin/aws_zsh_completer.sh"
 
 
 # ALIASES
@@ -73,10 +89,6 @@ alias pacr='sudo pacman -R'
 
 # Google Cloud SDK
 alias gcp="gcloud"
-
-
-# load completion after autocomplete loads
-. "${ZSHFILES}/completion.zsh"
 
 
 unset script_files
