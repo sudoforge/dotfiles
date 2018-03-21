@@ -20,12 +20,10 @@ key[PageDown]='^[[6~'
 
 key[Up]='^[[A'
 key[Left]='^[[D'
-key[AltLeft]='^[[1;3D'
 key[CtrlLeft]='^[[1;5D'
 key[ShiftLeft]='^[[1;2D'
 key[Down]='^[[B'
 key[Right]='^[[C'
-key[AltRight]='^[[;3C'
 key[CtrlRight]='^[[1;5C'
 key[ShiftRight]='^[[1;2C'
 
@@ -53,9 +51,7 @@ bindkey "^[w" backward-delete-word
 bindkey "$key[Right]" forward-char
 bindkey "$key[Left]" backward-char
 
-bindkey "$key[AltRight]" forward-word
 bindkey "$key[CtrlRight]" forward-word
-bindkey "$key[AltLeft]" backward-word
 bindkey "$key[CtrlLeft]" backward-word
 
 bindkey "$key[Up]" up-line-or-history
