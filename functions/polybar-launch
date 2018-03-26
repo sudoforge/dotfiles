@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if command -v xrandr > /dev/null 2>&1; then
-    for monitor in $(xrandr --query | grep " connected" | cut -d " " -f 1); do
+    for monitor in $(xrandr --query | grep " connected primary" | cut -d " " -f 1); do
         MONITOR=$monitor polybar --reload top &
     done
 else
