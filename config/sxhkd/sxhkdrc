@@ -36,7 +36,7 @@ super + alt + p
     maim -s ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
 
 # capture the entire desktop
-super + alt + x
+super + ctrl + p
     maim ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
 
 
