@@ -43,7 +43,7 @@ bspc monitor eDP-1 -n main -d 1 2 3 4
 bspc monitor DVI-I-2-2 -n left
 bspc monitor DVI-I-1-1 -n right
 
-bspc rule -a Firefox monitor=1 desktop=2 follow=on split_dir=right
+bspc rule -a Firefox monitor=right split_dir=right
 bspc rule -a URxvt:updates state=floating
 bspc rule -a URxvt:pulsemixer state=floating
 bspc rule -a URxvt:mutt desktop=^2 follow=on
