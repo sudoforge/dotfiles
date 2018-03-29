@@ -87,6 +87,10 @@ alias pacs='sudo pacman -S'
 alias pacr='sudo pacman -R'
 alias code='code-oss'
 
+# Kubectl and related utilities
+alias kc='kubectx'
+alias kn='kubens'
+
 # Google Cloud SDK
 alias gcp="gcloud"
 
