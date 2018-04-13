@@ -4,7 +4,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search
 
 " SYNTAX
-Plugin 'IN3D/vim-raml'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
 
