@@ -73,6 +73,7 @@ __complete() {
 
 # Source completion scripts
 __complete "/usr/bin/aws_zsh_completer.sh"
+__complete "/opt/google-cloud-sdk/completion.zsh.inc"
 
 
 # ALIASES
