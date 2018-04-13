@@ -49,7 +49,7 @@
 [alias]
     # temporary changes
     st = -c commit.gpgsign=false stash -u
-    ss = -c commit.gpgsign=false stash -u save
+    ss = -c commit.gpgsign=false stash save -u
     sl = stash list --pretty=format:'%C(cyan)%gd%C(cyan): %C(yellow)%s'
     sp = stash pop
     sd = stash drop
