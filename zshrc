@@ -3,7 +3,7 @@ if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
     if command tmux list-sessions > /dev/null 2>&1; then
         exec tmux attach
     else
-        exec tmux new-session
+        exec tmux new-session -s main
     fi
 fi
 
