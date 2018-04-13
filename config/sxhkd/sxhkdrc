@@ -10,10 +10,6 @@ super + Return
 super + space
 	rofi -show run
 
-# show password-store entries
-super + alt + space
-    rofi-pass
-
 # show all windows
 alt + Tab
     rofi -show window
