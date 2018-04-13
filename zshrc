@@ -66,8 +66,13 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate # Compl
 zstyle ':completion:*' use-cache true # Use a completion cache.
 zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in completions.
 
-# Source completion for aws-cli
-[ -e "/usr/bin/aws_zsh_completer.sh" ] && . "/usr/bin/aws_zsh_completer.sh"
+# helper function for sourcing completion scripts
+__complete() {
+    [ -e "$1" ] && . "$1"
+}
+
+# Source completion scripts
+__complete "/usr/bin/aws_zsh_completer.sh"
 
 
 # ALIASES
