@@ -8,7 +8,7 @@ super + Return
 
 # show executable commands
 super + space
-	rofi -show run
+	rofi -disable-history -show run
 
 # show all windows
 alt + Tab
