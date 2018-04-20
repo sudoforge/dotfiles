@@ -61,6 +61,7 @@ if command -v zplug > /dev/null 2>&1; then
         hook-build:"\\
             mkdir -p ${TPM_DIR} && \\
             rsync --recursive --delete . ${TPM_DIR}"
+    unset TMP_DIR
 
 
     # Container CLI tools
