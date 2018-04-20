@@ -24,7 +24,7 @@ To update from this repository, simply `cd ~/.dotfiles` and execute the
 following:
 
 ```bash
-$ rcdn -x rcrc
+$ rcdn
 $ git pull
 $ rcup -v
 ```
