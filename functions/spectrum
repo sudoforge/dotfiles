@@ -1,14 +1,12 @@
 #!/usr/bin/env zsh
 # A script to make using 256 colors in zsh less painful.
-# P.C. Shyamshankar <sykora@lucentbeing.com>
+# Originally authored by P.C. Shyamshankar <sykora@lucentbeing.com>
 #
 # Spectrum accepts an optional argument, indicating the number of colors the terminal actually
 # supports. This allows it to gracefully degrade, so that you don't have to write more than version
 # of the same thing. By default, this argument is assumed to be 256, which maintains backwards
 # compatibility.
 #
-# CHANGELOG
-# * 2017-06-07 Benjamin Denhartog <foss@bddenhartog.com> escape character codes
 
 # We define three associative arrays, for effects, foreground colors and background colors.
 typeset -Ag FX FG BG
