@@ -91,6 +91,7 @@ alias ...=../..
 alias gpgl="gpg2 --list-keys --keyid-format long --with-fingerprint"
 alias pacs='sudo pacman -S'
 alias pacr='sudo pacman -R'
+alias tf='terraform'
 
 # Kubectl and related utilities
 alias kc='kubectx'
