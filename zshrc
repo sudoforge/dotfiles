@@ -80,17 +80,17 @@ __complete "/opt/google-cloud-sdk/completion.zsh.inc"
 ###############################
 
 # Generic aliases
+alias ...=../..
+alias cls="clear"
 alias dirs="dirs -v"
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
 alias reload=". ~/.zshrc"
-alias cls="clear"
-alias ...=../..
 
 # Application-specific
 alias gpgl="gpg2 --list-keys --keyid-format long --with-fingerprint"
-alias pacs='sudo pacman -S'
 alias pacr='sudo pacman -R'
+alias pacs='sudo pacman -S'
 alias tf='terraform'
 
 # Kubectl and related utilities
