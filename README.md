@@ -1,4 +1,4 @@
-# bddenhartog/dotfiles
+# sudoforge/dotfiles
 
 A quick-start collection of my dotfiles. Clone this repository, then follow
 the installation instructions below.
@@ -13,7 +13,7 @@ the installation instructions below.
 Installation with `rcup` is fairly straightforward:
 
 ```bash
-$ git clone https://github.com/bddenhartog/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/sudoforge/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ rcup -v
 ```
@@ -33,7 +33,7 @@ $ rcup -v
 
 MIT License
 
-Copyright (c) Benjamin Den Hartog <@bddenhartog>
+Copyright (c) Benjamin Den Hartog <@sudoforge>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

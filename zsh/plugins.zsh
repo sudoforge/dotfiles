@@ -76,7 +76,7 @@ if command -v zplug > /dev/null 2>&1; then
         use:contrib/completion/zsh
 
     # Git extensions
-    zplug "bddenhartog/gitscript", \
+    zplug "sudoforge/gitscript", \
         depth:1, \
         as:command, \
         use:'git-*/git-*'
