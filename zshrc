@@ -10,6 +10,7 @@ fi
 # shortcut to dotfiles
 export ZSHFILES="$HOME/.zsh"
 
+
 __log() {
     preLabel="dotfiles: zsh"
 
@@ -47,10 +48,27 @@ autoload -Uz wo
 autoload -Uz mp
 autoload -Uz polybar-launch
 
-# load everything except completion files
+
+# load script files
 for file in ${script_files}; do
   . "$file"
 done
+
+
+# WINDOW CONFIGURATION
+###############################
+case $TERM in
+    *xterm*|*rxvt*|*screen*)
+        function precmd() {
+            # Print a newline before the prompt, unless it's the first
+            # prompt in the parent process.
+            if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+                NEW_LINE_BEFORE_PROMPT=1
+            elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+                echo "\n"
+            fi
+        }
+esac
 
 
 # COMMAND COMPLETION
