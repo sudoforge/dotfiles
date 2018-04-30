@@ -19,11 +19,6 @@ unset PLUGIN_MANAGER_SRC
 unset PLUGIN_MANAGER_DIR
 
 if command -v zplug > /dev/null 2>&1; then
-    # lazy loading for lukechilds/zsh-nvm
-    export NVM_LAZY_LOAD=true
-    zplug "lukechilds/zsh-nvm", \
-        depth:1
-
     # fish-like auto suggestions
     # defer:2 makes this run after compinit
     zplug "zsh-users/zsh-autosuggestions", \
@@ -42,18 +37,6 @@ if command -v zplug > /dev/null 2>&1; then
             mkdir -p ${HOME}/.vim/bundle && \\
             rsync --recursive --delete . ${HOME}/.vim/bundle/Vundle.vim"
 
-    zplug "docker/machine", \
-        from:gh-r, \
-        as:command, \
-        use:"*docker-machine-`uname -s`-`uname -m`", \
-        rename-to:docker-machine
-
-    zplug "docker/compose", \
-        from:gh-r, \
-        as:command, \
-        use:"*docker-compose-`uname -s`-`uname -m`", \
-        rename-to:docker-compose
-
     TPM_DIR="~/.tmux/plugins/tpm"
     zplug "tmux-plugins/tpm", \
         depth:1, \
@@ -69,11 +52,6 @@ if command -v zplug > /dev/null 2>&1; then
         depth:1, \
         as:command, \
         use:'components/(composer|createrepo)'
-
-    # Command completion
-    zplug "felixr/docker-zsh-completion", \
-        depth:1, \
-        use:contrib/completion/zsh
 
     # Git extensions
     zplug "sudoforge/gitscript", \
