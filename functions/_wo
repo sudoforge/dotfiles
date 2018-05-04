@@ -1,2 +1,2 @@
 #compdef wo
-_files -W $PROJECT_HOME -/
+_files -W $WOPATH -/

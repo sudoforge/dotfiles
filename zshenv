@@ -34,6 +34,8 @@ export PIP_BIN="${PYTHONUSERBASE}/bin"
 export WORKON_HOME="${HOME}/.virtualenvs"
 export PROJECT_HOME="${GOPATH}/src"
 
+# [misc]
+export WOPATH="${GOPATH}/src" # for easy project switching
 
 #########################
 # ZSH OPTIONS

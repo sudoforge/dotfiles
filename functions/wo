@@ -8,15 +8,15 @@
 
 
 if [ -n "$1" ]; then
-    if ! cd "$PROJECT_HOME/$1" > /dev/null 2>&1; then
-        echo "wo: error: argument '$1' not found"
+    if ! cd "${WOPATH}/${1}" > /dev/null 2>&1; then
+        echo "wo: error: argument '${1}' not found"
 
         local -a matches
         matches=()
-        for dir in "$PROJECT_HOME"/*; do
-            if [ -d "$dir/$1" ]; then
+        for dir in "$WOPATH"/*; do
+            if [ -d "${dir}/${1}" ]; then
                 shortname=$(basename "$dir")
-                matches=("$shortname/$1" "$matches")
+                matches=("${shortname}/${1}" "$matches")
             fi
 
         done
@@ -29,5 +29,5 @@ if [ -n "$1" ]; then
         fi
     fi
 else
-    cd "$PROJECT_HOME"
+    cd "$WOPATH"
 fi
