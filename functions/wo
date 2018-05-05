@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 #
 # wo - "work on"
 # This lets you quickly jump into a project directory.
@@ -7,27 +7,111 @@
 #   wo <tab>
 
 
+usage() {
+    bold=$(tput bold)
+    italic=$(tput sitm)
+    reset=$(tput sgr0)
+
+    echo "${bold}wo - work on${reset}"
+    echo
+    echo "  wo is 'cd' on steroids for projects organized in the same manner"
+    echo "  as Golang projects -- that is, organized in a given folder,"
+    echo "  namespaced by domain, username, and repository name."
+    echo
+    echo "${bold}USAGE${reset}"
+    echo "  wo PATH"
+    echo
+    echo "${bold}ARGUMENTS${reset}"
+    echo "  PATH"
+    echo "    Default: ${italic}none${reset}"
+    echo "    Specifies the path to look for under the 'WOPATH' variable."
+    echo
+    echo "${bold}DESCRIPTION${reset}"
+    echo
+    echo "  The parent directory should be set to \$WOPATH."
+    echo
+    echo "    Example project organization:"
+    echo
+    echo "    * \$WOPATH/github.com/foo/bar"
+    echo "    * \$WOPATH/bitbucket.org/baz/qux"
+    echo "    * \$WOPATH/domain.com/username/repository"
+    echo
+    echo "  As a point of reference, the author's projects are organized as if"
+    echo "  they were all Go projects, living under '\$GOPATH/src' (which is"
+    echo "  the value of the author's WOPATH environment variable)."
+    echo
+    echo "  If WOPATH is not set, wo will search under the current directory."
+}
+
+
+log() {
+    prefix="wo"
+
+    case "$1" in
+        info)
+            shift
+            echo "${prefix}: INFO: $*"
+            ;;
+        warn)
+            shift
+            echo "${prefix}: WARN: $*"
+            ;;
+        fatal)
+            shift
+            echo "${prefix}: FATAL: $*"
+            return 1
+            ;;
+    esac
+}
+
+
+# Display usage and exit if one of the help
+# commands/flags is passed as the first argument.
+case "$1" in
+    -h|--help|help)
+        usage
+        return 1
+        ;;
+esac
+
+local cd_fallback
+if [ -z "$WOPATH" ]; then
+    log warn "environment variable WOPATH not set"
+    cd_fallback=true
+    WOPATH='.'
+fi
+
+
 if [ -n "$1" ]; then
-    if ! cd "${WOPATH}/${1}" > /dev/null 2>&1; then
-        echo "wo: error: argument '${1}' not found"
+    arg=$(echo "$1" | sed 's;/;\/;g')
 
-        local -a matches
-        matches=()
-        for dir in "$WOPATH"/*; do
-            if [ -d "${dir}/${1}" ]; then
-                shortname=$(basename "$dir")
-                matches=("${shortname}/${1}" "$matches")
-            fi
+    # early return if the argument is valid
+    cd "${WOPATH}/${arg}" &> /dev/null && return 0
 
+    local count matches
+    for dir in $(\
+        find "$WOPATH" -mindepth 2 -maxdepth 3 -type d -ipath "*${arg}*" |\
+        sed -e 's;'"$WOPATH"'/;;');
+    do
+        [ -z "$matches" ] && matches="$dir" || matches="${matches} ${dir}"
+        count=$((count+1))
+    done
+
+    if [ "$count" -gt 1 ]; then
+
+        log warn "ambiguous argument '$arg'"
+        log info "possible matches:"
+        for match in $(echo "$matches" | cut -d ' ' -f1-); do
+            echo "  - $match"
         done
-
-        if [ "${#matches}" -gt 0 ]; then
-            echo "wo: info: we found the following alternative(s):"
-            for match in $matches; do
-                echo "  - $match"
-            done
+    elif [ "$count" -eq 1 ]; then
+        cd "${WOPATH}/${matches}"
+    else
+        if ! command cd "$arg" &> /dev/null; then
+            log warn "argument '${arg}' not found"
+            log fatal "no potential matches found"
         fi
     fi
 else
-    cd "$WOPATH"
+    [ "$cd_fallback" = true ] && cd || cd "$WOPATH"
 fi
