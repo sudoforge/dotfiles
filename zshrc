@@ -93,6 +93,10 @@ __complete() {
 __complete "/usr/bin/aws_zsh_completer.sh"
 __complete "/opt/google-cloud-sdk/completion.zsh.inc"
 
+# Terraform completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
 
 # ALIASES
 ###############################
