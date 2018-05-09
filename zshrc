@@ -101,26 +101,19 @@ complete -o nospace -C /usr/bin/terraform terraform
 # ALIASES
 ###############################
 
-# Generic aliases
 alias ...=../..
 alias cls="clear"
 alias dirs="dirs -v"
-alias l="ls --color=tty --group-directories-first -AlFh"
-alias ll="ls --color=tty --group-directories-first -AlFhL"
-alias reload=". ~/.zshrc"
-
-# Application-specific
+alias gcp="gcloud"
 alias gpgl="gpg2 --list-keys --keyid-format long --with-fingerprint"
-alias pacr='sudo pacman -R'
-alias pacs='sudo pacman -S'
-alias tf='terraform'
-
-# Kubectl and related utilities
 alias kc='kubectx'
 alias kn='kubens'
-
-# Google Cloud SDK
-alias gcp="gcloud"
+alias l="ls --color=tty --group-directories-first -AlFh"
+alias ll="ls --color=tty --group-directories-first -AlFhL"
+alias pacr='sudo pacman -R'
+alias pacs='sudo pacman -S'
+alias reload=". ~/.zshrc"
+alias tf='terraform'
 
 
 unset script_files
