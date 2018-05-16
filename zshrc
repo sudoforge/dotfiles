@@ -97,6 +97,9 @@ __source "/opt/google-cloud-sdk/completion.zsh.inc"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
+# Fish-like autosuggestions
+__source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 # ALIASES
 ###############################

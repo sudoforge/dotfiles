@@ -19,12 +19,6 @@ unset PLUGIN_MANAGER_SRC
 unset PLUGIN_MANAGER_DIR
 
 if command -v zplug > /dev/null 2>&1; then
-    # fish-like auto suggestions
-    # defer:2 makes this run after compinit
-    zplug "zsh-users/zsh-autosuggestions", \
-        depth:1, \
-        defer:2
-
     # command coloring
     zplug "zsh-users/zsh-syntax-highlighting", \
         depth:1, \
