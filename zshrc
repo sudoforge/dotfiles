@@ -84,14 +84,14 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate # Compl
 zstyle ':completion:*' use-cache true # Use a completion cache.
 zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in completions.
 
-# helper function for sourcing completion scripts
-__complete() {
+# helper function for sourcing files
+__source() {
     [ -e "$1" ] && . "$1"
 }
 
 # Source completion scripts
-__complete "/usr/bin/aws_zsh_completer.sh"
-__complete "/opt/google-cloud-sdk/completion.zsh.inc"
+__source "/usr/bin/aws_zsh_completer.sh"
+__source "/opt/google-cloud-sdk/completion.zsh.inc"
 
 # Terraform completion
 autoload -U +X bashcompinit && bashcompinit
