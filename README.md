@@ -8,6 +8,10 @@ the installation instructions below.
 - [`rcm`][gh-thoughtbot-rcm]
 - [`git-lfs`][gh-git-lfs]
 
+### Optional dependencies
+
+- [`zsh-autosuggestions`][zsh-autosuggestions]
+
 ## Installation
 
 Installation with `rcup` is fairly straightforward:
@@ -53,5 +57,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "view thoughtbot/rcm"
-[gh-git-lfs]: https://github.com/git-lfs/git-lfs "view git-lfs/git-lfs"
+[gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "thoughtbot/rcm"
+[gh-git-lfs]: https://github.com/git-lfs/git-lfs "git-lfs/git-lfs"
+[zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions "zsh-users/zsh-autosuggestions"

@@ -84,9 +84,17 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate # Compl
 zstyle ':completion:*' use-cache true # Use a completion cache.
 zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in completions.
 
-# helper function for sourcing files
+# helper functions for sourcing files
 __source() {
     [ -e "$1" ] && . "$1"
+}
+
+__sourceFirst() {
+    for f in "$@"; do
+        if __source "$f"; then
+            break
+        fi
+    done
 }
 
 # Source completion scripts
@@ -98,7 +106,14 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # Fish-like autosuggestions
-__source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# The list below supports the default locations for the following:
+#   * Arch Linux package `community/zsh-autosuggestions`
+#   * Homebrew recipe `zsh-autosuggestions`
+#   * README-example location ~/.zsh/zsh-autosuggestions
+__sourceFirst \
+    "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+    "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+    "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 
 # ALIASES
