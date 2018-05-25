@@ -90,7 +90,7 @@ if [ -n "$1" ]; then
 
     local count matches
     for dir in $(\
-        find "$WOPATH" -mindepth 2 -maxdepth 3 -type d -ipath "*${arg}*" |\
+        find "$WOPATH" -mindepth 2 -maxdepth 3 -type d -ipath "*${arg}" |\
         sed -e 's;'"$WOPATH"'/;;');
     do
         [ -z "$matches" ] && matches="$dir" || matches="${matches} ${dir}"
@@ -98,7 +98,6 @@ if [ -n "$1" ]; then
     done
 
     if [ "$count" -gt 1 ]; then
-
         log warn "ambiguous argument '$arg'"
         log info "possible matches:"
         for match in $(echo "$matches" | cut -d ' ' -f1-); do
