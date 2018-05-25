@@ -37,12 +37,12 @@ export WOPATH="${GOPATH}/src" # for easy project switching
 # ZSH OPTIONS
 #########################
 
-# [zsh] history settings
+# history settings
 export SAVEHIST=5000
 export HISTSIZE=5000
 export HISTFILE="${HOME}/.zsh_history"
 
-# [zsh] Display time and usage for long-running commands
+# Display time and usage for long-running commands
 export REPORTTIME=5
 
 
