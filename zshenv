@@ -17,18 +17,18 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # [golang]
 export GOPATH="${HOME}/code"
-export GO_BIN="${GOPATH}/bin"
+export PATH_GO_BIN="${GOPATH}/bin"
 
 # [rust/cargo]
 export CARGOPATH="${HOME}/.cargo"
-export CARGO_BIN="${CARGOPATH}/bin"
+export PATH_CARGO_BIN="${CARGOPATH}/bin"
 
 # [yarn]
-export YARN_GLOBAL_BIN="${HOME}/.yarn/bin"
+export PATH_YARN_BIN="${HOME}/.yarn/bin"
 
 # [python] location for user-installed site packages
 export PYTHONUSERBASE="${HOME}/.local"
-export PIP_BIN="${PYTHONUSERBASE}/bin"
+export PATH_PIP_BIN="${PYTHONUSERBASE}/bin"
 
 # [misc]
 export WOPATH="${GOPATH}/src" # for easy project switching
