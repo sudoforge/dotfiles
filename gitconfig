@@ -6,6 +6,8 @@
     editor = vim
 [commit]
     gpgsign = true
+[diff]
+    tool = vimdiff
 [push]
     default = simple
 [pull]
