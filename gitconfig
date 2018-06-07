@@ -8,6 +8,8 @@
     gpgsign = true
 [diff]
     tool = vimdiff
+[difftool]
+    prompt = 0
 [push]
     default = simple
 [pull]
