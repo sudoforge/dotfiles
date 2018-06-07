@@ -12,6 +12,7 @@
     rebase = true
 [merge]
     ff = false
+    tool = vimdiff
 [gpg]
     program = /usr/bin/gpg2
 [filter "lfs"]
