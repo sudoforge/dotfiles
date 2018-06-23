@@ -18,6 +18,9 @@ alt + Tab
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# set clipboard using tmux buffer
+super + v
+    tmux show-buffer | xclip -selection c
 
 #
 # screenshots
