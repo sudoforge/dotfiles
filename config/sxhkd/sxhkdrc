@@ -26,6 +26,10 @@ super + v
 super + c
     tmux set-buffer "$(xclip -o)"
 
+# show the contents of the latest tmux buffer
+super + s
+    notify-send "tmux buffer" "$(tmux show-buffer || echo 'N/A')"
+
 #
 # screenshots
 #
