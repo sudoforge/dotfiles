@@ -22,6 +22,10 @@ super + Escape
 super + v
     tmux show-buffer | xclip -selection c
 
+# set tmux buffer using the system clipboard
+super + c
+    tmux set-buffer "$(xclip -o)"
+
 #
 # screenshots
 #
