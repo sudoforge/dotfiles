@@ -47,6 +47,7 @@ autoload -Uz spectrum && spectrum
 autoload -Uz wo
 autoload -Uz mp
 autoload -Uz polybar-launch
+autoload -Uz tbuf
 
 
 # load script files
