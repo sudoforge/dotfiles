@@ -30,6 +30,10 @@ super + c
 super + s
     notify-send "tmux buffer" "$(tmux show-buffer || echo 'N/A')"
 
+# show the contents of the system clipboard
+super + shift + s
+    notify-send "system clipboard" "$(xclip -o || echo 'N/A')"
+
 #
 # screenshots
 #
