@@ -9,6 +9,7 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'jparise/vim-graphql'
 Plugin 'pangloss/vim-javascript'
+Plugin 'ledger/vim-ledger'
 
 " LANGUAGE
 Plugin 'fatih/vim-go'
