@@ -129,6 +129,7 @@ alias kc='kubectx'
 alias kn='kubens'
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
+alias makesrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias pacr='sudo pacman -R'
 alias pacs='sudo pacman -S'
 alias reload=". ~/.zshrc"
