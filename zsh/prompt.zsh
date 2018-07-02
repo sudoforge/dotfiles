@@ -111,7 +111,7 @@ __git_prompt_status() {
 
 
 # Prompt character
-PROMPT_CHAR="→"
+PROMPT_CHAR="λ"
 
 # Left prompt
 PROMPT="$FG[033]\$(__current_dir)$FX[reset] \$(__git_prompt_status)"
