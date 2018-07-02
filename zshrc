@@ -133,6 +133,7 @@ alias makesrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias pacr='sudo pacman -R'
 alias pacs='sudo pacman -S'
 alias reload=". ~/.zshrc"
+alias se='sudoedit'
 alias tf='terraform'
 
 
