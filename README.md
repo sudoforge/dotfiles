@@ -7,6 +7,8 @@ the installation instructions below.
 
 - [`rcm`][gh-thoughtbot-rcm]
 - [`git-lfs`][gh-git-lfs]
+- A C preprocessor, to enable Xresources `#include` statements, such as:
+    - [`gcc`][apkg-gcc]
 
 ### Optional dependencies
 
@@ -60,3 +62,4 @@ SOFTWARE.
 [gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "thoughtbot/rcm"
 [gh-git-lfs]: https://github.com/git-lfs/git-lfs "git-lfs/git-lfs"
 [zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions "zsh-users/zsh-autosuggestions"
+[apkg-gcc]: https://www.archlinux.org/packages/core/x86_64/gcc/ "Arch Linux package: gcc"
