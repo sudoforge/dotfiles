@@ -59,7 +59,7 @@ done
 # WINDOW CONFIGURATION
 ###############################
 case $TERM in
-    *xterm*|*rxvt*|*screen*)
+    *xterm*|*rxvt*|*screen*|*tmux*)
         function precmd() {
             # Print a newline before the prompt, unless it's the first
             # prompt in the parent process.
