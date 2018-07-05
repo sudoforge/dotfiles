@@ -43,6 +43,7 @@ script_files=("$ZSHFILES"/*.zsh)
 
 
 # Autoload functions
+autoload -Uz colors && colors
 autoload -Uz spectrum && spectrum
 autoload -Uz wo
 autoload -Uz mp

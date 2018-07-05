@@ -1,16 +1,12 @@
-#!/usr/bin/env zsh
+#! /usr/bin/env zsh
+
 # A script to make using 256 colors in zsh less painful.
-# Originally authored by P.C. Shyamshankar <sykora@lucentbeing.com>
-#
-# Spectrum accepts an optional argument, indicating the number of colors the terminal actually
-# supports. This allows it to gracefully degrade, so that you don't have to write more than version
-# of the same thing. By default, this argument is assumed to be 256, which maintains backwards
-# compatibility.
-#
+# Authored by: P.C. Shyamshankar <sykora@lucentbeing.com>
+# Modified by: @sudoforge
+# 
+# Upstream: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/spectrum.zsh
 
-# We define three associative arrays, for effects, foreground colors and background colors.
-typeset -Ag FX FG BG
-
+typeset -AHg FX FG BG
 
 FX=(
     reset     "%{[00m%}"
@@ -21,17 +17,53 @@ FX=(
     reverse   "%{[07m%}" no-reverse   "%{[27m%}"
 )
 
-local SUPPORT
-
-# Optionally handle impoverished terminals.
-if (( $# == 0 )); then
-    SUPPORT=256
-else
-    SUPPORT=$1
-fi
-
-# Fill the color maps.
-for color in {000..$SUPPORT}; do
+for color in {000..255}; do
     FG[$color]="%{[38;5;${color}m%}"
     BG[$color]="%{[48;5;${color}m%}"
 done
+
+
+__contains() {
+    test "${1#*$2}" != "$1"
+}
+
+
+__spectrum_print() {
+    local fg bg
+    ZSH_SPECTRUM_TEXT=${ZSH_SPECTRUM_TEXT:-Lorem ipsum dolar sit amet}
+
+    for code in {000..255}; do
+        __contains "$1" "fg" && fg="%{$FG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}" || fg=""
+        __contains "$1" "bg" && bg="%{$BG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}" || bg=""
+
+        print -P -- "$code: $fg $bg"
+    done
+}
+
+
+__spectrum_help() {
+    echo
+    echo "USAGE"
+    echo "    spectrum ARGUMENT"
+    echo
+    echo "ARGUMENTS"
+    echo "    help"
+    echo "        Displays this message. This must be the first argument passed"
+    echo "        to git-cleanup, e.g. 'git cleanup help'"
+    echo
+    echo "    ls"
+    echo "        Displays the available colors."
+    echo
+}
+
+if [ $# -gt 0 ]; then
+    case $1 in
+        ls)
+            __spectrum_print "fg bg"
+            shift
+            ;;
+        *)
+            __spectrum_help
+            ;;
+    esac
+fi
