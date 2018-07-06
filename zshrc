@@ -104,6 +104,7 @@ __source "/opt/google-cloud-sdk/completion.zsh.inc"
 # Bash completions
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+complete -o nospace -C /usr/share/bash-completion/completions/lxc lxc
 
 # Fish-like autosuggestions
 # The list below supports the default locations for the following:
