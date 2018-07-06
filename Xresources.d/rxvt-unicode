@@ -8,7 +8,6 @@ urxvt*saveLines: 5000
 urxvt*scrollBar: false
 urxvt*secondaryScroll: true
 urxvt*termName: rxvt-unicode
-urxvt*underlineColor: yellow
 urxvt.matcher.button: 1
 urxvt.perl-ext-common: default,matcher
 urxvt.url-launcher: firefox
