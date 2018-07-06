@@ -101,7 +101,7 @@ __sourceFirst() {
 __source "/usr/bin/aws_zsh_completer.sh"
 __source "/opt/google-cloud-sdk/completion.zsh.inc"
 
-# Terraform completion
+# Bash completions
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
