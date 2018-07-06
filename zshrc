@@ -93,9 +93,7 @@ __source() {
 
 __sourceFirst() {
     for f in "$@"; do
-        if __source "$f"; then
-            break
-        fi
+        __source "$f" && break
     done
 }
 
