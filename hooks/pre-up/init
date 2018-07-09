@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ROOT=$(git rev-parse --show-toplevel)
 if [ -z "$ROOT" ]; then
