@@ -64,9 +64,9 @@ case $TERM in
         function precmd() {
             # Print a newline before the prompt, unless it's the first
             # prompt in the parent process.
-            if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
-                NEW_LINE_BEFORE_PROMPT=1
-            elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+            if [ -z "$NEWLINE_BEFORE_PROMPT" ]; then
+                NEWLINE_BEFORE_PROMPT=1
+            elif [ "$NEWLINE_BEFORE_PROMPT" -eq 1 ]; then
                 echo ""
             fi
         }
@@ -122,7 +122,7 @@ __sourceFirst \
 ###############################
 
 alias ...=../..
-alias cls="clear"
+alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias dirs="dirs -v"
 alias gcp="gcloud"
 alias gpgl="gpg2 --list-keys --keyid-format long --with-fingerprint"
