@@ -138,6 +138,7 @@ alias ll="ls --color=tty --group-directories-first -AlFhL"
 alias makesrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias pacr='sudo pacman -R'
 alias pacs='sudo pacman -S'
+alias pass='gopass'
 alias reload=". ~/.zshrc"
 alias se='sudoedit'
 alias tf='terraform'
