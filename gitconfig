@@ -42,7 +42,7 @@
     s = status
     d = diff
     l = log --oneline --no-abbrev --date=relative
-    ll = log --show-signature
+    ll = log --show-signature --stat
     lp = !git ll -p
     history = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 
