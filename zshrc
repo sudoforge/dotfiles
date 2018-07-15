@@ -133,6 +133,7 @@ alias gcp="gcloud"
 alias gpgl="gpg2 --list-keys --keyid-format long --with-fingerprint"
 alias kc='kubectx'
 alias kn='kubens'
+alias ku='kubectl'
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
 alias makesrcinfo="makepkg --printsrcinfo > .SRCINFO"
