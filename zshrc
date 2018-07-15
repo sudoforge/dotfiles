@@ -7,6 +7,11 @@ if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
     fi
 fi
 
+
+# Refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+
 # shortcut to dotfiles
 export ZSHFILES="$HOME/.zsh"
 
