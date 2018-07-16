@@ -2,4 +2,4 @@
 
 [ $# -gt 0 ] && input="$@" || input=$(</dev/stdin)
 
-[ -n "$input" ] && tmux set-buffer "$input" || echo "tbuf: fatal: missing either stdin or argument(s)" && return 1
+[ -n "$input" ] && tmux set-buffer "$input" || $(echo "tbuf: fatal: missing either stdin or argument(s)" && return 1)
