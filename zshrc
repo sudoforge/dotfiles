@@ -8,10 +8,6 @@ if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
 fi
 
 
-# Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye > /dev/null
-
-
 # shortcut to dotfiles
 export ZSHFILES="$HOME/.zsh"
 
@@ -74,6 +70,10 @@ case $TERM in
             elif [ "$NEWLINE_BEFORE_PROMPT" -eq 1 ]; then
                 echo ""
             fi
+        }
+
+        function preexec() {
+            gpg-connect-agent updatestartuptty /bye &> /dev/null
         }
 esac
 
