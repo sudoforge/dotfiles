@@ -19,11 +19,6 @@ unset PLUGIN_MANAGER_SRC
 unset PLUGIN_MANAGER_DIR
 
 if command -v zplug > /dev/null 2>&1; then
-    # command coloring
-    zplug "zsh-users/zsh-syntax-highlighting", \
-        depth:1, \
-        defer:2
-
     # Utilities and tools
     zplug "VundleVim/Vundle.vim", \
         depth:1, \
