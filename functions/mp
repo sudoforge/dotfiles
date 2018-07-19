@@ -11,7 +11,7 @@
 #   mp domain.com/user/repo
 
 if [ -n "$1" ]; then
-    project="${WO_HOME}/${1}"
+    project="${WOPATH}/${1}"
 
     if [ -d "$project" ]; then
         echo "mp: info: $1 already exists, changing directories..."
