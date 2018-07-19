@@ -1,0 +1,81 @@
+#!/usr/bin/env sh
+
+IMAGE_REPOSITORY="composer"
+IMAGE_TAG="latest"
+
+endPrintfWithStatus()
+{
+    if [ $1 -eq 0 ]; then
+        printf "[OK]"
+    else
+        printf "[ERROR]"
+    fi
+
+    printf "\n"
+}
+
+IMAGE_STRING="${IMAGE_REPOSITORY}:${IMAGE_TAG}"
+if [ "${1}" == "upgrade" ]; then
+    original_id=$(docker images "${IMAGE_STRING}" -q)
+
+    printf "Pulling ${IMAGE_STRING}... "
+    docker pull "${IMAGE_STRING}" &> /dev/null
+    endPrintfWithStatus $?
+
+    if [ $? -eq 1 ]; then
+        echo "There was an error pulling ${IMAGE_STRING}."
+        echo "Try running `docker pull ${IMAGE_STRING}` manually to diagnose the error."
+        exit 1
+    fi
+
+    new_id=$(docker images "${IMAGE_STRING}" -q)
+
+    if [ ! -z "${original_id}" ] && [ "${new_id}" != "${original_id}" ]; then
+        printf "Removing old image... "
+        docker rmi "${original_id}" &> /dev/null
+        endPrintfWithStatus $?
+    else
+        echo "You have the latest image for ${IMAGE_REPOSITORY}."
+    fi
+
+    exit
+fi
+
+tty=""
+tty -s && tty=--tty
+
+
+COMPOSER_MOUNT=""
+COMPOSER_HOME="${HOME}/.composer"
+if [ -e $COMPOSER_HOME ]; then
+    COMPOSER_MOUNT="--volume $COMPOSER_HOME:/composer:z"
+else
+    echo "Consider creating $COMPOSER_HOME to use the cache."
+fi
+
+
+REPOSITORY_ROOT=$(\
+  command git rev-parse --show-toplevel 2> /dev/null || \
+  command hg root 2> /dev/null)
+ROOT_VENDOR_DIR="${REPOSITORY_ROOT}/vendor"
+CURRENT_DIR="${PWD}"
+if [ -d "${ROOT_VENDOR_DIR}" ] && [ "${CURRENT_DIR}" != "${REPOSITORY_ROOT}" ]; then
+    pushd "${REPOSITORY_ROOT}" &> /dev/null
+fi
+
+
+docker run \
+    $tty \
+    --rm \
+    --interactive \
+    --user $(id -u):$(id -g) \
+    $COMPOSER_MOUNT \
+    --volume /etc/passwd:/etc/passwd:ro \
+    --volume /etc/group:/etc/group:ro \
+    --volume $(pwd):/app \
+    composer "$@"
+
+
+if [ -d "${ROOT_VENDOR_DIR}" ] && [ "${CURRENT_DIR}" != "${REPOSITORY_ROOT}" ]; then
+    popd &> /dev/null
+fi

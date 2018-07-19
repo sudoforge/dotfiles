@@ -36,12 +36,6 @@ if command -v zplug > /dev/null 2>&1; then
     unset TMP_DIR
 
 
-    # Container CLI tools
-    zplug "containerly/cli-tools", \
-        depth:1, \
-        as:command, \
-        use:'components/(composer|createrepo)'
-
     # Git extensions
     zplug "sudoforge/gitscript", \
         depth:1, \
