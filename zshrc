@@ -122,6 +122,9 @@ __sourceFirst \
     "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
     "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Syntax highlighting
+__source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 
 # ALIASES
 ###############################
