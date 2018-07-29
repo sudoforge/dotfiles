@@ -22,7 +22,7 @@ font-1 = FontAwesome:size=13;0
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = battery volume date powermenu
+modules-right = battery pulseaudio-rofi-output pulseaudio-rofi-input date powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -146,21 +146,31 @@ ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
 
-[module/volume]
-type = internal/volume
-
+[module/pulseaudio-rofi-output]
+type = custom/script
+exec = ~/.config/polybar/pulseaudio-rofi.sh --output_volume_listener
+tail = true
+click-right = ~/.config/polybar/pulseaudio-rofi.sh --output
+click-left = ~/.config/polybar/pulseaudio-rofi.sh --mute
+scroll-up =  ~/.config/polybar/pulseaudio-rofi.sh --volume_up
+scroll-down = ~/.config/polybar/pulseaudio-rofi.sh --volume_down
+label-padding = 4
 format-volume = <ramp-volume>  <label-volume>
 format-muted = <label-muted>
-label-volume = %percentage%
-label-muted =   muted
-label-muted-foreground = #aaa
-format-volume-padding = 3
-format-muted-padding = 3
-
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-headphones-0 = 
+
+[module/pulseaudio-rofi-input]
+type = custom/script
+exec = ~/.config/polybar/pulseaudio-rofi.sh --input_volume_listener
+tail = true
+click-right = ~/.config/polybar/pulseaudio-rofi.sh --input
+click-left = ~/.config/polybar/pulseaudio-rofi.sh --mute_source
+scroll-up =  ~/.config/polybar/pulseaudio-rofi.sh --volume_source_up
+scroll-down = ~/.config/polybar/pulseaudio-rofi.sh --volume_source_down
+label-padding = 4
 
 [module/powermenu]
 type = custom/menu
