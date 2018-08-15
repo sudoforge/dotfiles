@@ -23,10 +23,6 @@ Installation with `rcup` is fairly straightforward:
 # By default, RCM looks at ~/.dotfiles
 $ git clone https://github.com/sudoforge/dotfiles.git <path>
 
-# ~/.rcrc.dirs is sourced from this repo's ~/.rcrc in order to
-# facilitate clean management of additional repositories
-$ echo "DOTFILES_DIRS=\"<path>\"" > ~/.rcrc.dirs
-
 # If <path> is ~/.dotfiles
 $ rcup -v
 

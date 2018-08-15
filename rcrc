@@ -1,3 +1,2 @@
 EXCLUDES="README.md"
 UNDOTTED="wallpapers/*"
-. "${HOME}/.rcrc.dirs"
