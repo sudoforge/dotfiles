@@ -1,3 +1,4 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 gitconfig.local filter=git-crypt diff=git-crypt
 gitconfig.w2 filter=git-crypt diff=git-crypt
+config/gopass/config.yml filter=git-crypt diff=git-crypt
