@@ -7,7 +7,7 @@ export GPG_TTY=$(tty)
 
 # General vars
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=qutebrowser
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
