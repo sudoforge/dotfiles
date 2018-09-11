@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+ROOT=$(git rev-parse --show-toplevel)
+if [ -z "$ROOT" ]; then
+    echo "FAIL    Unable to determine root repository directory."
+    exit 1
+fi
+
+STATUS="$(git status --porcelain)"
+REVLIST="$(git rev-list origin/master...)"
+
+[ -z "$STATUS" ] && [ -z "$REVLIST" ] && git pull

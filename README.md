@@ -32,17 +32,19 @@ $ rcup -v -d <path>
 
 ## Updating 
 
-To update from this repository, simply `cd <path/to/repo>` and execute the
-following:
+To update from this repository, execute one of the following:
 
 ```bash
+# Assuming you have not diverged from origin/master and
+# have a clean working tree, 'rcdn' will automatically
+# run git-pull after removing the symlinks.
 $ rcdn
+$ rcup -v <path>
+
+# If you have diverged, you should manually update.
+$ cd <path>
+$ rcdn -d $(pwd)
 $ git pull
-
-# If <path> is ~/.dotfiles
-$ rcup -v
-
-# If <path> is NOT ~/.dotfiles
 $ rcup -v -d $(pwd)
 ```
 
