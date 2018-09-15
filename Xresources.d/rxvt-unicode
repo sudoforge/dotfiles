@@ -11,4 +11,4 @@ urxvt*termName: rxvt-unicode
 urxvt.matcher.button: 1
 urxvt.matcher.rend.0: Uline Bold fg5
 urxvt.perl-ext-common: default,matcher
-urxvt.url-launcher: firefox
+urxvt.url-launcher: qutebrowser
