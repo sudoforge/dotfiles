@@ -23,3 +23,8 @@
     autocmd FileType json,tf,toml,yml,yaml setlocal shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead PKGBUILD setlocal shiftwidth=2 softtabstop=2
 " }
+
+" Terraform {
+    " automatically format terraform files on save
+    autocmd BufWritePost *.tf TerraformFmt
+" }
