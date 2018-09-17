@@ -2,3 +2,4 @@
 gitconfig.local filter=git-crypt diff=git-crypt
 gitconfig.w2 filter=git-crypt diff=git-crypt
 config/gopass/config.yml filter=git-crypt diff=git-crypt
+ssh/config filter=git-crypt diff=git-crypt
