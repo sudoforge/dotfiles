@@ -19,23 +19,6 @@ unset PLUGIN_MANAGER_SRC
 unset PLUGIN_MANAGER_DIR
 
 if command -v zplug > /dev/null 2>&1; then
-    # Utilities and tools
-    zplug "VundleVim/Vundle.vim", \
-        depth:1, \
-        hook-build:"\\
-            mkdir -p ${HOME}/.vim/bundle && \\
-            rsync --recursive --delete . ${HOME}/.vim/bundle/Vundle.vim"
-
-    TPM_DIR="~/.tmux/plugins/tpm"
-    zplug "tmux-plugins/tpm", \
-        depth:1, \
-        if:"command -v tmux", \
-        hook-build:"\\
-            mkdir -p ${TPM_DIR} && \\
-            rsync --recursive --delete . ${TPM_DIR}"
-    unset TMP_DIR
-
-
     # Git extensions
     zplug "sudoforge/gitscript", \
         depth:1, \
