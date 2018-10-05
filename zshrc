@@ -131,6 +131,7 @@ __source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 ###############################
 
 alias ...=../..
+alias chat='tmux set-buffer -b weechat $(gopass weechat) && weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias dirs="dirs -v"
 alias gcp="gcloud"
