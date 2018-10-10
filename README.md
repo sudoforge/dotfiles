@@ -5,16 +5,24 @@ the installation instructions below.
 
 ## Dependencies
 
-- [`rcm`][gh-thoughtbot-rcm]
-- [`git-lfs`][gh-git-lfs]
+- [`rcm`][thoughtbot-rcm]
 - A C preprocessor, to enable Xresources `#include` statements, such as:
-    - [`gcc`][apkg-gcc]
+    - [`gcc`][gcc]
+
+[gcc]: https://www.archlinux.org/packages/core/x86_64/gcc/ "Arch Linux package: gcc"
+[thoughtbot-rcm]: https://github.com/thoughtbot/rcm "thoughtbot/rcm"
 
 ### Optional dependencies
 
+- [`git-crypt`][git-crypt]
+- [`git-lfs`][git-lfs]
 - [`zsh-autosuggestions`][zsh-autosuggestions]
 
-## Installation
+[git-crypt]: https://github.com/agwa/git-crypt "AGWA/git-crypt"
+[git-lfs]: https://github.com/git-lfs/git-lfs "git-lfs/git-lfs"
+[zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions "zsh-users/zsh-autosuggestions"
+
+## Installation (first run only)
 
 Installation with `rcup` is fairly straightforward:
 
@@ -72,7 +80,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[gh-thoughtbot-rcm]: https://github.com/thoughtbot/rcm "thoughtbot/rcm"
-[gh-git-lfs]: https://github.com/git-lfs/git-lfs "git-lfs/git-lfs"
-[zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions "zsh-users/zsh-autosuggestions"
-[apkg-gcc]: https://www.archlinux.org/packages/core/x86_64/gcc/ "Arch Linux package: gcc"
