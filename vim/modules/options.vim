@@ -20,7 +20,7 @@
     set nojoinspaces        " don't put spaces after punctuation on a join 
 
     " change indentation size for specific files
-    autocmd FileType json,tf,toml,yml,yaml setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType json,toml,yml,yaml setlocal shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead PKGBUILD setlocal shiftwidth=2 softtabstop=2
 " }
 
