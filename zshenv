@@ -30,6 +30,10 @@ export PATH_YARN_BIN="${HOME}/.yarn/bin"
 export PYTHONUSERBASE="${HOME}/.local"
 export PATH_PIP_BIN="${PYTHONUSERBASE}/bin"
 
+# [python] Settings for virtualenvwrapper
+export WORKON_HOME="${HOME}/.virtualenvs"
+export PROJECT_HOME="${GOPATH}/src"
+
 # [misc]
 export WOPATH="${GOPATH}/src" # for easy project switching
 
