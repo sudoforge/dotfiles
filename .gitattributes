@@ -6,3 +6,4 @@ config/redshift.conf filter=git-crypt diff=git-crypt
 ssh/config filter=git-crypt diff=git-crypt
 weechat/plugins.conf filter=git-crypt diff=git-crypt
 weechat/sec.conf filter=git-crypt diff=git-crypt
+weechat/weechat.conf filter=git-crypt diff=git-crypt
