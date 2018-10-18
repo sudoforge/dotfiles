@@ -129,6 +129,9 @@ __source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 # Virtualenvwrapper
 __source "/usr/bin/virtualenvwrapper.sh"
 
+# NVM
+__source "/usr/share/nvm/init-nvm.sh"
+
 
 # ALIASES
 ###############################
