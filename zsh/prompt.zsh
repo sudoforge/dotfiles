@@ -23,7 +23,7 @@ __git_prompt_status() {
         ref_color="160"
     fi
     if echo "${FULLINDEX}" | grep '^Your branch.*ahead' &> /dev/null; then
-        ref_color="082"
+        ref_color="035"
     fi
     if echo "${FULLINDEX}" | grep '^Your branch.*diverged' &> /dev/null; then
         ref_color="203"
@@ -86,7 +86,7 @@ __git_prompt_status() {
     fi
 
     if [[ $INDEXED != "" ]]; then
-        INDEXED="$FG[082]${INDEXED}$FX[reset]"
+        INDEXED="$FG[035]${INDEXED}$FX[reset]"
     fi
 
     if [[ $WORKING != "" ]]; then
