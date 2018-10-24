@@ -10,6 +10,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'jparise/vim-graphql'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ledger/vim-ledger'
+Plugin 'mxw/vim-jsx'
 
 " LANGUAGE
 Plugin 'fatih/vim-go'
