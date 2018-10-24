@@ -1,6 +1,6 @@
 [options]
 dynamic_title = false
-font = Monospace 10
+font = Monospace 9
 scrollback_lines = 10000
 urgent_on_bell = false
 hyperlinks = true
@@ -47,7 +47,7 @@ color14 = #93a1a1
 color15 = #fdf6e3
 
 [hints]
-#font = Monospace 9
+font = Monospace 9
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
@@ -55,6 +55,6 @@ color15 = #fdf6e3
 #padding = 2
 #border = #3f3f3f
 #border_width = 0.5
-#roundness = 2.0
+roundness = 2.0
 
 # vim: ft=dosini cms=#%s
