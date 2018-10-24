@@ -90,7 +90,7 @@ __git_prompt_status() {
     fi
 
     if [[ $WORKING != "" ]]; then
-        WORKING="$FG[160]${WORKING}$FX[reset]"
+        WORKING="$FG[001]${WORKING}$FX[reset]"
     fi
 
     if [[ $INDEXED != "" && $WORKING != "" ]]; then
