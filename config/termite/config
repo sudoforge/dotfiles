@@ -22,7 +22,7 @@ size_hints = true
 [colors]
 foreground = #839496
 foreground_bold = #eee8d5
-#background = #002b36
+background = #002b36
 cursor = #93a1a1
 
 # if unset, will reverse foreground and background
@@ -47,7 +47,6 @@ color14 = #93a1a1
 color15 = #fdf6e3
 
 [hints]
-font = Monospace 9
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
