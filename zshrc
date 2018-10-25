@@ -151,6 +151,7 @@ alias ll="ls --color=tty --group-directories-first -AlFhL"
 alias makesrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias pass='gopass'
 alias reload=". ~/.zshrc"
+alias routes="sudo ip route add 193.138.218.130 via 192.168.1.1 dev wlp2s0 && sudo ip route add 107.182.233.23 via 192.168.1.1 dev wlp2s0"
 alias se='sudoedit'
 alias tf='terraform'
 
