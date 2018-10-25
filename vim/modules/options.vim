@@ -8,10 +8,6 @@
 
     " set the cursor position to the first position for git commit messages
     autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
-
-    " load powerline for python3 correctly
-    let g:powerline_pycmd="py3"
-    set laststatus=2
 " }
 
 " Formatting {
