@@ -115,7 +115,7 @@ __git_prompt_status() {
 PROMPT_CHAR="λ"
 
 # Left prompt
-PROMPT="$FG[033]\$(__current_dir)$FX[reset] \$(__git_prompt_status)"
+PROMPT="\$(__current_dir) \$(__git_prompt_status)"
 PROMPT="${PROMPT}"$'\n'"%(?..%{$FX[reset]$FG[203]%})$FX[bold]${PROMPT_CHAR}$FX[no-bold]$FX[reset] "
 
 unset PROMPT_CHAR
