@@ -123,6 +123,11 @@ __sourceFirst \
     "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
     "${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# set the autosuggestion color to something visible with solarized dark
+# unable to set in zshenv due to upstream issue:
+# https://github.com/zsh-users/zsh-autosuggestions/issues/381
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
 # Syntax highlighting
 __source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
