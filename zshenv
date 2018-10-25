@@ -37,6 +37,7 @@ export PROJECT_HOME="${GOPATH}/src"
 # [misc]
 export WOPATH="${GOPATH}/src" # for easy project switching
 
+
 #########################
 # ZSH OPTIONS
 #########################
