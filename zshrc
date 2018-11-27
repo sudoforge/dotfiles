@@ -54,7 +54,7 @@ autoload -Uz tbuf
 
 # load script files
 for file in ${script_files}; do
-  . "$file"
+    . "$file"
 done
 
 
