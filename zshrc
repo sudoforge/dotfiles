@@ -83,6 +83,10 @@ case $TERM in
 esac
 
 
+# initial update of gpg-agent's startup tty
+updatestartuptty
+
+
 # COMMAND COMPLETION
 ###############################
 
