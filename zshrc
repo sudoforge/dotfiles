@@ -60,6 +60,11 @@ done
 
 # WINDOW CONFIGURATION
 ###############################
+
+updatestartuptty() {
+  gpg-connect-agent updatestartuptty /bye &> /dev/null
+}
+
 case $TERM in
     *xterm*|*rxvt*|*screen*|*tmux*)
         function precmd() {
@@ -73,7 +78,7 @@ case $TERM in
         }
 
         function preexec() {
-            gpg-connect-agent updatestartuptty /bye &> /dev/null
+            updatestartuptty
         }
 esac
 
