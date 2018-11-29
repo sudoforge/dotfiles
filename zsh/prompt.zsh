@@ -3,11 +3,11 @@
 __current_dir() {
     code_dir="${HOME}/code/src"
     pwd | sed -E \
-        -e 's;'"${code_dir}"'/github.com/(.+);gh::\1;' \
-        -e 's;'"${code_dir}"'/bitbucket.org/(.+);bb::\1;' \
-        -e 's;'"${code_dir}"'/aur.archlinux.org/(.+);aur::\1;' \
-        -e 's;'"${code_dir}"'/github.platforms.engineering/(.+);baygit::\1;' \
-        -e 's;'"${HOME}"';\~;'
+        -e 's;^'"${code_dir}"'/github.com/(.+);gh::\1;' \
+        -e 's;^'"${code_dir}"'/bitbucket.org/(.+);bb::\1;' \
+        -e 's;^'"${code_dir}"'/aur.archlinux.org/(.+);aur::\1;' \
+        -e 's;^'"${code_dir}"'/github.platforms.engineering/(.+);baygit::\1;' \
+        -e 's;^'"${HOME}"';\~;'
 }
 
 __git_prompt_status() {
