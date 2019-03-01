@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# load browser
+super + b
+  qutebrowser
+
 # show executable commands
 super + space
 	rofi -disable-history -show run
