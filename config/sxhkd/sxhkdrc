@@ -6,7 +6,7 @@
 super + Return
 	alacritty
 
-# load browser
+# launch browser
 super + b
   qutebrowser
 
