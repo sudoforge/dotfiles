@@ -156,6 +156,7 @@ alias chat='tmux set-buffer -b weechat $(gopass weechat) && weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias dirs="dirs -v"
 alias gcp="gcloud"
+alias gcs="gsutil"
 alias gpgl="gpg --list-keys --keyid-format long --with-fingerprint"
 alias gpgll="gpg --list-keys --keyid-format long --with-fingerprint --with-subkey-fingerprint"
 alias kc='kubectx'
