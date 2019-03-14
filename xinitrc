@@ -1,2 +1,2 @@
-sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc{,.local} &
+sxhkd -c /home/sudoforge/.config/sxhkd/sxhkdrc /home/sudoforge/.config/sxhkd/sxhkdrc.local &
 exec bspwm
