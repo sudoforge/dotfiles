@@ -20,11 +20,6 @@
     set nojoinspaces        " don't put spaces after punctuation on a join 
 " }
 
-" Terraform {
-    " automatically format terraform files on save
-    autocmd BufWritePost *.tf TerraformFmt
-" }
-
 " Javascript {
     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }

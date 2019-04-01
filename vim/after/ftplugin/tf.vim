@@ -7,4 +7,6 @@ setlocal shiftwidth=2
 setlocal softtabstop=2
 setlocal tabstop=2
 
+autocmd BufWritePost <buffer> TerraformFmt
+
 " vim: sw=2 ts=2 et
