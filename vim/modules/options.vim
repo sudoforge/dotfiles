@@ -38,4 +38,7 @@
     nnoremap <Right> <Nop>
     inoremap <Right> <Nop>
     vnoremap <Right> <Nop>
+
+    " bind 'jj' to <esc>
+    inoremap jj <esc>
 " }
