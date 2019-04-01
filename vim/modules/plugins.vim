@@ -1,5 +1,3 @@
-Plugin 'VundleVim/Vundle.vim'
-
 " USABILITY
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plugin 'tpope/vim-obsession' " continuously updated session files
