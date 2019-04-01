@@ -23,3 +23,19 @@
 " Javascript {
     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }
+
+" Keymaps {
+    " unbind the arrow keys
+    nnoremap <Up> <Nop>
+    inoremap <Up> <Nop>
+    vnoremap <Up> <Nop>
+    nnoremap <Down> <Nop>
+    inoremap <Down> <Nop>
+    vnoremap <Down> <Nop>
+    nnoremap <Left> <Nop>
+    inoremap <Left> <Nop>
+    vnoremap <Left> <Nop>
+    nnoremap <Right> <Nop>
+    inoremap <Right> <Nop>
+    vnoremap <Right> <Nop>
+" }
