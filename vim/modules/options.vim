@@ -18,6 +18,7 @@
     set tabstop=2     " indent every X columns
     set softtabstop=2 " backspace can delete indents
     set nojoinspaces  " don't put spaces after punctuation on a join
+    set textwidth=120 " break lines at this many characters
 " }
 
 " Javascript {
