@@ -22,3 +22,10 @@ Plugin 'pearofducks/ansible-vim'
 
 " LANGUAGE
 Plugin 'fatih/vim-go'
+
+" rust {
+  Plugin 'rust-lang/rust.vim'
+
+  " :RustPlay - pipe the URI to the clipboard using this command
+  let g:rust_clip_command = 'xclip -selection clipboard'
+" }
