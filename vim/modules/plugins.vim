@@ -1,5 +1,6 @@
 " USABILITY
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search
+Plugin 'majutsushi/tagbar' " ctags display
 Plugin 'tpope/vim-obsession' " continuously updated session files
 
 " vim-easy-align {
