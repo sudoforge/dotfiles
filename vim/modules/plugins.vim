@@ -1,6 +1,7 @@
 " USABILITY
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plugin 'majutsushi/tagbar' " ctags display
+Plugin 'mattn/webapi-vim' " interface to the web
 Plugin 'tpope/vim-obsession' " continuously updated session files
 
 " vim-easy-align {
