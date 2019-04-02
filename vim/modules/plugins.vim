@@ -2,6 +2,14 @@
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plugin 'tpope/vim-obsession' " continuously updated session files
 
+" vim-easy-align {
+  Plugin 'junegunn/vim-easy-align' " easily align things
+
+  " keymaps
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+" }
+
 " SYNTAX
 Plugin 'hashivim/vim-terraform'
 Plugin 'jparise/vim-graphql'
