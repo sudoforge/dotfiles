@@ -121,6 +121,7 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 complete -o nospace -C /usr/share/bash-completion/completions/lxc lxc
 complete -o nospace -C /usr/share/bash-completion/completions/lxd lxd
+complete -o nospace -C /usr/bin/vault vault
 
 # Fish-like autosuggestions
 # The list below supports the default locations for the following:
