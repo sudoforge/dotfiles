@@ -243,7 +243,7 @@ mouse:
   hide_when_typing: false
   url:
     launcher:
-      program: qutebrowser
+      program: /home/sudoforge/.local/bin/notify-url-launcher
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
