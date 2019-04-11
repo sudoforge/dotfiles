@@ -32,7 +32,7 @@ super + v
 
 # set tmux buffer using the system clipboard
 super + c
-    tmux set-buffer "$(xclip -o)"
+    tmux set-buffer "$(xclip -selection c -o)"
 
 # show the contents of the latest tmux buffer
 super + s
