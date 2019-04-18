@@ -35,7 +35,7 @@ __git_prompt_status() {
     # status
     ref=$(git symbolic-ref HEAD 2> /dev/null ||\
           git rev-parse --short HEAD 2> /dev/null) || return
-    ref=$(echo "$ref" | sed -r 's,refs/[^/]+/,,')
+    ref=$(echo "$ref" | sed 's/refs\/[a-z]\{1,\}\///')
     INDEX=$(command git status --porcelain -b 2> /dev/null)
     STATUS=""
     INDEXED=""

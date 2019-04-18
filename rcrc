@@ -1,3 +1,24 @@
+os='unknown'
+case "$(uname)" in
+  'Linux')
+    os="linux"
+    TAGS="linux"
+    READLINK_OPTS="-f"
+    ;;
+  'Darwin')
+    os="darwin"
+    TAGS="osx"
+    READLINK_OPTS=""
+    ;;
+  *)
+    TAGS=""
+    READLINK_OPTS=""
+    ;;
+esac
+
 EXCLUDES="README.md"
 UNDOTTED="wallpapers/*"
-DOTFILES_DIRS=$(dirname $(readlink -f ~/.rcrc))
+
+if [ -e "~/.rcrc" ]; then
+  DOTFILES_DIRS=$(dirname $(readlink "$READLINK_OPTS" ~/.rcrc))
+fi
