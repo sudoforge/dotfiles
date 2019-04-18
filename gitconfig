@@ -51,7 +51,7 @@
     ec = config --global -e
     el = !git config --file ~/.gitconfig.local -e
     aliases = config --get-regexp '^alias\\.'
-[alias]
+
     # temporary changes
     st = -c commit.gpgsign=false stash -u
     ss = -c commit.gpgsign=false stash save -u
