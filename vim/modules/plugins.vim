@@ -12,10 +12,15 @@ Plugin 'tpope/vim-obsession' " continuously updated session files
   nmap ga <Plug>(EasyAlign)
 " }
 
+" vim-ledger {
+  Plugin 'ledger/vim-ledger'
+
+  let g:ledger_extra_options = '--pedantic --explicit --check-payees'
+" }
+
 " SYNTAX
 Plugin 'hashivim/vim-terraform'
 Plugin 'jparise/vim-graphql'
-Plugin 'ledger/vim-ledger'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'pearofducks/ansible-vim'
