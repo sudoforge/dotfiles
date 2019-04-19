@@ -8,6 +8,9 @@
 
     " set the cursor position to the first position for git commit messages
     autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+    " turn omnicomplete on
+    set omnifunc=syntaxcomplete#Complete
 " }
 
 " Formatting {
