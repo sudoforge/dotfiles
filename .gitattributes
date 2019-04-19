@@ -1,8 +1,8 @@
+**/config/redshift.conf filter=git-crypt diff=git-crypt
+**/config/sxhkd/sxhkdrc.local filter=git-crypt diff=git-crypt
 *.png filter=lfs diff=lfs merge=lfs -text
-config/gopass/config.yml filter=git-crypt diff=git-crypt
-config/redshift.conf filter=git-crypt diff=git-crypt
 config/gnupg/sshcontrol filter=git-crypt diff=git-crypt
-config/sxhkd/sxhkdrc.local filter=git-crypt diff=git-crypt
+config/gopass/config.yml filter=git-crypt diff=git-crypt
 ssh/config filter=git-crypt diff=git-crypt
 weechat/irc.conf filter=git-crypt diff=git-crypt
 weechat/plugins.conf filter=git-crypt diff=git-crypt
