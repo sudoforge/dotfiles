@@ -173,6 +173,7 @@ alias routes="sudo ip route add 193.138.218.130 via 192.168.1.1 dev wlp2s0 && su
 alias se='sudoedit'
 alias tf='terraform'
 
+__source "${HOME}/.zshrc.local"
 
 unset script_files
 unset ZSHFILES
