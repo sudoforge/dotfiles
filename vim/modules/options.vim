@@ -14,7 +14,6 @@
 " }
 
 " Formatting {
-    set nowrap        " do not wrap long lines
     set autoindent    " indent at the same level as the previous line
     set shiftwidth=2  " use indents of X size
     set expandtab     " tabs are spaces, not tabs
