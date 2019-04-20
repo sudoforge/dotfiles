@@ -1,6 +1,7 @@
 #! /bin/sh
 
 /usr/lib/geoclue-2.0/demos/agent &
+sxhkd -c /home/sudoforge/.config/sxhkd/sxhkdrc /home/sudoforge/.config/sxhkd/sxhkdrc.local &
 
 # reconfigure monitors
 xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal

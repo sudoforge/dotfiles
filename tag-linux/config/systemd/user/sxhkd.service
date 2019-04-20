@@ -5,6 +5,3 @@ Documentation=man:sxhkd(1)
 [Service]
 ExecStart=/usr/bin/sxhkd -c %S/sxhkd/sxhkdrc %S/sxhkd/sxhkdrc.local
 ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
-
-[Install]
-WantedBy=graphical.target
