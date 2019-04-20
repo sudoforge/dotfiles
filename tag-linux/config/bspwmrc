@@ -1,6 +1,5 @@
 #! /bin/sh
 
-udiskie &
 sxhkd &
 /usr/lib/geoclue-2.0/demos/agent &
 
