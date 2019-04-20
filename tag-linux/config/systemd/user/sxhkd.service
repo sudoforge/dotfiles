@@ -1,7 +1,6 @@
 [Unit]
 Description=Simple X Hotkey Daemon
 Documentation=man:sxhkd(1)
-After=display-manager.service
 
 [Service]
 ExecStart=/usr/bin/sxhkd -c %S/sxhkd/sxhkdrc %S/sxhkd/sxhkdrc.local
