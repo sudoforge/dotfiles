@@ -44,7 +44,7 @@
     l = log --oneline --no-abbrev --date=relative
     ll = log --show-signature --stat
     lp = !git ll -p
-    history = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 
     # miscellaneous
     e = config -e
