@@ -114,7 +114,9 @@ __sourceFirst() {
 
 # Source completion scripts
 __source "/usr/bin/aws_zsh_completer.sh"
-__source "/opt/google-cloud-sdk/completion.zsh.inc"
+__sourceFirst \
+  "/opt/google-cloud-sdk/completion.zsh.inc" \
+  "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # Completion functions
 autoload -U +X bashcompinit && bashcompinit
