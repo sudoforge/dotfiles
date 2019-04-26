@@ -17,6 +17,7 @@
     set autoindent    " indent at the same level as the previous line
     set expandtab     " tabs are spaces, not tabs
     set nojoinspaces  " don't put spaces after punctuation on a join
+    set ruler         " display row, column information in bottom right
     set shiftwidth=2  " use indents of X size
     set softtabstop=2 " backspace can delete indents
     set tabstop=2     " indent every X columns
