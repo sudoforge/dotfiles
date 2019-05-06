@@ -153,7 +153,9 @@ __source "/usr/share/nvm/init-nvm.sh"
 # ALIASES
 ###############################
 
-alias ...=../..
+alias ..=../
+alias ...=../../
+alias ....=../../../
 alias ap='aurpublish'
 alias chat='tmux set-buffer -b weechat $(gopass weechat) && weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
