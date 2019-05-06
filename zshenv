@@ -50,6 +50,9 @@ export HISTFILE="${HOME}/.zsh_history"
 # Display time and usage for long-running commands
 export REPORTTIME=5
 
+# adjust multi-character sequence delay
+export KEYTIMEOUT=1
+
 
 #########################
 # PATH MANAGEMENT

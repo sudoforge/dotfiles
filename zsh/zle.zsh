@@ -41,6 +41,10 @@ zle -N edit-command-line
 zle -N insert-composed-char
 
 
+# set mode
+bindkey -v
+
+
 # Let the binding begin.
 bindkey "$key[Delete]" delete-char
 bindkey "$key[Backspace]" backward-delete-char
