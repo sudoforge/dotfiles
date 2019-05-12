@@ -143,9 +143,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 # Syntax highlighting
 __source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Virtualenvwrapper
-__source "/usr/bin/virtualenvwrapper.sh"
-
 # NVM
 __source "/usr/share/nvm/init-nvm.sh"
 
