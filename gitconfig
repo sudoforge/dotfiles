@@ -2,6 +2,8 @@
     name = Benjamin Denhartog
     email = ben@sudoforge.com
     signingkey = 1F3358A137D0D25C
+[branch]
+    autoSetupRebase = always
 [core]
     editor = vim
 [commit]
