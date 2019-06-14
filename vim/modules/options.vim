@@ -24,6 +24,10 @@
     set tabstop=2     " indent every X columns
     set textwidth=80  " break lines at this many characters
     set wrap          " automatically wrap lines
+
+    " splits
+    set splitbelow
+    set splitright
 " }
 
 " Javascript {
