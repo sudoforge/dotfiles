@@ -37,6 +37,9 @@ export PROJECT_HOME="${GOPATH}/src"
 # [misc]
 export WOPATH="${GOPATH}/src" # for easy project switching
 
+# [ripgrep]
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
+
 
 #########################
 # ZSH OPTIONS
