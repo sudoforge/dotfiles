@@ -39,6 +39,7 @@
     # committing
     emend = !git add -A && git commit -a --amend
     mend = !git add -A && git commit -a --amend --no-edit
+    rp = !git commit --amend --no-edit && git push --force
 
     # auditing
     s = status
