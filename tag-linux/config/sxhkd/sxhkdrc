@@ -12,7 +12,9 @@ super + b
 
 # launch browser with temporary profile (aka "incognito mode")
 super + shift + b
-  mktemp -d | xargs -I tmpdir qutebrowser -B tmpdir
+  mktemp -d | xargs \
+    -I tmpdir \
+    sh -c 'cp ~/.config/qutebrowser/config.py tmpdir && qutebrowser -B tmpdir'
 
 # show executable commands
 super + space
