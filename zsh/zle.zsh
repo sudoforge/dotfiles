@@ -66,6 +66,7 @@ bindkey "$key[ShiftTab]" reverse-menu-complete
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
+bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward 
 bindkey "^V" quoted-insert
 
