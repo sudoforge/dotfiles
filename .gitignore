@@ -2,7 +2,3 @@
 
 # general
 *.swp
-
-# topic: vim
-/topics/vim/vim.symlink/bundle/
-/topics/vim/vim.symlink/.netrwhist
