@@ -20,13 +20,13 @@ __git_prompt_status() {
     ref_color="030"
 
     if echo "${FULLINDEX}" | grep '^Your branch.*behind' &> /dev/null; then
-        ref_color="160"
+        ref_color="203"
     fi
     if echo "${FULLINDEX}" | grep '^Your branch.*ahead' &> /dev/null; then
         ref_color="035"
     fi
     if echo "${FULLINDEX}" | grep '^Your branch.*diverged' &> /dev/null; then
-        ref_color="203"
+        ref_color="160"
     fi
     if echo "${FULLINDEX}" | grep '.*detached at.*' &> /dev/null; then
         ref_color="215"
@@ -47,6 +47,7 @@ __git_prompt_status() {
     count_modified=$(echo "$INDEX" | grep -c -E '^[MR]')
     count_deleted=$(echo "$INDEX" | grep -c '^D')
     count_conflict=$(echo "$INDEX" | grep -c '^U')
+
     # working tree counters
     count_untracked=$(echo "$INDEX" | grep -c -E '^[\?A][\?A] ')
     count_modified_=$(echo "$INDEX" | grep -c -E '^[A-Z ][MR] ')
