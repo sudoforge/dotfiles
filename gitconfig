@@ -44,9 +44,9 @@
     # auditing
     s = status
     d = diff
-    l = log --oneline --no-abbrev --date=relative
+    l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
     ll = log --show-signature --stat
-    lp = !git ll -p
+    lp = log --show-signature --stat --patch
     hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 
     # miscellaneous
