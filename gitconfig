@@ -12,6 +12,8 @@
   tool = vimdiff
 [difftool]
   prompt = 0
+[fetch]
+  pruneTags = true
 [push]
   default = simple
 [pull]
