@@ -1,73 +1,73 @@
 [user]
-    name = Benjamin Denhartog
-    email = ben@sudoforge.com
-    signingkey = 1F3358A137D0D25C
+  name = Benjamin Denhartog
+  email = ben@sudoforge.com
+  signingkey = 1F3358A137D0D25C
 [branch]
-    autoSetupRebase = always
+  autoSetupRebase = always
 [core]
-    editor = vim
+  editor = vim
 [commit]
-    gpgsign = true
+  gpgsign = true
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 [difftool]
-    prompt = 0
+  prompt = 0
 [push]
-    default = simple
+  default = simple
 [pull]
-    rebase = true
+  rebase = true
 [merge]
-    ff = false
-    tool = vimdiff
+  ff = false
+  tool = vimdiff
 [gpg]
-    program = /usr/bin/gpg2
+  program = /usr/bin/gpg2
 [filter "lfs"]
-    required = true
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    clean = git-lfs clean -- %f
+  required = true
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  clean = git-lfs clean -- %f
 [alias]
-    # moving around
-    co = checkout
-    cob = checkout -b
+  # moving around
+  co = checkout
+  cob = checkout -b
 
-    # resetting
-    unstage = reset HEAD -- .
-    undo = reset HEAD~1 --mixed
-    redo = reset 'HEAD@{1}'
+  # resetting
+  unstage = reset HEAD -- .
+  undo = reset HEAD~1 --mixed
+  redo = reset 'HEAD@{1}'
 
-    # committing
-    emend = !git add -A && git commit -a --amend
-    mend = !git add -A && git commit -a --amend --no-edit
-    rp = !git commit --amend --no-edit && git push --force
+  # committing
+  emend = !git add -A && git commit -a --amend
+  mend = !git add -A && git commit -a --amend --no-edit
+  rp = !git commit --amend --no-edit && git push --force
 
-    # auditing
-    s = status
-    d = diff
-    l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-    ll = log --show-signature --stat
-    lp = log --show-signature --stat --patch
-    hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  # auditing
+  s = status
+  d = diff
+  l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --show-signature --stat
+  lp = log --show-signature --stat --patch
+  hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 
-    # miscellaneous
-    e = config -e
-    ec = config --global -e
-    el = !git config --file ~/.gitconfig.local -e
-    aliases = config --get-regexp '^alias\\.'
+  # miscellaneous
+  e = config -e
+  ec = config --global -e
+  el = !git config --file ~/.gitconfig.local -e
+  aliases = config --get-regexp '^alias\\.'
 
-    # temporary changes
-    st = -c commit.gpgsign=false stash -u
-    ss = -c commit.gpgsign=false stash save -u
-    sl = stash list --pretty=format:'%C(cyan)%gd%C(cyan): %C(yellow)%s'
-    sp = stash pop
-    sd = stash drop
+  # temporary changes
+  st = -c commit.gpgsign=false stash -u
+  ss = -c commit.gpgsign=false stash save -u
+  sl = stash list --pretty=format:'%C(cyan)%gd%C(cyan): %C(yellow)%s'
+  sp = stash pop
+  sd = stash drop
 
-    # branch management
-    b = branch
-    up = !git pull --prune $@ && git submodule update --init --recursive
-    p = push
-    pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-    pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
+  # branch management
+  b = branch
+  up = !git pull --prune $@ && git submodule update --init --recursive
+  p = push
+  pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+  pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
 
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
