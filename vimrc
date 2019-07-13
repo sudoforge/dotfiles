@@ -3,12 +3,15 @@ set nocompatible
 filetype plugin indent on " automatically detect file types
 syntax on                 " enable syntax highlighting
 
+
 " turn omnicomplete on
 set omnifunc=syntaxcomplete#Complete
+
 
 " autoformatting
 let g:rustfmt_autosave = 1
 let g:terraform_fmt_on_save = 1
+
 
 " Javascript
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
