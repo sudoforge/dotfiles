@@ -6,7 +6,8 @@ syntax on                 " enable syntax highlighting
 " turn omnicomplete on
 set omnifunc=syntaxcomplete#Complete
 
-" format ft:terraform on save
+" autoformatting
+let g:rustfmt_autosave = 1
 let g:terraform_fmt_on_save = 1
 
 " Javascript
