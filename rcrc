@@ -17,7 +17,6 @@ case "$(uname)" in
 esac
 
 EXCLUDES="README.md"
-UNDOTTED="wallpapers/*"
 
 if [ -e "~/.rcrc" ]; then
   DOTFILES_DIRS=$(dirname $(readlink "$READLINK_OPTS" ~/.rcrc))
