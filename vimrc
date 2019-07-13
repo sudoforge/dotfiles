@@ -9,6 +9,7 @@ set omnifunc=syntaxcomplete#Complete
 
 
 " autoformatting
+let g:go_fmt_autosave = 1
 let g:rustfmt_autosave = 1
 let g:terraform_fmt_on_save = 1
 
