@@ -155,6 +155,7 @@ alias ..=../
 alias ...=../../
 alias ....=../../../
 alias ap='aurpublish'
+alias b='bazel'
 alias chat='tmux set-buffer -b weechat $(gopass weechat) && weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias cookie='cookiecutter'
