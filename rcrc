@@ -16,7 +16,7 @@ case "$(uname)" in
     ;;
 esac
 
-EXCLUDES="README.md"
+EXCLUDES="Makefile README.md"
 
 if [ -e "~/.rcrc" ]; then
   DOTFILES_DIRS=$(dirname $(readlink "$READLINK_OPTS" ~/.rcrc))
