@@ -24,3 +24,4 @@ vim/install/%:
 vim/update:
 	$(call vimplugin,pull,https://github.com/sheerun/vim-polyglot)
 	$(call vimplugin,pull,https://github.com/christoomey/vim-tmux-navigator)
+	$(call vimplugin,pull,https://github.com/rust-lang/rust.vim)
