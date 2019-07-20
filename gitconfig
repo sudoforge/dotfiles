@@ -32,6 +32,7 @@
   # moving around
   co = checkout
   cob = checkout -b
+  cp = cherry-pick
 
   # resetting
   unstage = reset HEAD -- .
