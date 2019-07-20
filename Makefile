@@ -1,5 +1,6 @@
 MAKEPATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 
+
 define vimplugin
 	git subtree $(1) \
 		--prefix "vim/pack/default/start/$(shell basename $(2))" \
@@ -7,6 +8,7 @@ define vimplugin
 		$(2) \
 		master
 endef
+
 
 .PHONY: default
 default: vim/update
