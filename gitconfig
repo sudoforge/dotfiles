@@ -29,24 +29,26 @@
   process = git-lfs filter-process
   clean = git-lfs clean -- %f
 [alias]
-  # moving around
+  # shorthand reference
   co = checkout
   cob = checkout -b
   cp = cherry-pick
+  s = status
+  d = diff
 
   # resetting
   unstage = reset HEAD -- .
   undo = reset HEAD~1 --mixed
   redo = reset 'HEAD@{1}'
 
-  # committing
+  # amending commits
   emend = !git add -A && git commit -a --amend
   mend = !git add -A && git commit -a --amend --no-edit
+
+  # "re-push"
   rp = !git commit --amend --no-edit && git push --force
 
   # auditing
-  s = status
-  d = diff
   l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --show-signature --stat
   lp = log --show-signature --stat --patch
