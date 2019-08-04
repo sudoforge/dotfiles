@@ -7,5 +7,4 @@ ExecStart=/usr/bin/udiskie
 KillSignal=SIGINT
 
 [Install]
-Requires=udisks2.service
 WantedBy=multi-user.target
