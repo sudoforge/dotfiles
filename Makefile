@@ -28,3 +28,4 @@ vim/update:
 	$(call vimplugin,pull,https://github.com/christoomey/vim-tmux-navigator)
 	$(call vimplugin,pull,https://github.com/rust-lang/rust.vim)
 	$(call vimplugin,pull,https://github.com/ctrlpvim/ctrlp.vim)
+	$(call vimplugin,pull,https://github.com/fatih/vim-go)
