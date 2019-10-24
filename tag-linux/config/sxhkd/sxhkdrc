@@ -14,7 +14,7 @@ super + b
 super + shift + b
   mktemp -d | xargs \
     -I tmpdir \
-    sh -c 'cp ~/.config/qutebrowser/config.py tmpdir && qutebrowser -B tmpdir'
+    qutebrowser -C ~/.config/qutebrowser/config.py -B tmpdir
 
 # show executable commands
 super + space
@@ -50,15 +50,15 @@ super + shift + s
 
 # capture current window
 super + p
-    maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
+    maim -i $(xdotool getactivewindow) ~/media/screenshots/$(date +%Y%m%d_%H%M%S%3N).png
 
 # capture a region
 super + alt + p
-    maim -s ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
+    maim -s ~/media/screenshots/$(date +%Y%m%d_%H%M%S%3N).png
 
 # capture the entire desktop
 super + ctrl + p
-    maim ~/Pictures/$(date +%Y%m%d_%H%M%S%3N).png
+    maim ~/media/screenshots/$(date +%Y%m%d_%H%M%S%3N).png
 
 
 # lock the screen
