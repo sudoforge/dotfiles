@@ -8,10 +8,6 @@ if command -v tmux > /dev/null 2>&1 && [ -z "$TMUX" ]; then
 fi
 
 
-# shortcut to dotfiles
-export ZSHFILES="$HOME/.zsh"
-
-
 __log() {
     preLabel="dotfiles: zsh"
 
@@ -32,15 +28,16 @@ __log() {
 }
 
 
-if [ ! -d "$ZSHFILES" ]; then
-    __log error "missing directory '\$HOME/.zsh'"
-    __log error "aborting shell configuration."
-    return
-fi
+__source() {
+    [ -e "$1" ] && . "$1"
+}
 
 
-# get all files with .zsh extension
-script_files=("$ZSHFILES"/*.zsh)
+__sourceFirst() {
+    for f in "$@"; do
+        __source "$f" && break
+    done
+}
 
 
 # Autoload functions
@@ -52,8 +49,7 @@ autoload -Uz polybar-launch
 autoload -Uz tbuf
 
 
-# load script files
-for file in ${script_files}; do
+for file in "${HOME}/.zsh"/*.zsh; do
     . "$file"
 done
 
@@ -100,17 +96,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate # Compl
 zstyle ':completion:*' use-cache true # Use a completion cache.
 zstyle ':completion:*' ignore-parents pwd # Ignore the current directory in completions.
 zstyle ':completion:*' rehash true # automatically find new executables in $PATH
-
-# helper functions for sourcing files
-__source() {
-    [ -e "$1" ] && . "$1"
-}
-
-__sourceFirst() {
-    for f in "$@"; do
-        __source "$f" && break
-    done
-}
 
 # Source completion scripts
 __source "/usr/bin/aws_zsh_completer.sh"
@@ -181,6 +166,3 @@ alias tf='terraform'
 alias vim='nvim'
 
 __source "${HOME}/.zshrc.local"
-
-unset script_files
-unset ZSHFILES
