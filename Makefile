@@ -17,7 +17,7 @@ default: vim/update
 .PHONY: vim/install
 vim/install/%:
 	$(call vimplugin,add,https://github.com/$(subst vim/install/,,$@))
-	@echo "\t\$$(call vimplugin,pull,https://github.com/$(subst vim/install/,,$@))" >> $(MAKEPATH)
+	@echo "	\$$(call vimplugin,pull,https://github.com/$(subst vim/install/,,$@))" >> $(MAKEPATH)
 	@git add $(MAKEPATH)
 	@git commit --amend --no-edit
 
