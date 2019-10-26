@@ -29,3 +29,4 @@ vim/update:
 	$(call vimplugin,pull,https://github.com/rust-lang/rust.vim)
 	$(call vimplugin,pull,https://github.com/ctrlpvim/ctrlp.vim)
 	$(call vimplugin,pull,https://github.com/fatih/vim-go)
+	$(call vimplugin,pull,https://github.com/godoctor/godoctor.vim)
