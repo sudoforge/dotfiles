@@ -5,7 +5,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
+c.aliases = {"q": "quit", "w": "session-save", "wq": "quit --save"}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -14,7 +14,7 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 #   - multiple-tabs: Show a confirmation if multiple tabs are opened.
 #   - downloads: Show a confirmation if downloads are running
 #   - never: Never show a confirmation.
-c.confirm_quit = ['never']
+c.confirm_quit = ["never"]
 
 # Maximum time (in minutes) between two history items for them to be
 # considered being from the same browsing session. Items with less time
@@ -29,7 +29,7 @@ c.history_gap_interval = 30
 #   - always: Search case-insensitively.
 #   - never: Search case-sensitively.
 #   - smart: Search case-sensitively if there are capital characters.
-c.search.ignore_case = 'smart'
+c.search.ignore_case = "smart"
 
 # Find text on a page incrementally, renewing the search for each typed
 # character.
@@ -39,7 +39,7 @@ c.search.incremental = True
 # Name of the session to save by default. If this is set to null, the
 # session which was last loaded is saved.
 # Type: SessionName
-c.session.default_name = 'default'
+c.session.default_name = "default"
 
 # Load a restored tab as soon as it takes focus.
 # Type: Bool
@@ -50,7 +50,7 @@ c.session.lazy_restore = False
 # https://peter.sh/experiments/chromium-command-line-switches/ for a
 # list) will work.
 # Type: List of String
-c.qt.args = ['ppapi-widevine-path=/usr/lib/qt/plgins/ppapi/libwidevinecdmadapter.so']
+c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plgins/ppapi/libwidevinecdmadapter.so"]
 
 # Turn on Qt HighDPI scaling. This is equivalent to setting
 # QT_AUTO_SCREEN_SCALE_FACTOR=1 in the environment. It's off by default
@@ -89,7 +89,9 @@ c.content.host_blocking.enabled = False
 # The file `~/.config/qutebrowser/blocked-hosts` is always read if it
 # exists.
 # Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.content.host_blocking.lists = [
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+]
 
 # A list of patterns that should always be loaded, despite being ad-
 # blocked. Note this whitelists blocked hosts, not first-party URLs. As
@@ -107,15 +109,15 @@ c.content.javascript.enabled = True
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'file://*')
+config.set("content.javascript.enabled", True, "file://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
+config.set("content.javascript.enabled", True, "chrome://*/*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set("content.javascript.enabled", True, "qute://*/*")
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -124,7 +126,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', True, 'calendar.google.com')
+config.set("content.register_protocol_handler", True, "calendar.google.com")
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -133,7 +135,7 @@ config.set('content.register_protocol_handler', True, 'calendar.google.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', True, 'https://calendar.google.com/*')
+config.set("content.register_protocol_handler", True, "https://calendar.google.com/*")
 
 # Which interfaces to expose via WebRTC. On Qt 5.10, this option doesn't
 # work because of a Qt bug.
@@ -143,12 +145,12 @@ config.set('content.register_protocol_handler', True, 'https://calendar.google.c
 #   - default-public-and-private-interfaces: WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
 #   - default-public-interface-only: WebRTC should only use the default route used by http. This doesn't expose any local addresses.
 #   - disable-non-proxied-udp: WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP. This doesn't expose any local addresses either.
-c.content.webrtc_ip_handling_policy = 'default-public-interface-only'
+c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
 # Type: Directory
-c.downloads.location.directory = '~/downloads'
+c.downloads.location.directory = "~/downloads"
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
@@ -217,12 +219,12 @@ c.tabs.background = True
 #   - next: After the current tab.
 #   - first: At the beginning.
 #   - last: At the end.
-c.tabs.new_position.related = 'last'
+c.tabs.new_position.related = "last"
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'about:blank'
+c.url.default_page = "about:blank"
 
 # URL segments where `:navigate increment/decrement` will search for a
 # number.
@@ -233,7 +235,7 @@ c.url.default_page = 'about:blank'
 #   - path
 #   - query
 #   - anchor
-c.url.incdec_segments = ['path', 'query']
+c.url.incdec_segments = ["path", "query"]
 
 # Open base URL of the searchengine if a searchengine shortcut is
 # invoked without parameters.
@@ -249,7 +251,7 @@ c.url.open_base_url = False
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
@@ -263,50 +265,33 @@ c.fonts.web.size.minimum_logical = 6
 # when a key is bound (via `bindings.default` or `bindings.commands`),
 # the mapping is ignored.
 # Type: Dict
-c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+c>': '<Escape>', '<Ctrl+Enter>': '<Ctrl+Return>', '<Ctrl+j>': '<Return>', '<Ctrl+m>': '<Return>', '<Ctrl+[>': '<Escape>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Shift+Return>': '<Return>'}
+c.bindings.key_mappings = {
+    "<Ctrl+6>": "<Ctrl+^>",
+    "<Ctrl+c>": "<Escape>",
+    "<Ctrl+Enter>": "<Ctrl+Return>",
+    "<Ctrl+j>": "<Return>",
+    "<Ctrl+m>": "<Return>",
+    "<Ctrl+[>": "<Escape>",
+    "<Enter>": "<Return>",
+    "<Shift+Enter>": "<Return>",
+    "<Shift+Return>": "<Return>",
+}
 
 keybinds = {
-    'normal': {
-        '<ctrl+j>': 'enter-mode passthrough',
-        '<ctrl+v>': None,
-    },
-    'caret': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'command': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'hint': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'insert': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'passthrough': {
-        '<ctrl+j>': 'leave-mode',
-        '<shift+escape>': None,
-    },
-    'prompt': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'register': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
-    'yesno': {
-        '<ctrl+j>': 'leave-mode',
-        '<escape>': None,
-    },
+    "normal": {"<ctrl+j>": "enter-mode passthrough", "<ctrl+v>": None},
+    "caret": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "command": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "hint": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "insert": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "passthrough": {"<ctrl+j>": "leave-mode", "<shift+escape>": None},
+    "prompt": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "register": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "yesno": {"<ctrl+j>": "leave-mode", "<escape>": None},
 }
 
 
-for mode,binds in keybinds.items():
-    for k,v in binds.items():
+for mode, binds in keybinds.items():
+    for k, v in binds.items():
         if v is None:
             config.unbind(k, mode=f"{mode}")
         else:
