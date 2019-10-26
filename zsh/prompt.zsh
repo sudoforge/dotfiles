@@ -113,7 +113,7 @@ __git_prompt_status() {
 
 
 # Prompt character
-PROMPT_CHAR="→"
+PROMPT_CHAR="➜"
 
 # Left prompt
 PROMPT="\$(__current_dir) \$(__git_prompt_status)"
