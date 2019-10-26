@@ -307,4 +307,7 @@ keybinds = {
 
 for mode,binds in keybinds.items():
     for k,v in binds.items():
-        config.bind(k, v, mode=f"{ mode }")
+        if v is None:
+            config.unbind(k, mode=f"{mode}")
+        else:
+            config.bind(k, v, mode=f"{mode}")
