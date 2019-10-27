@@ -30,3 +30,4 @@ vim/update:
 	$(call vimplugin,pull,https://github.com/ctrlpvim/ctrlp.vim)
 	$(call vimplugin,pull,https://github.com/fatih/vim-go)
 	$(call vimplugin,pull,https://github.com/godoctor/godoctor.vim)
+	$(call vimplugin,pull,https://github.com/jparise/vim-graphql)
