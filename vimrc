@@ -76,3 +76,56 @@ endif
 
 " bind 'jj' to <esc>
 inoremap jj <esc>
+
+" disable exit
+map <C-z> <nop>
+
+" general search
+map <C-f> /
+
+" search the word under the cursor
+map <C-S-f> /<C-r><C-w><CR>
+
+" saner start and end of line keys
+nnoremap H ^
+nnoremap L $
+
+" yank to end of line
+nmap yL y$
+
+" yank to start of line
+nmap yH y^
+
+" delete to end of line
+nmap dL d$
+
+" delete to start of line
+nmap dH d^
+
+" go to next buffer
+nmap <Tab> :bnext<CR>
+
+" go to previous buffer
+  nmap <S-Tab> :bprev<CR>
+
+" unbind enter in normal mode
+nmap <silent> <CR> <nop>
+
+" prevent deselection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" resize splits
+nmap + <C-w>+
+nmap - <C-w>-
+nmap \| <C-w><
+nmap \  <C-w>>
+
+" prevent accidentally deleting a fold
+nmap zd <nop>
+nmap zE <nop>
+
+" disable man page on current word
+nmap <S-k> <nop>
+
+hi vertsplit guifg=bg guibg=bg
