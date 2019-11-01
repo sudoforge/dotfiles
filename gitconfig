@@ -5,11 +5,11 @@
 [branch]
   autoSetupRebase = always
 [core]
-  editor = vim
+  editor = nvim
 [commit]
   gpgsign = true
 [diff]
-  tool = vimdiff
+  tool = nvim -d
 [difftool]
   prompt = 0
 [fetch]
@@ -20,7 +20,7 @@
   rebase = true
 [merge]
   ff = false
-  tool = vimdiff
+  tool = nvim -d
 [gpg]
   program = /usr/bin/gpg2
 [filter "lfs"]
