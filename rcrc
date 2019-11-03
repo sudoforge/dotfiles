@@ -17,6 +17,7 @@ case "$(uname)" in
 esac
 
 EXCLUDES="Makefile README.md"
+SYMLINK_DIRS="vim/pack"
 
 if [ -e "~/.rcrc" ]; then
   DOTFILES_DIRS=$(dirname $(readlink "$READLINK_OPTS" ~/.rcrc))
