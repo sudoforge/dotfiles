@@ -10,7 +10,7 @@ fi
 SOURCE="${ROOT}/rcrc"
 DESTINATION="${HOME}/.rcrc"
 if [ ! -f "$DESTINATION" ] && [ -f "$SOURCE" ]; then
-    if command cp "$SOURCE" "$DESTINATION"; then
+    if command ln -s "$SOURCE" "$DESTINATION"; then
         echo "OKAY    Successfully installed the initial rcm configuration file"
     else
         echo "FAIL    Failed installing initial rcm configuration file"
