@@ -6,6 +6,7 @@
   autoSetupRebase = always
 [core]
   editor = nvim
+  sparsecheckout = true
 [commit]
   gpgsign = true
 [diff]
