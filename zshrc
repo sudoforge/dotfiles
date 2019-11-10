@@ -147,6 +147,7 @@ alias chat='tmux set-buffer -b weechat $(gopass weechat) && weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias cookie='cookiecutter'
 alias dirs="dirs -v"
+alias e="nvim"
 alias exif="exiv2"
 alias gcp="gcloud"
 alias gcs="gsutil"
