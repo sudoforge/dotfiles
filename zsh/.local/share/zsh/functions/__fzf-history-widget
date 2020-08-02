@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+if out=$(\
+  fc -l 1 |\
+  fzf +s \
+  --tac \
+  +m \
+  -n2..,.. \
+  --tiebreak=begin,end,index \
+  --toggle-sort=ctrl-r \
+  --expect=ctrl-o,ctrl-e \
+  -q "$BUFFER"); then
+  key=$(head -1 <<< "$out")
+  cmd=$(tail -1 <<< "$out" | sed -r 's/ *[0-9]+\*? *//')
+  LBUFFER="$cmd"
+  [ "$key" = ctrl-o ] || zle accept-line
+fi

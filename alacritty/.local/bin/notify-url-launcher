@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+main() {
+  local URI="$1"
+
+  # Error out if the value of URI is empty or nonexistent
+  [ -z "$URI" ] && notify-send \
+    -u critical \
+    -t 5000 \
+    "Unable to open URI" "URI cannot be an empty string"
+
+  # If the BROWSER envvar is not set, attempt to use XDG to find the default browser
+  if [ -z "$BROWSER" ]; then
+    if ! command xdg-settings get default-web-browser > /dev/null 2>&1; then
+      notify-send -u critical "Failed to detect browser"
+    fi
+    BROWSER="$(xdg-settings get default-web-browser)"
+  fi
+
+  local ret="$(command $BROWSER $URI 2>&1 | sed \
+    -e 's/^\([0-9]\{2\}:\?\)\{3\} //' \
+    -e 's/: /:/' \
+    -e 's/INFO/normal/')"
+  local urgency="$(echo $ret | cut -d ':' -f1)"
+  local message="$(echo $ret | cut -d ':' -f2)"
+  if [ -n "$urgency" ] && [ -n "$message" ]; then
+    notify-send -u "$urgency" -t 5000 "$message" "$URI"
+  fi
+}
+
+main "$@"

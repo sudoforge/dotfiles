@@ -1,0 +1,68 @@
+#! /usr/bin/env zsh
+
+# A script to make using 256 colors in zsh less painful.
+# Authored by: P.C. Shyamshankar <sykora@lucentbeing.com>
+# Modified by: @sudoforge
+# 
+# Upstream: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/lib/spectrum.zsh
+
+typeset -AHg FX FG BG
+
+FX=(
+    reset     "%{[00m%}"
+    bold      "%{[01m%}" no-bold      "%{[22m%}"
+    italic    "%{[03m%}" no-italic    "%{[23m%}"
+    underline "%{[04m%}" no-underline "%{[24m%}"
+    blink     "%{[05m%}" no-blink     "%{[25m%}"
+    reverse   "%{[07m%}" no-reverse   "%{[27m%}"
+)
+
+for color in {000..255}; do
+    FG[$color]="%{[38;5;${color}m%}"
+    BG[$color]="%{[48;5;${color}m%}"
+done
+
+
+__contains() {
+    test "${1#*$2}" != "$1"
+}
+
+
+__spectrum_print() {
+    local fg bg
+    ZSH_SPECTRUM_TEXT=${ZSH_SPECTRUM_TEXT:-Lorem ipsum dolar sit amet}
+
+    for code in {000..255}; do
+        __contains "$1" "fg" && fg="%{$FG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}" || fg=""
+        __contains "$1" "bg" && bg="%{$BG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}" || bg=""
+
+        print -P -- "$code: $fg $bg"
+    done
+}
+
+
+__spectrum_help() {
+    echo
+    echo "USAGE"
+    echo "    spectrum ARGUMENT"
+    echo
+    echo "ARGUMENTS"
+    echo "    help"
+    echo "        Displays this message."
+    echo
+    echo "    ls"
+    echo "        Displays the available colors."
+    echo
+}
+
+if [ $# -gt 0 ]; then
+    case $1 in
+        ls)
+            __spectrum_print "fg bg"
+            shift
+            ;;
+        *)
+            __spectrum_help
+            ;;
+    esac
+fi

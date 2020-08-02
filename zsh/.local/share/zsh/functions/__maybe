@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+for f in "$@"; do
+    [ -e "$f" ] && . "$f" && break
+done

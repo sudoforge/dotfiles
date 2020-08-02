@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+
+if git rev-parse --verify HEAD > /dev/null 2>&1; then
+  unstage_command="restore --staged"
+else
+  unstage_command="rm -r --cached"
+fi
+
+# Assign all arguments to 'paths'
+paths="$@"
+
+# If "paths" has no value, set it to '.' (all)
+[ -n "$paths" ] || paths="."
+
+# Proxy to git
+git $unstage_command -- $paths

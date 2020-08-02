@@ -1,0 +1,7 @@
+# sudoforge/dotfiles
+
+# general
+*.swp
+
+# platform-specific
+.DS_Store

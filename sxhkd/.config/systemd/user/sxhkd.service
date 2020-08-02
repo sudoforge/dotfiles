@@ -1,0 +1,8 @@
+[Unit]
+Description=Simple X Hotkey Daemon
+Documentation=man:sxhkd(1)
+
+[Service]
+Environment="DISPLAY=:0"
+ExecStart=/usr/bin/sxhkd
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID

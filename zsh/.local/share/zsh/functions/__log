@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+case "$1" in
+    info)
+        echo "INFO: ${@:2}"
+        ;;
+    error)
+        echo "ERROR: ${@:2}"
+        ;;
+    fatal)
+        echo "FATAL: ${@:2}"
+        ;;
+    *)
+        log error "unsupported label:\t'$1'\nmessage:\t${@:2}"
+        ;;
+esac

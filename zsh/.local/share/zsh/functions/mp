@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+#
+# mp - "make project"
+# This lets you quickly create a new project within a predefined
+# directory tree.
+#
+# Dependencies:
+#   WOPATH (see local/bin/wo)
+#
+# Usage:
+#   mp domain.com/user/repo
+
+if [ -n "$1" ]; then
+    project="${WOPATH}/${1}"
+
+    if [ -d "$project" ]; then
+        echo "mp: info: $1 already exists, changing directories..."
+    fi
+
+    if command mkdir -p "$project"; then
+        cd "$project"
+    fi
+fi

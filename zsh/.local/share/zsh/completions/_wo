@@ -1,0 +1,21 @@
+#compdef wo
+
+_wo () {
+  [ -z "${WOPATH+x}" ] && return
+  _wo_find_repositories
+}
+
+_wo_find_repositories() {
+  _values 'projects' $(\
+    find $WOPATH \
+      -maxdepth 4 \
+      \( \
+        -name '.git' -o -name '.hg' -o -name '.svn' \
+      \) \
+      -type d -print0 |\
+    xargs -0 dirname |\
+    sed -e 's;'"$WOPATH"/';;'\
+  )
+}
+
+_wo

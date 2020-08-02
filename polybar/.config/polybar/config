@@ -1,0 +1,129 @@
+[color]
+; Define the colors referenced throughout the rest of this configuration. These
+; come from "Gruvbox Dark", which you can view online [1] and start to adapt
+; into your own tools and environment.
+;
+; [1]: https://github.com/morhetz/gruvbox
+; ------------------------------------------------------------------------------
+
+; background and foreground color
+background = #282828
+background-alt-1 = #1d2021
+background-alt-2 = #32302f
+foreground = #ebdbb2
+
+; "normal" colors - these are the default colors for the color scheme
+black = #282828
+red = #cc241d
+green = #98971a
+yellow = #d79921
+blue = #458588
+magenta = #b16286
+cyan = #689d6a
+white = #a89984
+
+[color/bright]
+; "bright" colors which may be useful when coloring content which should be more
+; noticeable, e.g. when the battery is at a low percent, or if text is made
+; bold, etc.
+; ------------------------------------------------------------------------------
+black = #928374
+red = #fb4934
+green = #b8bb26
+yellow = #fabd2f
+blue = #83a598
+magenta = #d3869b
+cyan = #8ec07c
+white = #ebdbb2
+
+; ==============================================================================
+; Define a bar named "top". If you look at //:dotfiles/local/bin/polybar-launch,
+; you'll see that this bar is explicitly launched, conditionally with the name
+; of the primary connected monitor passed as the variable "$MONITOR". It's
+; defaulted to "eDP-1" (the name of my laptop's display) here as opposed to
+; within the `polybar-launch` script, which allows for running `polybar`
+; _without_ the wrapper `polybar-launch` script.
+;
+; Some values, like `height`, are built around a resolution of 1920x1080.
+; Because this bar is _always_ shown, height-affecting properties are set with
+; care to ensure no odd vertical spacing or gaps appear throughout my screen
+; (e.g. in my terminal, before or after the tmux status bar)
+; ==============================================================================
+[bar/top]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+
+; set default background and foreground color
+background = ${color.background-alt-1}
+foreground = ${color.foreground}
+
+line-size = 3
+line-color = ${color.foreground}
+
+; Defines the spacing between labels
+spacing = 1
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+; Define the default fonts for this bar
+; If you use this configuration on your own machine, you will need to ensure
+; that these fonts are installed and available on your system.
+; -----------------------------------------------------------------------------
+; Fira Mono: used as the monospace font on the bar
+font-0 = "Fira Mono:style=Regular:antialias=false:pixelsize=10;0"
+
+; Symbols Nerd Font brings in the icons and symbols used on the bar
+font-1 = "Symbols Nerd Font:style=2048-em:antialias=false:pixelsize=14;1"
+
+; This forces the bar window to be placed above bspwm's root, which is required
+; in order to ensure that the bar is never drawn above full-screen windows,
+; which is impactful if A) this bar is loaded dynamically, such as through an
+; "autohide" and "autoshow" mechanism, or B) if the bar is reloaded for any
+; reason (such as the configuration file changing)
+wm-restack = bspwm
+
+; Configure the modules (defined below) shown on this bar
+modules-left = bspwm xwindow
+modules-right = audio backlight battery date
+
+; ==============================================================================
+; HERE BE MODULES
+;
+; In an effort to better isolate the configuration for each module, I have made
+; the decision to define them in separate files, and include them below. This
+; has the side effect of not reloading the bar configuration when only an
+; included file is changed (see polybar/polybar#675 [1]), so to get around that,
+; I simply open both the main configuration file and the module file at once,
+; and save the main configuration file after updating and saving the module
+; file(s).
+;
+; [1]: https://github.com/polybar/polybar/issues/675
+; ==============================================================================
+
+[module/bspwm]
+include-file = ~/.config/polybar/modules/bspwm.ini
+
+[module/xwindow]
+include-file = ~/.config/polybar/modules/xwindow.ini
+
+[module/date]
+include-file = ~/.config/polybar/modules/date.ini
+
+[module/battery]
+include-file = ~/.config/polybar/modules/battery.ini
+
+[module/backlight]
+include-file = ~/.config/polybar/modules/backlight.ini
+
+[module/audio]
+include-file = ~/.config/polybar/modules/audio.ini
+
+; Modeline configuration
+;
+; vim:ft=dosini
+; force syntax to dosini for better formatting and line control

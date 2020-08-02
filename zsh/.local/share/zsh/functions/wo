@@ -1,0 +1,150 @@
+#!/usr/bin/env sh
+#
+# wo - "work on"
+# This lets you quickly jump into a project directory.
+#
+# Usage:
+#   wo <tab>
+
+
+usage() {
+    bold=$(tput bold)
+    italic=$(tput sitm)
+    reset=$(tput sgr0)
+
+cat <<EOF
+${bold}wo - work on${reset}
+
+  wo is a command line utility to quickly navigate to version controlled
+  projects which are co-located in a given folder, even at various depths.
+
+${bold}USAGE${reset}
+  wo PATH
+
+  wo will search for parent directories containing popular VCS root directories
+  (e.g. \`.git\`, \`.hg\`, etc) recursively under the current directory, or
+  under a path set to the environment variable WOPATH. Let's look at a few
+  different scenarios.
+
+  ~/code
+  └── github.com
+      └── someuser
+          ├── bar
+          ├── baz
+          ├── foo
+          └── ultra-foo
+
+  # Navigate to ~/code/github.com/someuser/bar
+
+  $ wo github.com/someuser/bar
+  $ wo someuser/bar
+  $ wo bar
+  $ wo r
+
+  # Navigate to ~/code/github.com/someuser/foo
+
+  $ wo github.com/someuser/foo
+  $ wo someuser/foo
+  $ wo foo
+  $ wo o
+
+  # Navigate to ~/code/github.com/someuser/ultra-foo
+
+  $ wo github.com/someuser/ultra-foo
+  $ wo someuser/ultra-foo
+  $ wo ultra-foo
+  $ wo foo
+  $ wo o
+
+  # wo currently performs partial end-of-string matching, and in the above
+  # example, will conflict with on the projects that match the regex '*{arg}';
+  # for example, 'foo' would conflict on both 'github.com/someuser/foo' and
+  # 'github.com/someuser/ultra-foo'
+  #
+  # To avoid this, use an argument with more specificity.
+
+  $ wo foo
+  wo: WARN: ambiguous argument 'foo'
+    - github.com/someuser/foo
+    - github.com/someuser/ultra-foo
+EOF
+}
+
+
+log() {
+    prefix="wo"
+
+    case "$1" in
+        info)
+            shift
+            echo "${prefix}: INFO: $*"
+            ;;
+        warn)
+            shift
+            echo "${prefix}: WARN: $*"
+            ;;
+        fatal)
+            shift
+            echo "${prefix}: FATAL: $*"
+            return 1
+            kill $$
+            ;;
+    esac
+}
+
+
+# Display usage and exit if one of the help
+# commands/flags is passed as the first argument.
+case "$1" in
+    -h|--help|help)
+        usage
+        return 1
+        ;;
+esac
+
+local cd_fallback
+if [ -z "$WOPATH" ]; then
+    log warn "environment variable WOPATH not set, assuming '.'"
+    cd_fallback=true
+    WOPATH='.'
+elif [ ! -d "$WOPATH" ]; then
+    log fatal "WOPATH doesn't exist: ${WOPATH}"
+    return 1
+fi
+
+
+if [ -n "$1" ]; then
+    arg=$(echo "$1" | sed 's;/;\/;g')
+
+    # change to last directory if $arg = '-'
+    [ "$arg" = '-' ] && cd $arg
+
+    # early return if the argument is valid
+    cd "${WOPATH}/${arg}" &> /dev/null && return 0
+
+    local count matches
+    for dir in $(\
+        find "$WOPATH" -mindepth 2 -maxdepth 3 -type d -ipath "*${arg}" |\
+        sed -e 's;'"$WOPATH"'/;;');
+    do
+        [ -z "$matches" ] && matches="$dir" || matches="${matches} ${dir}"
+        count=$((count+1))
+    done
+
+    if [ "$count" -gt 1 ]; then
+        log warn "ambiguous argument '$arg'"
+        log info "possible matches:"
+        for match in $(echo "$matches" | cut -d ' ' -f1-); do
+            echo "  - $match"
+        done
+    elif [ "$count" -eq 1 ]; then
+        cd "${WOPATH}/${matches}"
+    else
+        if ! command cd "$arg" &> /dev/null; then
+            log warn "argument '${arg}' not found"
+            log fatal "no potential matches found"
+        fi
+    fi
+else
+    [ "$cd_fallback" = true ] && cd || cd "$WOPATH"
+fi
