@@ -90,7 +90,7 @@
   rv = remote --verbose
   s = status -sbu
   sd = stash drop
-  sl = stash list --pretty=format:'%C(cyan)%gd%C(cyan): %C(yellow)%s'
+  sl = stash list --pretty=format:'%C(yellow)%H %C(cyan)%gd%C(cyan): %C(yellow)%s'
   sp = stash pop
   ss = -c commit.gpgsign=false stash save -u
   st = -c commit.gpgsign=false stash -u
