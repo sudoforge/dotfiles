@@ -8,3 +8,7 @@ default:
 .PHONY: debug
 debug:
 	@/usr/bin/env find * -maxdepth 0 -type d | xargs stow -t "$$HOME" --verbose=3
+
+.PHONY: delete
+delete:
+	@/usr/bin/env find * -maxdepth 0 -type d | xargs stow -D -t "$$HOME" --verbose=1
