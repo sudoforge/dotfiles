@@ -48,6 +48,12 @@ super + shift + b
         --config-py ~/.config/qutebrowser/config.py \
         --basedir ~/.config/qutebrowser/profiles/canary
 
+# launch browser with profile: vogel
+super + hyper + b
+    qutebrowser \
+        --config-py ~/.config/qutebrowser/config.py \
+        --basedir ~/.config/qutebrowser/profiles/vogel
+
 # launch browser with temporary profile (aka "incognito mode")
 super + alt + b
     qutebrowser \
