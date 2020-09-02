@@ -89,9 +89,6 @@ set ssop-=folds
 " Key mappings
 "===============================================================================
 
-" Use <C-/> to clear the highlighting of :set hlsearch.
-nnoremap <silent> <C-/> :nohlsearch<CR>
-
 " bind 'jj' to <esc>
 inoremap jj <esc>
 
