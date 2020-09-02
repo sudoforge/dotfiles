@@ -60,6 +60,9 @@ $ find * -maxdepth 0 -type d | xargs stow -t "$$HOME"
 
 ```
 
+> You can use whatever symlink farm manager you'd like, however, this project
+> was built for compatibility with `stow`.
+
 # Contributing
 
 I welcome any and all improvements to this repository, however, note that as
