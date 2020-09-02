@@ -22,6 +22,10 @@ info.
 > If you're me, then you'll want to install `git-crypt` as well, along with the
 > appropriate GPG key, in order to decrypt those files. Since you're probably
 > not me, you don't need it.
+>
+> You should check the .gitattributes file for information about which paths are
+> encrypted. These paths will appear as binary diffs unless you have access to the
+> secret key, and have configured [`git-crypt`][git-crypt] appropriately.
 
 [stow]: https://www.gnu.org/software/stow/ "GNU Stow"
 [fira-mono]: https://fonts.google.com/specimen/Fira+Mono
