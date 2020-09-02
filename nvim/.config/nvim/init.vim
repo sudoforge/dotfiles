@@ -92,6 +92,14 @@ set ssop-=folds
 " bind 'jj' to <esc>
 inoremap jj <esc>
 
+" disable C-c in visual mode
+vnoremap <C-c> <NOP>
+
+" Use C-j to move from visual mode to normal mode, which is especially
+" convenient considering that we exit normal mode with 'jj', and even more
+" comfortable when the Control key is mapped to something else, e.g. CapsLock.
+vnoremap <C-j> <esc>
+
 " disable exit
 map <C-z> <nop>
 
