@@ -89,6 +89,16 @@ set ssop-=folds
 " Key mappings
 "===============================================================================
 
+" disable arrow key movement
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+
 " bind 'jj' to <esc>
 inoremap jj <esc>
 
