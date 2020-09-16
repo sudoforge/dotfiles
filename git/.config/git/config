@@ -86,6 +86,7 @@
   pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
   rc = commit --amend --no-edit
   rea = rebase --abort
+  rec = rebase --continue
   redo = reset 'HEAD@{1}'
   rp = !git commit --amend --no-edit && git push --force
   rv = remote --verbose
