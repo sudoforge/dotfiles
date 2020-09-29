@@ -30,6 +30,8 @@
   program = /usr/bin/gpg2
 [color]
 	ui = auto
+[advice]
+	detachedHead = false
 [filter "lfs"]
   required = true
   smudge = git-lfs smudge -- %f
