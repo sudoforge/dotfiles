@@ -4,6 +4,8 @@
   signingkey = C2631F793A698827
 [init]
   defaultBranch = trunk
+[blame]
+	showEmail = true
 [branch]
   autoSetupRebase = always
 [core]
