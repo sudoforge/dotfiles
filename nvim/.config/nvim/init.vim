@@ -21,9 +21,6 @@ syntax on
 " autoformat rust files on save via rust.vim
 let g:rustfmt_autosave = 1
 
-" autoformat HCL files on save via terraform.vim
-let g:terraform_fmt_on_save = 1
-
 " don't require the .jsx extension
 " this is used to allow JSX highlighting in .js files
 let g:jsx_ext_required = 0
