@@ -21,11 +21,11 @@ fi
 # By convention, the targets starting with two underscores are helper functions
 # used within my ZSH environment.
 ################################################################################
+autoload -Uz __fzf-history-widget
 autoload -Uz __git_prompt_status
 autoload -Uz __log
 autoload -Uz __maybe
 autoload -Uz __short_cwd
-autoload -Uz __fzf-history-widget
 autoload -Uz chat
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
