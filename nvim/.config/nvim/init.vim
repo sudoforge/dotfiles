@@ -29,6 +29,9 @@ let g:jsx_ext_required = 0
 set hidden
 let g:coc_global_extensions = ["coc-tsserver", "coc-json", "coc-go", "coc-rust-analyzer"]
 
+" vim-lsc configuration
+let g:lsc_auto_map = v:true
+
 " navigate the pop-up menu using tab, shift+tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
