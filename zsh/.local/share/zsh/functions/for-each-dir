@@ -1,0 +1,14 @@
+#!/usr/bin/env
+
+cmd="$@"
+
+find . \
+  -mindepth 1 \
+  -maxdepth 1 \
+  -type d \
+  -not \( \
+    -name '.git' -o \
+    -name '.svn' -o \
+    -name '.hg' \
+  \) \
+  -exec sh -c "cd {}; exec $cmd" \;

@@ -29,6 +29,7 @@ autoload -Uz __short_cwd
 autoload -Uz chat
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
+autoload -Uz for-each-dir
 autoload -Uz insert-composed-char
 autoload -Uz mp
 autoload -Uz spectrum && spectrum
