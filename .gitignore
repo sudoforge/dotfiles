@@ -5,3 +5,7 @@
 
 # platform-specific
 .DS_Store
+
+# ignore any `.gitignore.d` directory, used within this repository to house
+# files that shouldn't be shared, e.g. scripts for $WORK.
+**/.gitignore.d/**/*
