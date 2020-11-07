@@ -80,6 +80,7 @@ c.url.searchengines = {
     "!li": "https://www.linkedin.com/search/results/all/?keywords={}",
     "!lic": "https://www.linkedin.com/search/results/people/?facetNetwork=%5B%22F%22%5D&keywords={}",
     "!lim": "https://www.linkedin.com/messaging/?searchTerm={}",
+    "!lip": "https://www.linkedin.com/search/results/people/?keywords={}",
     "!lij": "https://www.linkedin.com/jobs/search/?keywords={}",
     "!music": "https://music.youtube.com/search?q={}",
     "!r": "https://www.reddit.com/search?q={}",
