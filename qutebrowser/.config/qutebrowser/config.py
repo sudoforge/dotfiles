@@ -78,6 +78,7 @@ c.url.searchengines = {
     "!evo": "https://www.evo.com/shop?text={}",
     "!gh": "https://github.com/search?q={}",
     "!li": "https://www.linkedin.com/search/results/all/?keywords={}",
+    "!lim": "https://www.linkedin.com/messaging/?searchTerm={}",
     "!music": "https://music.youtube.com/search?q={}",
     "!r": "https://www.reddit.com/search?q={}",
     "!rsw": "https://runescape.wiki/w/Special:Search?search={}",
