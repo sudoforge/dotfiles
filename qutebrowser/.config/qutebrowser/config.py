@@ -79,6 +79,7 @@ c.url.searchengines = {
     "!gh": "https://github.com/search?q={}",
     "!li": "https://www.linkedin.com/search/results/all/?keywords={}",
     "!lim": "https://www.linkedin.com/messaging/?searchTerm={}",
+    "!lij": "https://www.linkedin.com/jobs/search/?keywords={}",
     "!music": "https://music.youtube.com/search?q={}",
     "!r": "https://www.reddit.com/search?q={}",
     "!rsw": "https://runescape.wiki/w/Special:Search?search={}",
