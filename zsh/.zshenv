@@ -7,6 +7,7 @@ export GPG_TTY=$(tty)
 
 # General vars
 export EDITOR=nvim
+export DIFFPROG='nvim -d'
 export BROWSER=qutebrowser
 export XDG_CONFIG_HOME="$HOME/.config"
 
