@@ -1,3 +1,4 @@
+--check-payees
 --file ~/code/github.com/sudoforge/hydra/books/main.ledger
 --pedantic
 --price-db ~/code/github.com/sudoforge/hydra/books/prices.db
