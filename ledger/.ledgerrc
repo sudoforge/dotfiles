@@ -1,4 +1,5 @@
 --check-payees
+--date-format '%Y-%m-%d'
 --explicit
 --file ~/code/github.com/sudoforge/hydra/books/main.ledger
 --pedantic
