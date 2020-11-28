@@ -31,7 +31,7 @@ schemes:
       background: '#282828'
       foreground: '#ebdbb2'
     normal:
-      black:   '#282828'
+      black:   '#3d3d3d'
       red:     '#cc241d'
       green:   '#98971a'
       yellow:  '#d79921'
@@ -54,7 +54,7 @@ schemes:
       background: '#fbf1c7'
       foreground: '#3c3836'
     normal:
-      black:   '#fbf1c7'
+      black:   '#3d3d3d'
       red:     '#cc241d'
       green:   '#98971a'
       yellow:  '#d79921'
