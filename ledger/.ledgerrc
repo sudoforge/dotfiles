@@ -2,5 +2,6 @@
 --date-format '%Y-%m-%d'
 --explicit
 --file ~/code/github.com/sudoforge/hydra/books/main.ledger
+--flat
 --pedantic
 --price-db ~/code/github.com/sudoforge/hydra/books/prices.db
