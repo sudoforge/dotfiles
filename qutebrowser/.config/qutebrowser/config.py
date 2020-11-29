@@ -94,6 +94,7 @@ c.url.searchengines = {
     "!w": "https://en.wikipedia.org/w/index.php?search={}",
     "!yt": "https://www.youtube.com/results?search_query={}",
     "!yth": "https://www.youtube.com/feed/history?query={}",
+    "!ytm": "https://music.youtube.com/search?q={}",
 }
 
 # Hide window decoration (e.g. Gnome title bar)
