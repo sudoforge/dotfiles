@@ -77,6 +77,7 @@ c.url.searchengines = {
     "!domain": "https://domains.google.com/registrar/search?searchTerm={}",
     "!evo": "https://www.evo.com/shop?text={}",
     "!gh": "https://github.com/search?q={}",
+    "!gm": "https://play.google.com/store/search?c=movies&q={}",
     "!li": "https://www.linkedin.com/search/results/all/?keywords={}",
     "!lic": "https://www.linkedin.com/search/results/people/?facetNetwork=%5B%22F%22%5D&keywords={}",
     "!lim": "https://www.linkedin.com/messaging/?searchTerm={}",
