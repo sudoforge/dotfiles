@@ -101,6 +101,6 @@
   ss = -c commit.gpgsign=false stash save -u
   st = -c commit.gpgsign=false stash -u
   undo = reset HEAD~1 --mixed
-  up = !git fetch --all --prune $@ && git rebase FETCH_HEAD
+  up = !git fetch --all --prune $@ && git rebase @{u}
 [include]
   path = ~/.gitconfig.local
