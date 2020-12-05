@@ -36,30 +36,11 @@ super + l
 super + b
     qutebrowser
 
-# launch browser with profile: work
-super + ctrl + b
+# launch browser with profile: something-new
+shift + super + b
     qutebrowser \
         --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/work
-
-# lanch browser with profile: canary
-super + shift + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/canary
-
-# launch browser with profile: vogel
-super + hyper + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/vogel
-
-# launch browser with temporary profile (aka "incognito mode")
-super + alt + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/config.incognito.py \
-        --set content.private_browsing true \
-        --temp-basedir
+        --basedir ~/.config/qutebrowser/profiles/something-new
 
 # screenshots
 # ------------------------------------------------------------------------------
