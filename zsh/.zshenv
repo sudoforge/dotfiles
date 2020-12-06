@@ -10,6 +10,7 @@ export EDITOR=nvim
 export DIFFPROG='nvim -d'
 export BROWSER=qutebrowser
 export XDG_CONFIG_HOME="$HOME/.config"
+export MANPAGER='nvim +Man!'
 
 
 #########################
