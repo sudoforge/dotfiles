@@ -73,6 +73,7 @@
   cob = checkout -b
   cp = cherry-pick
   d = diff
+  dc = diff --cached
   e = config -e
   ec = config --global -e
   el = !git config --file ~/.gitconfig.local -e
