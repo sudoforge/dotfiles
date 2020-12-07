@@ -119,7 +119,19 @@ c.aliases = {
 # dict of key:command mappings.
 ################################################################################
 keybinds = {
-    "normal": {"<ctrl+j>": "enter-mode passthrough", "<ctrl+v>": None},
+    "normal": {
+        "<alt+0>": "tab-focus 10",
+        "<alt+9>": "tab-focus 9",
+        "<ctrl+j>": "enter-mode passthrough",
+        "<ctrl+v>": None,
+        "g$": None,
+        "gJ": "tab-focus -1",
+        "gK": "tab-focus 1",
+        "g^": None,
+        "gh": "tab-move -",
+        "gl": "tab-move +",
+        "gr": None,
+    },
     "caret": {"<ctrl+j>": "leave-mode", "<escape>": None},
     "command": {"<ctrl+j>": "leave-mode", "<escape>": None},
     "hint": {"<ctrl+j>": "leave-mode", "<escape>": None},
