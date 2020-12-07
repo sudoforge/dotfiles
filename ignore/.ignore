@@ -1,3 +1,4 @@
 # include non-sample git hooks in the search path
+.git/**
 !.git/hooks/*
 .git/hooks/*.sample
