@@ -45,6 +45,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " close the pop-up menu when the completion selection is done
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" disable backup, swap, and undo files
+set nobackup
+set noswapfile
+set noundofile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
@@ -74,7 +78,6 @@ set splitright      " :vsplit puts the new window to the right
 set tabstop=2       " indent every X columns
 set textwidth=80    " break lines at this many characters
 set wrap            " automatically wrap lines
-set nobackup        " don't create a backup before overwriting files
 
 " set the color scheme to gruvbox dark
 autocmd vimenter * colorscheme gruvbox
