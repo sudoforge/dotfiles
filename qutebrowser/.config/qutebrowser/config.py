@@ -125,6 +125,8 @@ keybinds = {
         "<ctrl+j>": "enter-mode passthrough",
         "<ctrl+pgdown>": None,
         "<ctrl+pgup>": None,
+        "<ctrl+shift+n>": None,
+        "<ctrl+shift+o>": "set-cmd-text -s :open -p",
         "<ctrl+shift+w>": None,
         "<ctrl+v>": None,
         "<ctrl+w>": None,
