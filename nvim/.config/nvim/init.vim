@@ -50,6 +50,9 @@ set nobackup
 set noswapfile
 set noundofile
 
+" automatically save when switching buffers
+autocmd BufLeave * silent! wall
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
