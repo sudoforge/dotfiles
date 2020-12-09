@@ -181,6 +181,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-space> <Plug>(coc-references)
 
 " fzf shortcuts
 nnoremap <C-p> :Files<CR>
