@@ -148,3 +148,7 @@ if [ -n "$1" ]; then
 else
     [ "$cd_fallback" = true ] && cd || cd "$WOPATH"
 fi
+
+if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
+  tmux rename-window "$(basename $PWD)"
+fi
