@@ -159,12 +159,10 @@ config_set fetch.prunetags true
 # configure the origin remote
 config_set remote.origin.url "$GIT_FORK__ORIGIN_URI"
 config_set remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-config_set remote.origin.tagopt '--no-tags'
 
 # configure the upstream remote
 config_set remote.upstream.url "$GIT_FORK__UPSTREAM_URI"
 config_set remote.upstream.fetch "$GIT_FORK__UPSTREAM_REFSPEC"
-config_unset remote.upstream.tagopt
 
 # configure branches
 config_set "branch.${GIT_FORK__HEAD_REF_NAME}.remote" upstream
