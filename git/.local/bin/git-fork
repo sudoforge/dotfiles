@@ -169,7 +169,6 @@ config_unset remote.upstream.tagopt
 # configure branches
 config_set "branch.${GIT_FORK__HEAD_REF_NAME}.remote" upstream
 config_set "branch.${GIT_FORK__HEAD_REF_NAME}.rebase" true
-config_unset "branch.${GIT_FORK__HEAD_REF_NAME}.pushremote"
 
 # always push to origin
 config_set remote.pushdefault origin
