@@ -138,7 +138,10 @@ keybinds = {
         "gl": "tab-move +",
         "gr": None,
     },
-    "caret": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "caret": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
     "command": {
         "<Tab>": None,
         "<ctrl+j>": "leave-mode",
@@ -148,14 +151,31 @@ keybinds = {
         "<ctrl+shift+p>": "completion-item-focus --history prev",
         "<escape>": None,
     },
-    "hint": {"<ctrl+j>": "leave-mode", "<escape>": None},
-    "insert": {"<ctrl+j>": "leave-mode", "<escape>": None},
-    "passthrough": {"<ctrl+j>": "leave-mode", "<shift+escape>": None},
-    "prompt": {"<ctrl+j>": "leave-mode", "<escape>": None},
-    "register": {"<ctrl+j>": "leave-mode", "<escape>": None},
-    "yesno": {"<ctrl+j>": "leave-mode", "<escape>": None},
+    "hint": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
+    "insert": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
+    "passthrough": {
+        "<ctrl+j>": "leave-mode",
+        "<shift+escape>": None,
+    },
+    "prompt": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
+    "register": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
+    "yesno": {
+        "<ctrl+j>": "leave-mode",
+        "<escape>": None,
+    },
 }
-
 
 for mode, binds in keybinds.items():
     for k, v in binds.items():
