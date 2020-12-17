@@ -192,7 +192,7 @@ nnoremap <C-f> :Rg!
 " Avoid annoying lack of pane/split navigation in insert mode
 inoremap <C-H> <ESC>:TmuxNavigateLeft<CR>
 inoremap <C-j> <ESC>:TmuxNavigateDown<CR>
-inoremap <C-k> <ESC>:TmuxNavigateLeft<CR>
+inoremap <C-k> <ESC>:TmuxNavigateUp<CR>
 inoremap <C-l> <ESC>:TmuxNavigateRight<CR>
 
 " Terminal-mode key mapping
