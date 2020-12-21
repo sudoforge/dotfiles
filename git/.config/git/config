@@ -19,6 +19,8 @@
   prompt = 0
 [fetch]
   pruneTags = true
+[http]
+  cookiefile = ~/.gitcookies
 [push]
   default = simple
 [pull]
