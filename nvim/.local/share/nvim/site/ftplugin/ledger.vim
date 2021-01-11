@@ -8,18 +8,19 @@ let g:ledger_maxwidth = 120
 "
 " ```
 " .
-" ├── 2020
-" │   ├── 01.ledger
-" │   ├── 02.ledger
-" │   ├── 03.ledger
+" ├── archive
+" │   ├── 2001.ledger
+" │   ├── 2002.ledger
+" │   ├── 2003.ledger
 " │   └── ...
 " └── main.ledger
 " ```
 "
-" where `main.ledger` contains the opening balances and then uses `!include` to
-" include the files in subsequent directories. this keeps things nice and tidy,
-" however, when editing a month-specific file, `vim-ledger` can't see any of the
-" other transactions. setting this option to `main.ledger` solves this problem.
+" where `main.ledger` contains the opening balances and current year, and then
+" uses `!include` to include the files in subsequent directories. this keeps
+" things nice and tidy, however, when editing a historical file, `vim-ledger`
+" can't see any of the other transactions. setting this option to `main.ledger`
+" solves this problem.
 let g:ledger_main = '~/code/github.com/sudoforge/hydra/books/main.ledger'
 
 " use { and } to navigate valid ledger blocks instead of paragraphs
