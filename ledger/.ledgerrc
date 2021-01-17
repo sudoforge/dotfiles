@@ -1,7 +1,7 @@
 --check-payees
 --date-format '%Y-%m-%d'
 --explicit
---file ~/code/github.com/sudoforge/hydra/books/main.ledger
+--file ~/code/github.com/sudoforge/source/books/main.ledger
 --flat
 --pedantic
---price-db ~/code/github.com/sudoforge/hydra/books/prices.db
+--price-db ~/code/github.com/sudoforge/source/books/prices.db
