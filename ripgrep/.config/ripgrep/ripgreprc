@@ -1,3 +1,5 @@
 --smart-case
 --follow
 --hidden
+--type-add
+build:BUILD,BUILD.bazel
