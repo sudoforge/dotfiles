@@ -2,6 +2,9 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+# Don't load autoconfig.yml (this is required as of v2.0.0)
+config.load_autoconfig(False)
+
 # Name of the session to load by default
 c.session.default_name = "default"
 
@@ -18,7 +21,7 @@ c.content.geolocation = False
 # Disable host blocking; this is redundant as I handle host blocking at the
 # gateway level for all devices on my LAN and locally, using /etc/hosts, for
 # non-static devices (e.g. laptops)
-c.content.host_blocking.enabled = False
+c.content.blocking.enabled = False
 
 # Enable JavaScript
 c.content.javascript.enabled = True
@@ -123,7 +126,7 @@ keybinds = {
     "normal": {
         "<alt+0>": "tab-focus 10",
         "<alt+9>": "tab-focus 9",
-        "<ctrl+j>": "enter-mode passthrough",
+        "<ctrl+j>": "mode-enter passthrough",
         "<ctrl+pgdown>": None,
         "<ctrl+pgup>": None,
         "<ctrl+shift+n>": None,
@@ -132,20 +135,15 @@ keybinds = {
         "<ctrl+v>": None,
         "<ctrl+w>": None,
         "g$": None,
-        "gJ": "tab-focus -1",
-        "gK": "tab-focus 1",
         "g^": None,
-        "gh": "tab-move -",
-        "gl": "tab-move +",
-        "gr": None,
     },
     "caret": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
     "command": {
         "<Tab>": None,
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<ctrl+n>": "completion-item-focus next",
         "<ctrl+p>": "completion-item-focus prev",
         "<ctrl+shift+n>": "completion-item-focus --history next",
@@ -153,27 +151,27 @@ keybinds = {
         "<escape>": None,
     },
     "hint": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
     "insert": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
     "passthrough": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<shift+escape>": None,
     },
     "prompt": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
     "register": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
     "yesno": {
-        "<ctrl+j>": "leave-mode",
+        "<ctrl+j>": "mode-leave",
         "<escape>": None,
     },
 }
