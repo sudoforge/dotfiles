@@ -1,0 +1,10 @@
+[Unit]
+Description=Polybar
+Documentation=man:polybar(1)
+
+[Service]
+ExecStart=/home/sudoforge/.config/polybar/polybar-launch
+KillSignal=SIGHUP
+
+[Install]
+WantedBy=default.target

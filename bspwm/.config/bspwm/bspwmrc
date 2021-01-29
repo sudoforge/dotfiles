@@ -7,7 +7,6 @@ sxhkd &
 xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal
 
 # load polybar
-$HOME/.local/bin/polybar-launch
 xset m 1/2 4
 
 # bspc rules for bspwm
