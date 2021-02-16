@@ -13,8 +13,6 @@
   sparseCheckout = true
 [commit]
   gpgsign = true
-[diff]
-  tool = nvim -d
 [difftool]
   prompt = 0
 [fetch]
@@ -27,8 +25,8 @@
   rebase = true
 [merge]
   ff = false
-  tool = nvimdiff
-[mergetool "nvimdiff"]
+  tool = vimdiff
+[mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [gpg]
   program = /usr/bin/gpg2
