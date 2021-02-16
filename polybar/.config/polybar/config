@@ -38,19 +38,11 @@ white = #ebdbb2
 
 ; ==============================================================================
 ; Define a bar named "top". If you look at //:dotfiles/local/bin/polybar-launch,
-; you'll see that this bar is explicitly launched, conditionally with the name
-; of the primary connected monitor passed as the variable "$MONITOR". It's
-; defaulted to "eDP-1" (the name of my laptop's display) here as opposed to
-; within the `polybar-launch` script, which allows for running `polybar`
-; _without_ the wrapper `polybar-launch` script.
-;
-; Some values, like `height`, are built around a resolution of 1920x1080.
-; Because this bar is _always_ shown, height-affecting properties are set with
-; care to ensure no odd vertical spacing or gaps appear throughout my screen
-; (e.g. in my terminal, before or after the tmux status bar)
+; you'll see that this bar is explicitly launched with MONITOR equal to the name
+; of the primary connected monitor as determined by `xrandr`.
 ; ==============================================================================
 [bar/top]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR}
 width = 100%
 height = 24
 offset-x = 0

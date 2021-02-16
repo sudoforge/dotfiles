@@ -1,7 +1,3 @@
 #!/usr/bin/env sh
 
-if mon=$(xrandr --query | grep "connected primary" | cut -d " " -f 1 2>/dev/null); then
-    MONITOR=$mon polybar --reload top
-else
-    polybar --reload top
-fi
+MONITOR="$(xrandr --query | awk '/connected primary/ {print $1}')" polybar --reload top
