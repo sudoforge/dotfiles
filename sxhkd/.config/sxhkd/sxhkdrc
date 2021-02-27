@@ -64,7 +64,7 @@ super + ctrl + p
 # ------------------------------------------------------------------------------
 
 # quit bspwm normally
-super + alt + L
+super + alt + l
     bspc quit
 
 # close and kill
