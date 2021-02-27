@@ -6,6 +6,7 @@
 ---
 env:
   TERM: tmux-256color
+  WINIT_X11_SCALE_FACTOR: "1.6666666666666667"
 
 window:
   decorations: none
