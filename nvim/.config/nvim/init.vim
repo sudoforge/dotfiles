@@ -170,6 +170,9 @@ nmap zE <nop>
 " disable man page on current word
 nmap <S-k> <nop>
 
+" find and replace instances of the word under the cursor
+nmap <S-k> :%s/\<<C-r><C-w>\>/
+
 " coc shortcuts
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
