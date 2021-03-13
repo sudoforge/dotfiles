@@ -88,6 +88,7 @@ c.url.searchengines = {
     "!lij": "https://www.linkedin.com/jobs/search/?keywords={}",
     "!mdn": "https://developer.mozilla.org/en-US/search?q={}",
     "!music": "https://music.youtube.com/search?q={}",
+    "!od": "https://www.opendota.com/search?q={}",
     "!r": "https://www.reddit.com/search?q={}",
     "!rsw": "https://runescape.wiki/w/Special:Search?search={}",
     "!rust": "https://doc.rust-lang.org/std/?search={}",
