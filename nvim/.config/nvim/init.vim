@@ -122,12 +122,6 @@ vnoremap <C-j> <esc>
 " disable exit
 map <C-z> <nop>
 
-" general search
-map <C-f> /
-
-" search the word under the cursor
-map <C-S-f> /<C-r><C-w><CR>
-
 " saner start and end of line keys
 nnoremap H ^
 nnoremap L $
@@ -187,7 +181,7 @@ nmap <silent> <C-space> <Plug>(coc-references)
 nnoremap <C-p> :Files<CR>
 nnoremap <C-o> :Buffers<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <C-f> :Rg! 
+nnoremap <C-f> :Rg<space>
 
 " Avoid annoying lack of pane/split navigation in insert mode
 inoremap <C-H> <ESC>:TmuxNavigateLeft<CR>
