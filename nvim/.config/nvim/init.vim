@@ -195,6 +195,7 @@ inoremap <C-l> <ESC>:TmuxNavigateRight<CR>
 " Terminal-mode key mapping
 "===============================================================================
 
+" Exit terminal mode with C-j
 tnoremap <C-j> <C-\><C-n>
 
 hi vertsplit guifg=bg guibg=bg
