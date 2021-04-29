@@ -1,3 +1,5 @@
+output eDP-1
+off
 output HDMI-1
 off
 output DP-1
@@ -10,13 +12,7 @@ output DP-5
 off
 output DP-7
 off
-output DP-9
-off
-output eDP-1
-off
 output DP-4
-off
-output DP-8
 off
 output DP-6
 crtc 0
