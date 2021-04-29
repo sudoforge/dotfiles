@@ -97,6 +97,7 @@ c.url.searchengines = {
     "!tfm": "https://registry.terraform.io/search/modules?q={}",
     "!tfp": "https://registry.terraform.io/search/providers?q={}",
     "!w": "https://en.wikipedia.org/w/index.php?search={}",
+    "!wh": "https://www.wowhead.com/search?q={}",
     "!yt": "https://www.youtube.com/results?search_query={}",
     "!yth": "https://www.youtube.com/feed/history?query={}",
     "!ytm": "https://music.youtube.com/search?q={}",
