@@ -30,12 +30,12 @@ config.set("content.javascript.enabled", True, "chrome://*/*")
 config.set("content.javascript.enabled", True, "qute://*/*")
 
 # Set default content.notifications behavior for specific URLs
-c.content.notifications = False
-config.set("content.notifications", True, "calendar.google.com")
-config.set("content.notifications", True, "play.google.com")
-config.set("content.notifications", True, "music.youtube.com")
-config.set("content.notifications", True, "messages.google.com")
-config.set("content.notifications", True, "www.fastmail.com")
+c.content.notifications.enabled = False
+config.set("content.notifications.enabled", True, "calendar.google.com")
+config.set("content.notifications.enabled", True, "play.google.com")
+config.set("content.notifications.enabled", True, "music.youtube.com")
+config.set("content.notifications.enabled", True, "messages.google.com")
+config.set("content.notifications.enabled", True, "www.fastmail.com")
 
 # Set default content.register_protocol_handler behavior for specific URLs
 c.content.register_protocol_handler = False
