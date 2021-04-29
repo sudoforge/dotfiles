@@ -139,6 +139,7 @@ keybinds = {
         "g$": None,
         "g^": None,
         "po": "open -p -- {clipboard}",
+        "pt": "open -t -- {clipboard}",
     },
     "caret": {
         "<ctrl+j>": "mode-leave",
