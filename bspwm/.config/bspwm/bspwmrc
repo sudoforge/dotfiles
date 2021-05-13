@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 /usr/lib/geoclue-2.0/demos/agent &
+systemctl --user start polybar.service
 sxhkd &
 
 # Ensure that removed/disabled monitors are removed
