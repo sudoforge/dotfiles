@@ -8,13 +8,13 @@ pass=$(command -v gopass)
 
 delete_buffer() {
   sleep 30
-  tmux delete-buffer -b "$1" > /dev/null
+  tmux delete-buffer -b "$1" &> /dev/null
 }
 
 # invoke delete_buffer in the background
 # we do this in a subshell to prevent printing the job and process IDs upon job
 # creation and completion
-(delete_buffer "$bufname" > /dev/null &)
+(delete_buffer "$bufname" &> /dev/null &)
 
 # `show -f` will always show the password, even if the `safecontent`
 # configuration value is set to true
