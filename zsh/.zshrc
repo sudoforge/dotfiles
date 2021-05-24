@@ -204,7 +204,7 @@ alias reload=". ~/.zshrc"
 alias rg="\rg --ignore-file ~/.ignore"
 alias se='sudoedit'
 alias tf='terraform'
-alias top='ytop -apf'
+alias top='ytop -ap'
 alias vim='nvim'
 
 # local configuration
