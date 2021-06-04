@@ -17,15 +17,8 @@ main() {
     BROWSER="$(xdg-settings get default-web-browser)"
   fi
 
-  local ret="$(command $BROWSER $URI 2>&1 | sed \
-    -e 's/^\([0-9]\{2\}:\?\)\{3\} //' \
-    -e 's/: /:/' \
-    -e 's/INFO/normal/')"
-  local urgency="$(echo $ret | cut -d ':' -f1)"
-  local message="$(echo $ret | cut -d ':' -f2)"
-  if [ -n "$urgency" ] && [ -n "$message" ]; then
-    notify-send -u "$urgency" -t 5000 "$message" "$URI"
-  fi
+  command "$BROWSER" "$URI" 2>&1 &&\
+  notify-send -u normal -t 3000 "Opening URL in $BROWSER" "$URI"
 }
 
 main "$@"
