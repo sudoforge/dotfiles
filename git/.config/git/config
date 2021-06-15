@@ -107,4 +107,4 @@
   addEmptyPathspec = false
   detachedHead = false
 [include]
-  path = ~/.gitconfig.local
+  path = ~/.config/git/config.local
