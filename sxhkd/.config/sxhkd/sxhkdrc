@@ -42,6 +42,12 @@ super + shift + b
         --config-py ~/.config/qutebrowser/config.py \
         --basedir ~/.config/qutebrowser/profiles/something-new
 
+# launch browser with profile: work
+super + ctrl + b
+    qutebrowser \
+        --config-py ~/.config/qutebrowser/config.py \
+        --basedir ~/.config/qutebrowser/profiles/work
+
 # screenshots
 # ------------------------------------------------------------------------------
 
