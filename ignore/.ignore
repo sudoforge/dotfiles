@@ -2,3 +2,6 @@
 .git/**
 !.git/hooks/*
 .git/hooks/*.sample
+
+# don't search virtual environments created by pipenv
+.venv
