@@ -39,11 +39,14 @@ config.set("content.notifications.enabled", True, "https://www.fastmail.com/*")
 
 # Allow URLs to capture the desktop
 c.content.desktop_capture = False
+config.set("content.desktop_capture", True, "https://meet.google.com/*")
 
 # Allow URLs to capture audio and video
 c.content.media.audio_capture = False
 c.content.media.video_capture = False
 c.content.media.audio_video_capture = False
+config.set("content.media.audio_capture", True, "https://meet.google.com/*")
+config.set("content.media.video_capture", True, "https://meet.google.com/*")
 
 # Set default content.register_protocol_handler behavior for specific URLs
 c.content.register_protocol_handler = False
