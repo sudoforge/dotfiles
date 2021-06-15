@@ -37,6 +37,14 @@ config.set("content.notifications.enabled", True, "https://music.youtube.com/*")
 config.set("content.notifications.enabled", True, "https://messages.google.com/*")
 config.set("content.notifications.enabled", True, "https://www.fastmail.com/*")
 
+# Allow URLs to capture the desktop
+c.content.desktop_capture = False
+
+# Allow URLs to capture audio and video
+c.content.media.audio_capture = False
+c.content.media.video_capture = False
+c.content.media.audio_video_capture = False
+
 # Set default content.register_protocol_handler behavior for specific URLs
 c.content.register_protocol_handler = False
 config.set("content.register_protocol_handler", True, "https://calendar.google.com/*")
