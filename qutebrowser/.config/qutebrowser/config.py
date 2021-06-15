@@ -31,16 +31,16 @@ config.set("content.javascript.enabled", True, "qute://*/*")
 
 # Set default content.notifications behavior for specific URLs
 c.content.notifications.enabled = False
-config.set("content.notifications.enabled", True, "calendar.google.com")
-config.set("content.notifications.enabled", True, "play.google.com")
-config.set("content.notifications.enabled", True, "music.youtube.com")
-config.set("content.notifications.enabled", True, "messages.google.com")
-config.set("content.notifications.enabled", True, "www.fastmail.com")
+config.set("content.notifications.enabled", True, "https://calendar.google.com/*")
+config.set("content.notifications.enabled", True, "https://drive.google.com/*")
+config.set("content.notifications.enabled", True, "https://music.youtube.com/*")
+config.set("content.notifications.enabled", True, "https://messages.google.com/*")
+config.set("content.notifications.enabled", True, "https://www.fastmail.com/*")
 
 # Set default content.register_protocol_handler behavior for specific URLs
 c.content.register_protocol_handler = False
-config.set("content.register_protocol_handler", True, "calendar.google.com")
-config.set("content.register_protocol_handler", True, "www.fastmail.com")
+config.set("content.register_protocol_handler", True, "https://calendar.google.com/*")
+config.set("content.register_protocol_handler", True, "https://www.fastmail.com/*")
 
 # Which interfaces to expose via WebRTC
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
