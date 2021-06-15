@@ -37,7 +37,7 @@ super + b
     qutebrowser
 
 # launch browser with profile: something-new
-shift + super + b
+super + shift + b
     qutebrowser \
         --config-py ~/.config/qutebrowser/config.py \
         --basedir ~/.config/qutebrowser/profiles/something-new
