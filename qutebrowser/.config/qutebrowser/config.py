@@ -149,6 +149,7 @@ keybinds = {
         "<ctrl+w>": None,
         "g$": None,
         "g^": None,
+        "<ctrl+t>": "tab-focus last",
         "po": "open -p -- {clipboard}",
         "pt": "open -t -- {clipboard}",
     },
