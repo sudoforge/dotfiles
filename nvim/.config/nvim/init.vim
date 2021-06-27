@@ -193,7 +193,17 @@ inoremap <C-k> <ESC>:TmuxNavigateUp<CR>
 inoremap <C-l> <ESC>:TmuxNavigateRight<CR>
 
 " Terminal-mode key mapping
+" <C-\><C-n> exits terminal mode
 "===============================================================================
+
+" Make moving around to other splits more natural
+tnoremap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+tnoremap <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
+tnoremap <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
+tnoremap <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
+
+" Make initiating buffer scrolling natural
+tnoremap <C-u> <C-\><C-n><C-u>
 
 " Exit terminal mode with C-j
 tnoremap <C-j> <C-\><C-n>
