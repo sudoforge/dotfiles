@@ -5,7 +5,7 @@
 [init]
   defaultBranch = trunk
 [blame]
-	showEmail = true
+  showEmail = true
 [branch]
   autoSetupRebase = always
 [core]
@@ -31,7 +31,7 @@
 [gpg]
   program = /usr/bin/gpg2
 [color]
-	ui = auto
+  ui = auto
 [filter "lfs"]
   required = true
   smudge = git-lfs smudge -- %f
