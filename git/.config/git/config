@@ -64,6 +64,7 @@
 [alias]
   aerc = !git add -A && git commit -a --amend
   aerp = !git add -A && git commit -u --amend && git push --force
+  arec = !git add . && git rebase --continue
   arc = !git add -A && git commit -a --amend --no-edit
   arp = !git add -A && git commit -a --amend --no-edit && git push --force
   b = branch
