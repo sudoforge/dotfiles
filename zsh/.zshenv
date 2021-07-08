@@ -35,8 +35,8 @@ export PIPENV_VENV_IN_PROJECT="enabled"
 #########################
 
 # history settings
-export SAVEHIST=5000
-export HISTSIZE=5000
+export SAVEHIST=20000
+export HISTSIZE=20000
 export HISTFILE="${HOME}/.cache/zsh/history"
 
 # Display time and usage for long-running commands
