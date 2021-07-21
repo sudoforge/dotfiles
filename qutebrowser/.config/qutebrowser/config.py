@@ -68,6 +68,10 @@ c.tabs.new_position.related = "last"
 # Page to open if :open -t/-b/-w is used without URL.
 c.url.default_page = "about:blank"
 
+# Allow pinned tabs to navigate away from the current URL when calling the :open
+# command with a url parameter (eg quickmark, manual url, etc)
+c.tabs.pinned.frozen = False
+
 # Set colors for private browsing mode
 # Note that "private browsing mode" above refers the Qutebrowser's internal
 # "private mode", and as such these settings only apply to windows opened in
