@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Short circuit if the battery is being charged
+{ acpi -b | grep 'Charging'; } && exit 0
+
+# Determine the battery level
+battery_level=$(acpi -b | grep -Po '[0-9]+(?=%)')
+
+echo "INFO: Current battery level: ${battery_level}%"
+
+# Only send a notification if the battery level is less than 20%
+if [ "$battery_level" -le 20 ]; then
+  # notice_level is used to set the urgency of the notification. as such, its
+  # valid values are: low, normal, critical
+  urgency=normal
+  time=5000
+  [ "$battery_level" -le 10 ] && { urgency=critical ; time=0 ; }
+  notify-send -t $time "Low battery level" "The current battery level is ${battery_level}%"
+fi

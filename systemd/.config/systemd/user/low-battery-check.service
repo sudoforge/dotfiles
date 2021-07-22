@@ -1,0 +1,8 @@
+[Unit]
+Description=Low Battery Notification
+
+[Service]
+ExecStart=%h/.local/bin/low-battery-check
+
+[Install]
+WantedBy=default.target
