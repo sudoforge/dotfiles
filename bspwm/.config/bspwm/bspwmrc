@@ -53,5 +53,5 @@ if [ -z "$primary_monitor" ]; then
     -u critical "BSPWM init failure" \
     "Unable to detect the primary monitor. BSPWM desktops will not be configured."
 else
-  bspc monitor "${primary_monitor%%\ *}" -d term web work game
+  bspc monitor "${primary_monitor%%\ *}" -d term web work chat
 fi
