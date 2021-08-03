@@ -29,6 +29,15 @@ super + c
 super + l
     /usr/bin/physlock -md
 
+# password manager
+# ------------------------------------------------------------------------------
+
+# copy passwords to the system clipboard
+super + backslash
+    gopass ls --flat |\
+      rofi -dmenu -p 'filter' |\
+      xargs -r gopass -c
+
 # browser
 # ------------------------------------------------------------------------------
 
