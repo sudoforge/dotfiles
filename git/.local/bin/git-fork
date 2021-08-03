@@ -170,3 +170,6 @@ config_set "branch.${GIT_FORK__HEAD_REF_NAME}.rebase" true
 
 # always push to origin
 config_set remote.pushdefault origin
+
+# fetch the upstream repository so that tracking will work immediately
+git fetch upstream
