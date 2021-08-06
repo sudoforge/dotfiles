@@ -45,17 +45,22 @@ super + backslash
 super + b
     qutebrowser
 
-# launch browser with profile: something-new
-super + shift + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/something-new
-
 # launch browser with profile: work
 super + ctrl + b
     qutebrowser \
         --config-py ~/.config/qutebrowser/config.py \
         --basedir ~/.config/qutebrowser/profiles/work
+
+super + shift + b
+    qutebrowser \
+        --config-py ~/.config/qutebrowser/config.py \
+        --basedir ~/.config/qutebrowser/profiles/38a3142e72ee
+
+# launch browser with profile: something-new
+super + alt + b
+    qutebrowser \
+        --config-py ~/.config/qutebrowser/config.py \
+        --basedir ~/.config/qutebrowser/profiles/something-new
 
 # screenshots
 # ------------------------------------------------------------------------------
