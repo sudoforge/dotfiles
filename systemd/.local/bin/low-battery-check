@@ -15,5 +15,9 @@ if [ "$battery_level" -le 20 ]; then
   urgency=normal
   time=5000
   [ "$battery_level" -le 10 ] && { urgency=critical ; time=0 ; }
-  notify-send -t $time "Low battery level" "The current battery level is ${battery_level}%"
+  notify-send \
+    -t $time \
+    -u "$urgency" \
+    "Low battery level" \
+    "The current battery level is ${battery_level}%"
 fi
