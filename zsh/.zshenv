@@ -58,4 +58,7 @@ FPATH="${HOME}/.local/share/zsh/functions:${FPATH}"
 # Add local completion directory to FPATH for automatic pickup
 FPATH="${HOME}/.local/share/zsh/completions:${FPATH}"
 
+##### DO NOT EDIT BELOW THIS LINE ##################################################################
+
+# Enable extending this configuration by sourcing ~/.zshenv.local, if it exists
 [ -f "${HOME}/.zshenv.local" ] && . "${HOME}/.zshenv.local"
