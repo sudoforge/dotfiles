@@ -17,20 +17,9 @@ info.
   - [`Fira Mono`][fira-mono]
   - [`Symbols Nerd Font`][symbols-nerd-font]
 
-> **NOTE**
-> This repository includes some files encrypted with [`git-crypt`][git-crypt].
-> If you're me, then you'll want to install `git-crypt` as well, along with the
-> appropriate GPG key, in order to decrypt those files. Since you're probably
-> not me, you don't need it.
->
-> You should check the .gitattributes file for information about which paths are
-> encrypted. These paths will appear as binary diffs unless you have access to the
-> secret key, and have configured [`git-crypt`][git-crypt] appropriately.
-
 [stow]: https://www.gnu.org/software/stow/ "GNU Stow"
 [fira-mono]: https://fonts.google.com/specimen/Fira+Mono
 [symbols-nerd-font]: https://github.com/ryanoasis/nerd-fonts
-[git-crypt]: https://github.com/agwa/git-crypt "AGWA/git-crypt"
 
 ## Installation
 
