@@ -28,6 +28,7 @@ files and directories in this repository. Below are instructions for using it to
 install both individual packages and all packages.
 
 > **NOTE**
+>
 > In `stow` terminology, a "package" is simply a directory, not a "package" in
 > the sense of the word you may be used to.
 
