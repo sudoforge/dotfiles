@@ -83,6 +83,7 @@
   ll = log --show-signature --stat --format=fuller
   llp = log --show-signature --stat --patch --format=fuller
   lp = log --patch --format=medium
+  lr = log --format='%H'
   ls = log --stat --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   p = push
   pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
