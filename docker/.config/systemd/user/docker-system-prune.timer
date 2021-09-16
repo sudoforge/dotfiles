@@ -1,0 +1,10 @@
+[Unit]
+Description=Prune unused docker data
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+AccuracySec=5h
+Persistent=True
+
+[Install]
+WantedBy=default.target

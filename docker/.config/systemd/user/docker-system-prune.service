@@ -1,0 +1,8 @@
+[Unit]
+Description=Prune unused docker data
+
+[Service]
+ExecStart=/usr/bin/env docker system prune --force
+
+[Install]
+WantedBy=default.target
