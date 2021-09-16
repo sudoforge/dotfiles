@@ -108,5 +108,6 @@
 [advice]
   addEmptyPathspec = false
   detachedHead = false
+  ignoredHook = false
 [include]
   path = ~/.config/git/config.local
