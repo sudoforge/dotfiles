@@ -105,7 +105,6 @@ c.url.searchengines = {
     "!lij": "https://www.linkedin.com/jobs/search/?keywords={}",
     "!mdn": "https://developer.mozilla.org/en-US/search?q={}",
     "!music": "https://music.youtube.com/search?q={}",
-    "!od": "https://www.opendota.com/search?q={}",
     "!r": "https://www.reddit.com/search?q={}",
     "!rust": "https://doc.rust-lang.org/std/?search={}",
     "!rustn": "https://doc.rust-lang.org/nightly/std/?search={}",
