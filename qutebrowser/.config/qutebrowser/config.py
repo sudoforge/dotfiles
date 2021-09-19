@@ -94,6 +94,7 @@ c.url.searchengines = {
     "!crates": "https://crates.io/search?q={}",
     "!domain": "https://domains.google.com/registrar/search?searchTerm={}",
     "!evo": "https://www.evo.com/shop?text={}",
+    "!fedex": "https://www.fedex.com/fedextrack/?trknbr={}",
     "!gh": "https://github.com/search?q={}",
     "!gm": "https://play.google.com/store/search?c=movies&q={}",
     "!hub": "https://hub.docker.com/search/?type=image&q={}",
