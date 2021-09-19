@@ -112,6 +112,7 @@ c.url.searchengines = {
     "!tf": "https://registry.terraform.io/search/?q={}",
     "!tfm": "https://registry.terraform.io/search/modules?q={}",
     "!tfp": "https://registry.terraform.io/search/providers?q={}",
+    "!ups": "https://wwwapps.ups.com/WebTracking/processInputRequest?tracknum={}",
     "!w": "https://en.wikipedia.org/w/index.php?search={}",
     "!wh": "https://www.wowhead.com/search?q={}",
     "!yt": "https://www.youtube.com/results?search_query={}",
