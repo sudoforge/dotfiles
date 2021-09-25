@@ -205,6 +205,7 @@ alias rg="\rg --ignore-file ~/.ignore"
 alias se='sudoedit'
 alias tf='terraform'
 alias top='ytop -ap'
+alias userctl='systemctl --user'
 alias vim='nvim'
 
 # local configuration
