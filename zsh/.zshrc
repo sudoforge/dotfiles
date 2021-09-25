@@ -206,6 +206,7 @@ alias se='sudoedit'
 alias tf='terraform'
 alias top='ytop -ap'
 alias userctl='systemctl --user'
+alias userjrnl='journalctl --user'
 alias vim='nvim'
 
 # local configuration
