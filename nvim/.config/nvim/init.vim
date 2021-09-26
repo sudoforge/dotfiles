@@ -32,9 +32,6 @@ let g:coc_global_extensions = ["coc-tsserver", "coc-json", "coc-go", "coc-rust-a
 " vim-lsc configuration
 let g:lsc_auto_map = v:true
 
-" fzf.vim configuration
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore-file "~/.ignore"'
-
 " navigate the pop-up menu using tab, shift+tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
