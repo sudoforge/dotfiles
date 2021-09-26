@@ -9,7 +9,7 @@ export GPG_TTY=$(tty)
 export EDITOR=nvim
 export DIFFPROG='nvim -d'
 export BROWSER=qutebrowser
-export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CONFIG_HOME="$HOME/.config"
 export MANPAGER='nvim +Man!'
 
 
@@ -24,7 +24,7 @@ export GOPATH="${HOME}/.go"
 export WOPATH="${HOME}/code"
 
 # [ripgrep]
-export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/ripgreprc"
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 
 # [python]
 export PIPENV_VENV_IN_PROJECT="enabled"
@@ -63,5 +63,5 @@ FPATH="${HOME}/.local/share/zsh/completions:${FPATH}"
 
 ##### DO NOT EDIT BELOW THIS LINE ##################################################################
 
-# Enable extending this configuration by sourcing $HOME/.zshenv.local, if it exists
+# Enable extending this configuration by sourcing ~/.zshenv.local, if it exists
 [ -f "${HOME}/.zshenv.local" ] && . "${HOME}/.zshenv.local"
