@@ -41,7 +41,6 @@ super + backslash
 # browser
 # ------------------------------------------------------------------------------
 
-# launch browser with default profile
 super + b
     qutebrowser
 
@@ -55,11 +54,10 @@ super + shift + b
         --config-py ~/.config/qutebrowser/profiles/38a3142e72ee/config.py \
         --basedir ~/.config/qutebrowser/profiles/38a3142e72ee
 
-# launch browser with profile: something-new
 super + alt + b
     qutebrowser \
         --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/something-new
+        --basedir ~/.config/qutebrowser/profiles/3272ec796e2a
 
 # screenshots
 # ------------------------------------------------------------------------------
