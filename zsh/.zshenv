@@ -29,6 +29,9 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
 # [python]
 export PIPENV_VENV_IN_PROJECT="enabled"
 
+# [fzf]
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
+
 
 #########################
 # ZSH OPTIONS
