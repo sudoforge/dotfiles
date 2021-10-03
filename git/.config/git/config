@@ -23,6 +23,8 @@
   default = simple
 [pull]
   rebase = true
+[log]
+  mailmap = true
 [merge]
   ff = false
   tool = vimdiff
