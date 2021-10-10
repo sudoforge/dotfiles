@@ -1,7 +1,5 @@
 --check-payees
 --date-format '%Y-%m-%d'
 --explicit
---file ~/code/github.com/sudoforge/source/books/main.ledger
 --flat
 --pedantic
---price-db ~/code/github.com/sudoforge/source/books/prices.db
