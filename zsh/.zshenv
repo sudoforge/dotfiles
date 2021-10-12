@@ -17,23 +17,12 @@ export MANPAGER='nvim +Man!'
 # UTILIES AND TOOLS
 #########################
 
-# [golang]
-export GOPATH="${HOME}/.go"
-
-# [misc]
-export WOPATH="${HOME}/code"
-
-# [ripgrep]
-export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/ripgreprc"
-
-# [python]
-export PIPENV_VENV_IN_PROJECT="enabled"
-
-# [fzf]
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
-
-# [less]
+export GOPATH="${HOME}/.go"
 export LESS='-XFRi'
+export PIPENV_VENV_IN_PROJECT="enabled"
+export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/ripgreprc"
+export WOPATH="${HOME}/code"
 
 
 #########################
