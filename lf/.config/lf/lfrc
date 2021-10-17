@@ -1,0 +1,3 @@
+# useful line number display
+set number
+set relativenumber
