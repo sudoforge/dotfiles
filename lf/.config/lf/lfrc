@@ -1,6 +1,7 @@
 ################################################################################
 # OPTIONS
 ################################################################################
+set hidden         # show hidden files
 set number         # display line numbers
 set relativenumber # display line numbers relative to the current line
 
