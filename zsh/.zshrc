@@ -185,6 +185,7 @@ alias ...=../../
 alias ....=../../../
 alias b='bazel'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
+alias copybara="copybara --output-root ~/.cache/copybara"
 alias diff='diff -urN --color'
 alias dls="dirs -v"
 alias e="nvim"
