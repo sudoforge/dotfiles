@@ -13,9 +13,8 @@ c.auto_save.session = True
 
 # Disable <video> autoplay
 c.content.autoplay = False
-config.set("content.autoplay", True, "play.google.com/music/*")
 
-# Prevent websites from asking for geolocation
+# Disable asking for location permissions
 c.content.geolocation = False
 
 # Disable host blocking; this is redundant as I handle host blocking at the
@@ -23,35 +22,50 @@ c.content.geolocation = False
 # non-static devices (e.g. laptops)
 c.content.blocking.enabled = False
 
-# Enable JavaScript
+# Enable Javascript... because that's how the web works these days
 c.content.javascript.enabled = True
-config.set("content.javascript.enabled", True, "file://*")
-config.set("content.javascript.enabled", True, "chrome://*/*")
-config.set("content.javascript.enabled", True, "qute://*/*")
 
-# Set default content.notifications behavior for specific URLs
+# Disable desktop notifications by default
 c.content.notifications.enabled = False
-config.set("content.notifications.enabled", True, "https://calendar.google.com/*")
-config.set("content.notifications.enabled", True, "https://drive.google.com/*")
-config.set("content.notifications.enabled", True, "https://music.youtube.com/*")
-config.set("content.notifications.enabled", True, "https://messages.google.com/*")
-config.set("content.notifications.enabled", True, "https://www.fastmail.com/*")
 
-# Allow URLs to capture the desktop
+# Disable desktop capture by default
 c.content.desktop_capture = False
-config.set("content.desktop_capture", True, "https://meet.google.com/*")
 
-# Allow URLs to capture audio and video
+# Disable audio video capture by default
 c.content.media.audio_capture = False
 c.content.media.video_capture = False
 c.content.media.audio_video_capture = False
-config.set("content.media.audio_capture", True, "https://meet.google.com/*")
-config.set("content.media.video_capture", True, "https://meet.google.com/*")
 
-# Set default content.register_protocol_handler behavior for specific URLs
+# Disable protocol handler registration by default
 c.content.register_protocol_handler = False
-config.set("content.register_protocol_handler", True, "https://calendar.google.com/*")
-config.set("content.register_protocol_handler", True, "https://www.fastmail.com/*")
+
+# Define variables for permissions
+AUTOPLAY = "content.autoplay"
+CAPTURE_AUDIO = "content.media.audio_capture"
+CAPTURE_AV = "content.media.audio_video_capture"
+CAPTURE_DESKTOP = "content.desktop_capture"
+CAPTURE_VIDEO = "content.media.video_capture"
+HANDLER = "content.register_protocol_handler"
+NOTIFICATIONS = "content.notifications.enabled"
+
+# A mapping of host patterns to the permissions granted to matching URIs. For
+# information about the matching patterns, see [0].
+#
+# [0]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
+HOST_ENABLED_PERMISSIONS = {
+    "https://calendar.google.com": [HANDLER],
+    "https://calendar.google.com": [NOTIFICATIONS],
+    "https://drive.google.com": [NOTIFICATIONS],
+    "https://meet.google.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, CAPTURE_VIDEO],
+    "https://messages.google.com": [NOTIFICATIONS],
+    "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
+    "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
+}
+
+# Enable permissions for hosts
+for host, perms in HOST_ENABLED_PERMISSIONS.items():
+    for p in perms:
+        config.set(p, True, f"{host}/*")
 
 # Which interfaces to expose via WebRTC
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
