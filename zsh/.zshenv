@@ -17,6 +17,7 @@ export MANPAGER='nvim +Man!'
 # UTILIES AND TOOLS
 #########################
 
+export CHROME_EXECUTABLE=chromium
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
 export GOPATH="${HOME}/.go"
 export LESS='-XFRi'
