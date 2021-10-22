@@ -9,11 +9,11 @@ set relativenumber # display line numbers relative to the current line
 # WORKFLOW
 ################################################################################
 
-# ensure the trash directory exists
-%mkdir -p ~/.cache/trash
-
-# move selected files to the trash directory
-cmd trash %set -f; mv $fx ~/.cache/trash
+# trash files without removing them from disk
+cmd trash ${{
+    mkdir -p ~/.cache/trash
+    IFS="`printf '\n\t'`"; mv $fx ~/.cache/trash
+}}
 
 ################################################################################
 # KEYMAP
