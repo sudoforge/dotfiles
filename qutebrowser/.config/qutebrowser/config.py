@@ -82,6 +82,24 @@ c.tabs.new_position.related = "last"
 # Page to open if :open -t/-b/-w is used without URL.
 c.url.default_page = "about:blank"
 
+# Configure the filepicker
+filepicker = [
+    "alacritty",
+    "--class",
+    "filepicker",
+    "--title",
+    "filepicker",
+    "-e",
+    "lf",
+    "-command",
+    "set nohidden",
+    "-selection-path={}",
+]
+c.fileselect.handler = "external"
+c.fileselect.folder.command = filepicker
+c.fileselect.multiple_files.command = filepicker
+c.fileselect.single_file.command = filepicker
+
 # Set colors for private browsing mode
 # Note that "private browsing mode" above refers the Qutebrowser's internal
 # "private mode", and as such these settings only apply to windows opened in
