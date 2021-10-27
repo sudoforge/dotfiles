@@ -60,6 +60,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://messages.google.com": [NOTIFICATIONS],
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
     "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
+    "https://*.slack.com": [CAPTURE_AUDIO],
 }
 
 # Enable permissions for hosts
