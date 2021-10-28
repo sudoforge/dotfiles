@@ -127,6 +127,7 @@ c.url.searchengines = {
     "!fedex": "https://www.fedex.com/fedextrack/?trknbr={}",
     "!gh": "https://github.com/search?q={}",
     "!gm": "https://play.google.com/store/search?c=movies&q={}",
+    "!go": "https://pkg.go.dev/search?q={}",
     "!hub": "https://hub.docker.com/search/?type=image&q={}",
     "!li": "https://www.linkedin.com/search/results/all/?keywords={}",
     "!lic": "https://www.linkedin.com/search/results/people/?facetNetwork=%5B%22F%22%5D&keywords={}",
