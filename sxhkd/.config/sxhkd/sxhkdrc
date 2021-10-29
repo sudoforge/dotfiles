@@ -40,9 +40,9 @@ super + alt + period
 # ------------------------------------------------------------------------------
 
 # copy passwords to the system clipboard
-super + backslash
+ctrl + backslash
     gopass ls --flat |\
-      rofi -dmenu -p 'filter' |\
+      rofi -dmenu -p 'pass' |\
       xargs -r gopass -c
 
 # browser
