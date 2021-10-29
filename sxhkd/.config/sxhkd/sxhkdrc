@@ -45,6 +45,12 @@ ctrl + backslash
       rofi -dmenu -p 'pass' |\
       xargs -r gopass -c
 
+# copy otp codes to the system clipboard
+ctrl + shift + backslash
+    gopass ls --flat |\
+      rofi -dmenu -p 'otp' |\
+      xargs -r gopass otp -c
+
 # browser
 # ------------------------------------------------------------------------------
 
