@@ -90,6 +90,27 @@ super + ctrl + p
     maim ~/media/screenshots/$(date +%Y%m%dT%H%M%S%3N).png &&\
     notify-send "screenshot:" "~/media/screenshots/$(/usr/bin/ls --sort time ~/media/screenshots | head -n 1)"
 
+# notifications
+# ------------------------------------------------------------------------------
+
+# Close the current notification
+ctrl + space
+  dunstctl close
+
+# Close all notifications that are currently displayed
+ctrl + shift + space
+  dunstctl close-all
+
+# Perform the default action (or opens the context menu) of the current
+# notification
+ctrl + period
+  dunstctl action 0
+
+# Redisplay the notification that was most recently closed. This can be repeated
+# up to the history limit configured in ~/.config/dunst/dunstrc
+ctrl + grave
+  dunstctl history-pop
+
 # bspwm hotkeys
 # ------------------------------------------------------------------------------
 
