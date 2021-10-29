@@ -36,6 +36,15 @@ super + alt + period
       head -c12 |\
       tmux load-buffer -
 
+# password manager
+# ------------------------------------------------------------------------------
+
+# copy passwords to the system clipboard
+super + backslash
+    gopass ls --flat |\
+      rofi -dmenu -p 'filter' |\
+      xargs -r gopass -c
+
 # browser
 # ------------------------------------------------------------------------------
 
