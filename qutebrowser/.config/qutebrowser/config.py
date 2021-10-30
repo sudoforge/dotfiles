@@ -59,6 +59,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://meet.google.com": [CAPTURE_AV, CAPTURE_DESKTOP],
     "https://messages.google.com": [NOTIFICATIONS],
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
+    "https://tweetdeck.twitter.com": [NOTIFICATIONS],
     "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
     "https://*.slack.com": [CAPTURE_AUDIO],
 }
