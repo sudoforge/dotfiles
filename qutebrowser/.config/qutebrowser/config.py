@@ -84,6 +84,18 @@ c.tabs.new_position.related = "last"
 # Page to open if :open -t/-b/-w is used without URL.
 c.url.default_page = "about:blank"
 
+# Disable mouse back/forward buttons
+c.input.mouse.back_forward_buttons = False
+
+# Disable closing tabs with mouse buttons
+c.tabs.close.mouse_button = "none"
+
+# Disable mousewheel tab switching
+c.tabs.mousewheel_switching = False
+
+# Disable ctrl+mousewheel zooming
+c.zoom.mouse_divider = 0
+
 # Configure the filepicker
 filepicker = [
     "alacritty",
