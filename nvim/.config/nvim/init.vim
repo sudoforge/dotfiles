@@ -183,21 +183,21 @@ nnoremap <C-o> :Buffers<CR>
 nnoremap <C-g> :GFiles<CR>
 nnoremap <C-f> :Rg<space>
 
-" Avoid annoying lack of pane/split navigation in insert mode
-inoremap <C-h> <ESC>:TmuxNavigateLeft<CR>
-inoremap <C-j> <ESC>:TmuxNavigateDown<CR>
-inoremap <C-k> <ESC>:TmuxNavigateUp<CR>
-inoremap <C-l> <ESC>:TmuxNavigateRight<CR>
+" Move between splits more naturally
+lua<<EOF
+local mode_escape_bindings = {
+  ["n"] = "",
+  ["i"] = "<esc>",
+  ["v"] = "<esc>",
+  ["t"] = "<C-\\><C-n>",
+}
 
-" Terminal-mode key mapping
-" <C-\><C-n> exits terminal mode
-"===============================================================================
-
-" Make moving around to other splits more natural
-tnoremap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
-tnoremap <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
-tnoremap <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
-tnoremap <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
+for mode, escape in pairs(mode_escape_bindings) do
+    for _, key in pairs({"h", "j", "k", "l"}) do
+        vim.api.nvim_set_keymap(mode, "<C-" .. key .. ">", escape .. "<C-w>" .. key, { noremap=true })
+    end
+end
+EOF
 
 " Make initiating buffer scrolling natural
 tnoremap <C-u> <C-\><C-n><C-u>
