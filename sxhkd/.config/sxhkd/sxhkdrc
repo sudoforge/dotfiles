@@ -23,7 +23,7 @@ super + v
 
 # set tmux buffer using the system clipboard
 super + c
-    tmux set-buffer "$(xclip -selection c -o)"
+    xclip -select c -o | tmux load-buffer -
 
 # lock the screen
 super + l
