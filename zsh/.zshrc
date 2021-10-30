@@ -9,6 +9,20 @@ if command -v tmux > /dev/null 2>&1 && [ -z "${TMUX+x}" ] && [ ! "$UID" -eq 0 ];
     tmux new-session -A -s main
 fi
 
+# set NVIM_LISTEN_ADDRESS for neovim-remote
+#
+# if tmux is installed and we're in a tmux session, then set the value to one
+# that is unique per user and window, so that each invocation of neovim-remote
+# by the same user within the same window will utilize the same address.
+#
+# otherwise, set the address to one that is unique per user.
+if command -v nvr > /dev/null 2>&1 && [ -z "$NVIM_LISTEN_ADDRESS" ]; then
+    if command -v tmux > /dev/null 2>&1 && [ -n "$TMUX" ]; then
+        export NVIM_LISTEN_ADDRESS="nvim.${USER}.${$(tmux display -p '#{window_id}')#@}"
+    else
+        export NVIM_LISTEN_ADDRESS="nvim.${USER}"
+    fi
+fi
 
 # Autoload functions
 #
@@ -189,7 +203,7 @@ alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias copybara="copybara --output-root ~/.cache/copybara"
 alias diff='diff -urN --color'
 alias dls="dirs -v"
-alias e="nvim"
+alias e="nvr"
 alias exif="exiv2"
 alias gcp="gcloud"
 alias gcs="gsutil"
@@ -209,7 +223,7 @@ alias tf='terraform'
 alias top='ytop -ap'
 alias userctl='systemctl --user'
 alias userjrnl='journalctl --user'
-alias vim='nvim'
+alias vim='e'
 
 # local configuration
 #

@@ -19,6 +19,7 @@ export MANPAGER='nvim +Man!'
 
 export CHROME_EXECUTABLE=chromium
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
+export GIT_EDITOR='nvr -cc split --remote-wait'
 export GOPATH="${HOME}/.go"
 export LESS='-XFRi'
 export PIPENV_VENV_IN_PROJECT="enabled"
