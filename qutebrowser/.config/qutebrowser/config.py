@@ -88,7 +88,7 @@ c.url.default_page = "about:blank"
 c.input.mouse.back_forward_buttons = False
 
 # Disable closing tabs with mouse buttons
-c.tabs.close.mouse_button = "none"
+c.tabs.close_mouse_button = "none"
 
 # Disable mousewheel tab switching
 c.tabs.mousewheel_switching = False
