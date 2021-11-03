@@ -6,11 +6,11 @@
 export GPG_TTY=$(tty)
 
 # General vars
-export EDITOR=nvim
-export DIFFPROG='nvim -d'
+export EDITOR='nvr -s'
+export DIFFPROG='nvr -s -d'
 export BROWSER=qutebrowser
 export XDG_CONFIG_HOME="${HOME}/.config"
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvr -s -c 'Man!' -"
 
 
 #########################
@@ -19,7 +19,7 @@ export MANPAGER='nvim +Man!'
 
 export CHROME_EXECUTABLE=chromium
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
-export GIT_EDITOR='nvr -cc split --remote-wait'
+export GIT_EDITOR='nvr -s --remote-wait'
 export GOPATH="${HOME}/.go"
 export LESS='-XFRi'
 export PIPENV_VENV_IN_PROJECT="enabled"

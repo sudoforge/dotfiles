@@ -214,11 +214,11 @@ alias kn='kubens'
 alias ku='kubectl'
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
-alias pass='gopass'
+alias pass='EDITOR="nvr -s --remote-wait" gopass'
 alias qb='qutebrowser'
 alias reload=". ~/.zshrc"
 alias rg="\rg --ignore-file ~/.ignore"
-alias se='sudoedit'
+alias se='EDITOR="nvr -s --remote-wait" sudoedit'
 alias tf='terraform'
 alias top='ytop -ap'
 alias userctl='systemctl --user'
