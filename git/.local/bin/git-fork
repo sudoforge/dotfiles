@@ -9,14 +9,14 @@ usage() {
     reset=$(tput sgr0)
 
     printf "\n${bold}USAGE${reset}\n"
-    printf "\tgit fork <upstream_uri> <origin_uri>\n\n"
+    printf "\tgit fork <origin_uri> <fork_uri>\n\n"
 
     printf "\n${bold}ASSUMPTIONS${reset}"
-    printf "\n\t* you want or have two remotes: origin and upstream"
+    printf "\n\t* you want or have two remotes: origin and fork"
     printf "\n\t* you are either in a repository directory with a properly "
     printf "configured\n\t  origin or not in a repository directory at all"
-    printf "\n\t* <upstream_uri> is the source of truth"
-    printf "\n\t* <origin_uri> is your fork/copy (where ${italic}you${reset} "
+    printf "\n\t* <origin_uri> is the source of truth"
+    printf "\n\t* <fork_uri> is your fork/copy (where ${italic}you${reset} "
     printf "do development)\n"
 }
 
@@ -57,9 +57,14 @@ config_set() {
   git config --local "$@"
 }
 
+# config_add adds an additional value to a property if it exists
+config_add() {
+  git config --local --add "$@"
+}
+
 # config_unset unsets a property in the local git configuration file
 config_unset() {
-  git config --local --unset "$@" || true
+  git config --local --unset-all "$@" || true
 }
 
 # config_get gets the value of a property from the local git configuration file
@@ -71,7 +76,7 @@ config_get() {
 get_default_remote_ref_name() {
   if ! arg_set "$1"
   then
-    log fatal "_get_default_remote_ref_name expects one argument: <remote_name>"
+    log fatal "get_default_remote_ref_name expects one argument: <remote_name>"
   fi
 
   git ls-remote "$1" HEAD |\
@@ -80,28 +85,25 @@ get_default_remote_ref_name() {
 }
 
 # What are the URIs for the remotes?
-GIT_FORK__UPSTREAM_URI="$1"
-GIT_FORK__ORIGIN_URI="$2"
+GIT_FORK__ORIGIN_URI="$1"
+GIT_FORK__FORK_URI="$2"
 GIT_FORK__REPODIR="$3"
 
 # Ensure both arguments have been passed
-if ! arg_set $GIT_FORK__UPSTREAM_URI || ! arg_set $GIT_FORK__ORIGIN_URI
+if ! arg_set $GIT_FORK__ORIGIN_URI || ! arg_set $GIT_FORK__FORK_URI
 then
   usage ; exit 1
 fi
 
 # What is the repository name and location on disk?
-GIT_FORK__REPOSITORY_NAME_SHORT="${GIT_FORK__UPSTREAM_URI%\.git}"
+GIT_FORK__REPOSITORY_NAME_SHORT="${GIT_FORK__ORIGIN_URI%\.git}"
 GIT_FORK__REPOSITORY_NAME_SHORT="${GIT_FORK__REPOSITORY_NAME_SHORT##*\/}"
-
-arg_set "$GIT_FORK__REPODIR" ||\
-  GIT_FORK__REPODIR=$(realpath "$GIT_FORK__REPOSITORY_NAME_SHORT")
 
 # What is the default branch name?
 GIT_FORK__HEAD_REF_NAME=""
 
-# What refs should we fetch from upstream?
-GIT_FORK__UPSTREAM_REFSPEC=""
+# What refs should we fetch from origin?
+GIT_FORK__ORIGIN_REFSPEC=""
 
 # if we're in a git repository already...
 if git rev-parse --git-dir &> /dev/null; then
@@ -109,67 +111,76 @@ if git rev-parse --git-dir &> /dev/null; then
   # user is typing. this takes care of matching through any url.*.insteadOf
   # mappings (which git uses to override the url display through commands like
   # `git remove -v` and similar)
-  GIT_FORK__CONFIG_ORIGIN_URI="$(config_get remote.origin.url 2>/dev/null)"
-  GIT_FORK__CONFIG_UPSTREAM_URI="$(config_get remote.upstream.url || true)"
+  GIT_FORK__CONFIG_ORIGIN_URI="$(config_get remote.origin.url || true)"
+  GIT_FORK__CONFIG_FORK_URI="$(config_get remote.fork.url 2>/dev/null)"
   
-  # ... and the remotes doesn't match what we expect: error out (only care about
-  # upstream if it is set)
-  if ! args_equal "$GIT_FORK__CONFIG_ORIGIN_URI" "$GIT_FORK__ORIGIN_URI"
+  # if the origin remote doesn't match what we expect: error out
+  if \
+    arg_set "$GIT_FORK__CONFIG_ORIGIN_URI" &&\
+    ! args_equal "$GIT_FORK__CONFIG_ORIGIN_URI" "$GIT_FORK__ORIGIN_URI"
   then
     FAIL=1
     log error \
       "remote.origin.url: expected '${GIT_FORK__ORIGIN_URI}', got '${GIT_FORK__CONFIG_ORIGIN_URI}'"
   fi
 
-  if \
-    arg_set "$GIT_FORK__CONFIG_UPSTREAM_URI" &&\
-    ! args_equal "$GIT_FORK__CONFIG_UPSTREAM_URI" "$GIT_FORK__UPSTREAM_URI"
+  # if the fork remote doesn't match what we expect: error out
+  if ! args_equal "$GIT_FORK__CONFIG_FORK_URI" "$GIT_FORK__FORK_URI"
   then
     FAIL=1
     log error \
-      "remote.upstream.url: expected '${GIT_FORK__UPSTREAM_URI}', got '${GIT_FORK__CONFIG_UPSTREAM_URI}'"
+      "remote.fork.url: expected '${GIT_FORK__FORK_URI}', got '${GIT_FORK__CONFIG_FORK_URI}'"
   fi
 
-  arg_set "$FAIL" && log fatal "unexpected remote values"
+  arg_set "$FAIL" && log fatal "unexpected remote values: ${@:1:2}"
 
-  GIT_FORK__HEAD_REF_NAME=$(get_default_remote_ref_name "$GIT_FORK__UPSTREAM_URI")
+  GIT_FORK__HEAD_REF_NAME=$(get_default_remote_ref_name "$GIT_FORK__ORIGIN_URI")
 else
+  # if GIT_FORK__REPODIR was unspecified, we should default to the repository
+  # short name. This replicates the default behavior from git, and is necessary
+  # in order to change into the directory.
+  if ! arg_set "$GIT_FORK__REPODIR"; then
+      GIT_FORK__REPODIR="$GIT_FORK__REPOSITORY_NAME_SHORT"
+  fi
+
   # clone the repository
-  git clone "$GIT_FORK__UPSTREAM_URI" "$GIT_FORK__REPODIR"
+  git clone $GIT_FORK__ORIGIN_URI $GIT_FORK__REPODIR
 
   # move into the directory if we aren't already in it
-  args_equal "$GIT_FORK__REPODIR" "$(pwd)" ||\
+  args_equal $(realpath "${GIT_FORK__REPODIR}") "$PWD" ||\
     pushd "$GIT_FORK__REPODIR" &> /dev/null
 
   GIT_FORK__HEAD_REF_NAME=$(git rev-parse --abbrev-ref HEAD)
 fi
 
 arg_set "$GIT_FORK__HEAD_REF_NAME" ||\
-  log fatal "upstream/HEAD not detected"
+  log fatal "origin/HEAD not detected"
 
 # get some information from the remote
-upstream_refspec_remote="refs/heads/${GIT_FORK__HEAD_REF_NAME}"
-upstream_refspec_local="refs/remotes/upstream/${GIT_FORK__HEAD_REF_NAME}"
-GIT_FORK__UPSTREAM_REFSPEC="+${upstream_refspec_remote}:${upstream_refspec_local}"
+origin_refspec_remote="refs/heads/${GIT_FORK__HEAD_REF_NAME}"
+origin_refspec_local="refs/remotes/origin/${GIT_FORK__HEAD_REF_NAME}"
+GIT_FORK__ORIGIN_REFSPEC="+${origin_refspec_remote}:${origin_refspec_local}"
 
-# fetch with --prune-tags to remove local tags that are no longer on the remote
-# and clobber tags that have changed
-config_set fetch.prunetags true
+# don't prune tags by default, because we set an explicit refspec for them on
+# the origin remote only, in order to reduce noise from tag clobbering
+config_set fetch.prunetags false
 
-# configure the origin remote
-config_set remote.origin.url "$GIT_FORK__ORIGIN_URI"
-config_set remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+# always push to fork
+config_set remote.pushdefault fork
 
 # configure the upstream remote
-config_set remote.upstream.url "$GIT_FORK__UPSTREAM_URI"
-config_set remote.upstream.fetch "$GIT_FORK__UPSTREAM_REFSPEC"
+config_set remote.origin.url "$GIT_FORK__ORIGIN_URI"
+config_set remote.origin.fetch "$GIT_FORK__ORIGIN_REFSPEC"
+config_add remote.origin.fetch "+refs/tags/*:refs/tags/*"
+
+# configure the fork remote
+config_unset remote.fork.fetch
+config_set remote.fork.url "$GIT_FORK__FORK_URI"
+config_set remote.fork.fetch '+refs/heads/*:refs/remotes/fork/*'
 
 # configure branches
-config_set "branch.${GIT_FORK__HEAD_REF_NAME}.remote" upstream
+config_set "branch.${GIT_FORK__HEAD_REF_NAME}.remote" origin
 config_set "branch.${GIT_FORK__HEAD_REF_NAME}.rebase" true
 
-# always push to origin
-config_set remote.pushdefault origin
-
 # fetch the upstream repository so that tracking will work immediately
-git fetch upstream
+git fetch --all
