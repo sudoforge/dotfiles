@@ -1,0 +1,52 @@
+#!/usr/bin/env sh
+
+# random-gen will replace the string 'RANDOM' within a user-provided templte
+# (argument 1) and generate a random string (argument 2) of 12 characters by
+# default, with the option for any whole integer between 1-41.
+#
+# bind your preferred key(s) to the following:
+#   spawn --userscript random-gen <TEMPLATE> [LENGTH]
+#
+# as an example, if the script was invoked with:
+#   spawn --userscript random-gen you@RANDOM.domain.com 10
+#
+# then it would generate and type something similar to:
+#   you@28ae1b87b1.domain.com
+
+TEMPLATE="${1:-$RANDOM_GEN_TEMPLATE}"
+LENGTH=${2:-12}
+
+log() {
+    echo "$@" >&2
+    exit 1
+}
+
+# QUTE_FIFO is available within the qutebrowser environment, and as this script
+# is explicitly built as a qutebrowser userscript, we should ensure that it is
+# not being executed elsewhere.
+if [ ! -n "$QUTE_FIFO" ]; then
+    log "QUTE_FIFO unset. are you running this from within Qutebrowser?"
+fi
+
+if ! command -v git > /dev/null 2>&1; then
+    log "command not found in path: git"
+fi
+
+if [ ! -n "$TEMPLATE" ]; then
+    log "RANDOM_GEN_TEMPLATE unset, or argument not provided"
+fi
+
+if [ "${TEMPLATE#*RANDOM}" = "$TEMPLATE" ]; then
+    log "template does not include the string 'RANDOM'"
+fi
+
+# The lt and gt tests also ensure that the input is a number, so there is no
+# need for an additional check
+if [[ "$LENGTH" -lt 1 ]] || [[ "$LENGTH" -gt 41 ]]; then
+    log "length should be a whole number between 1-41"
+fi
+
+{ head -n 50 /dev/urandom ; date +%s.%N ; } |\
+  git hash-object --stdin |\
+  head -c "$LENGTH" |\
+  xargs -r -I {} sh -c "sed -e 's/RANDOM/{}/' <<< 'fake-key ${TEMPLATE}'" >> "$QUTE_FIFO"
