@@ -56,7 +56,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://drive.google.com": [NOTIFICATIONS],
-    "https://meet.google.com": [CAPTURE_AV, CAPTURE_DESKTOP],
+    "https://meet.google.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, CAPTURE_VIDEO],
     "https://messages.google.com": [NOTIFICATIONS],
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
     "https://tweetdeck.twitter.com": [NOTIFICATIONS],
