@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 
 /usr/lib/geoclue-2.0/demos/agent &
-systemctl --user start polybar.service
 sxhkd &
 
 # Ensure that removed/disabled monitors are removed
@@ -55,3 +54,7 @@ if [ -z "$primary_monitor" ]; then
 else
   bspc monitor "${primary_monitor%%\ *}" -d term web work chat wallet
 fi
+
+# Run autorandr in order to execute user-space hooks. We use `--force` here to
+# ensure that the hooks are executed even if we haven't changed profiles.
+autorandr --change --force
