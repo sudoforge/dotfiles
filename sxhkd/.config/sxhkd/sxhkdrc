@@ -29,13 +29,6 @@ super + c
 super + l
     /usr/bin/physlock -md
 
-# get a random 12-character string
-super + alt + period
-    (head -n 50 /dev/urandom ; date +%s.%N) |\
-      git hash-object --stdin |\
-      head -c12 |\
-      tmux load-buffer -
-
 # password manager
 # ------------------------------------------------------------------------------
 
