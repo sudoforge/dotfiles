@@ -134,7 +134,7 @@ c.url.searchengines = {
     "!aw": "https://wiki.archlinux.org/index.php?search={}",
     "!cb": "https://www.crunchbase.com/textsearch?q={}",
     "!crates": "https://crates.io/search?q={}",
-    "!domain": "https://domains.google.com/registrar/search?searchTerm={}",
+    "!domain": "https://domains.google.com/registrar/search?tab=1&searchTerm={}",
     "!eth": "https://etherscan.io/search?q={}",
     "!evo": "https://www.evo.com/shop?text={}",
     "!fedex": "https://www.fedex.com/fedextrack/?trknbr={}",
