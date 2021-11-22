@@ -1,5 +1,6 @@
 /home/sudoforge/.aws
 /home/sudoforge/.cache/zsh/history
+/home/sudoforge/.cargo/credentials
 /home/sudoforge/.config/git/config.local
 /home/sudoforge/.config/git/config.work
 /home/sudoforge/.git-credentials
