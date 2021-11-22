@@ -100,10 +100,10 @@
   s = status -sbu
   sc = sparse-checkout
   sd = stash drop
+  sl = stash list --pretty=format:'%C(yellow)%H %C(cyan)%gd%C(cyan):%Creset %s'
   sp = stash pop
   ss = status -sb
   st = -c commit.gpgsign=false stash save -u
-  stl = stash list --pretty=format:'%C(yellow)%H %C(cyan)%gd%C(cyan):%Creset %s'
   submit = push origin HEAD:refs/for/master
   undo = reset HEAD~1 --mixed
   up = !git fetch --all --prune $@ && git rebase @{u}
