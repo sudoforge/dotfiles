@@ -160,7 +160,6 @@ c.url.searchengines = {
     "!tfp": "https://registry.terraform.io/search/providers?q={}",
     "!ups": "https://wwwapps.ups.com/WebTracking/processInputRequest?tracknum={}",
     "!w": "https://en.wikipedia.org/w/index.php?search={}",
-    "!wh": "https://www.wowhead.com/search?q={}",
     "!xlm": "https://stellar.expert/explorer/public/search?term={}",
     "!yt": "https://www.youtube.com/results?search_query={}",
     "!yth": "https://www.youtube.com/feed/history?query={}",
