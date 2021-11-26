@@ -9,13 +9,18 @@ vim.api.nvim_define_augroup("Lsp", true)
 -- Show diagnostic information on CursorHold
 vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.lsp.diagnostic.show_line_diagnostics()", "Lsp")
 
+-- Format on write
 vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.formatting_sync(nil, 200)", "Lsp")
 
 -- LANGUAGE SERVER CONFIGURATION
 --------------------------------------------------------------------------------
-require("lspconfig")
+local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require("rust-tools").setup({
+-- Rust
+require("rust-tools").setup {
+	capabilities = capabilities,
+
 	tools = {
 		autoSetHints = true,
 		hover_with_actions = true,
@@ -35,4 +40,4 @@ require("rust-tools").setup({
 			},
 		},
 	},
-})
+}
