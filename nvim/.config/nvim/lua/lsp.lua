@@ -41,3 +41,10 @@ require("rust-tools").setup {
 		},
 	},
 }
+
+-- Golang
+lspconfig.gopls.setup {
+	cmd = { "gopls" },
+	capabilities = capabilities,
+	filetypes = { "go", "gomod" },
+}
