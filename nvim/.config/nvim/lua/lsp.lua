@@ -48,3 +48,25 @@ lspconfig.gopls.setup {
 	capabilities = capabilities,
 	filetypes = { "go", "gomod" },
 }
+
+-- Lua
+lspconfig.sumneko_lua.setup {
+	cmd = { "/usr/bin/lua-language-server" },
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+}
