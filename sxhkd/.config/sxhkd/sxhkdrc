@@ -87,21 +87,21 @@ super + ctrl + p
 # ------------------------------------------------------------------------------
 
 # Close the current notification
-ctrl + space
+super + ctrl + space
   dunstctl close
 
 # Close all notifications that are currently displayed
-ctrl + shift + space
+super + shift + space
   dunstctl close-all
 
 # Perform the default action (or opens the context menu) of the current
 # notification
-ctrl + period
+super + period
   dunstctl action 0
 
 # Redisplay the notification that was most recently closed. This can be repeated
 # up to the history limit configured in ~/.config/dunst/dunstrc
-ctrl + grave
+super + ctrl + period
   dunstctl history-pop
 
 # bspwm hotkeys
