@@ -113,9 +113,9 @@ bindkey "^[[D" backward-char
 bindkey "^[w" backward-delete-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
-bindkey '^[[A' up-line-or-history
-bindkey '^[[B' down-line-or-history
 bindkey '^[[Z' reverse-menu-complete
+bindkey '^n' down-line-or-history
+bindkey '^p' up-line-or-history
 
 
 # WINDOW CONFIGURATION
