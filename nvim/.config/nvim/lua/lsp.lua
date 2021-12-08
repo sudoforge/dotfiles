@@ -70,3 +70,9 @@ lspconfig.sumneko_lua.setup {
 		},
 	},
 }
+
+-- Terraform
+lspconfig.terraformls.setup {
+	cmd = { "terraform-ls", "serve" },
+	capabilities = capabilities,
+}
