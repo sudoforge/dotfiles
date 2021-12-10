@@ -64,6 +64,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
     "https://tweetdeck.twitter.com": [NOTIFICATIONS],
     "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
+    "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
 }
 
 # Enable permissions for hosts
