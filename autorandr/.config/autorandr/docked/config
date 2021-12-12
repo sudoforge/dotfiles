@@ -12,6 +12,7 @@ output eDP-1
 off
 output DP-4
 crtc 0
+gamma 0.769:0.588:0.435
 mode 2560x1440
 pos 0x0
 primary
