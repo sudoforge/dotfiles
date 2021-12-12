@@ -220,7 +220,7 @@ alias reload=". ~/.zshrc"
 alias rg="\rg --ignore-file ~/.ignore"
 alias se='EDITOR="nvr -s --remote-wait" sudoedit'
 alias tf='terraform'
-alias top='ytop -ap'
+alias top='btm --battery -glT'
 alias userctl='systemctl --user'
 alias userjrnl='journalctl --user'
 alias vim='e'
