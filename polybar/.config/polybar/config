@@ -81,7 +81,7 @@ wm-restack = bspwm
 
 ; Configure the modules (defined below) shown on this bar
 modules-left = bspwm xwindow
-modules-right = audio backlight battery network date
+modules-right = audio backlight battery wireless-network date
 
 ; ==============================================================================
 ; HERE BE MODULES
@@ -115,8 +115,8 @@ include-file = ~/.config/polybar/modules/backlight.ini
 [module/audio]
 include-file = ~/.config/polybar/modules/audio.ini
 
-[module/network]
-include-file = ~/.config/polybar/modules/network.ini
+[module/wireless-network]
+include-file = ~/.config/polybar/modules/wireless-network.ini
 
 ; Modeline configuration
 ;
