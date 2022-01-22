@@ -71,6 +71,12 @@ lspconfig.sumneko_lua.setup {
 	},
 }
 
+-- Python
+lspconfig.pyright.setup {
+	cmd = { "pyright-langserver", "--stdio" },
+	capabilities = capabilities,
+}
+
 -- Terraform
 lspconfig.terraformls.setup {
 	cmd = { "terraform-ls", "serve" },
