@@ -14,7 +14,7 @@ if [ "$battery_level" -le 20 ]; then
   # valid values are: low, normal, critical
   urgency=normal
   time=3000
-  [ "$battery_level" -le 10 ] && { urgency=critical ; time=0 ; }
+  [ "$battery_level" -le 10 ] && { urgency=critical ; time=10000 ; }
   notify-send \
     -t $time \
     -u "$urgency" \
