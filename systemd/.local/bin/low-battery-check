@@ -13,7 +13,7 @@ if [ "$battery_level" -le 20 ]; then
   # notice_level is used to set the urgency of the notification. as such, its
   # valid values are: low, normal, critical
   urgency=normal
-  time=5000
+  time=3000
   [ "$battery_level" -le 10 ] && { urgency=critical ; time=0 ; }
   notify-send \
     -t $time \
