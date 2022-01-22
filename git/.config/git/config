@@ -77,8 +77,8 @@
   dc = diff --cached
   e = config -e
   ec = config --global -e
-  el = !git config --file ~/.gitconfig.local -e
-  erc = !git commit --amend
+  el = config --file ~/.gitconfig.local -e
+  erc = commit --amend
   erp = !git commit --amend && git push --force
   hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %ae, %ar%Creset'
