@@ -7,7 +7,8 @@ require("utils")
 vim.api.nvim_define_augroup("Lsp", true)
 
 -- Show diagnostic information on CursorHold
-vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.lsp.diagnostic.show_line_diagnostics()", "Lsp")
+vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.diagnostic.open_float()", "Lsp")
+
 
 -- Format on write
 vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.formatting_sync(nil, 200)", "Lsp")
