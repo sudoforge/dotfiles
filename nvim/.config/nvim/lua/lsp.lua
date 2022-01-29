@@ -50,6 +50,13 @@ lspconfig.gopls.setup {
 	filetypes = { "go", "gomod" },
 }
 
+-- Java
+lspconfig.java_language_server.setup {
+	cmd = { "java-language-server" },
+	capabilities = capabilities,
+	filetypes = { "java" },
+}
+
 -- Lua
 lspconfig.sumneko_lua.setup {
 	cmd = { "/usr/bin/lua-language-server" },
