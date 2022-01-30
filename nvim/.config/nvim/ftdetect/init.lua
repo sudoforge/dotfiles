@@ -25,6 +25,8 @@ local map = {
 
 for f, v in pairs(map) do
 	for _, p in ipairs(v) do
+		local events
+
 		if f == "terminal" then
 			events = { "TermOpen" }
 		else
