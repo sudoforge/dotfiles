@@ -56,7 +56,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://*.slack.com": [CAPTURE_AUDIO],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
-    "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP],
+    "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://drive.google.com": [NOTIFICATIONS],
     "https://gather.town": [CAPTURE_AUDIO],
     "https://meet.google.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, CAPTURE_VIDEO],
