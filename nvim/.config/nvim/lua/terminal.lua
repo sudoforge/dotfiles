@@ -8,5 +8,4 @@ require("utils")
 vim.api.nvim_define_augroup("Terminal", true)
 
 -- Define autocmds that exec on TermEnter
-vim.api.nvim_define_autocmd("TermOpen,BufEnter", "term://*", "startinsert", "Terminal")
 vim.api.nvim_define_autocmd("BufLeave", "term://*", "stopinsert", "Terminal")
