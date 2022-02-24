@@ -72,6 +72,7 @@ setopt HIST_IGNORE_ALL_DUPS         # Ignore all duplicate entries in the histor
 setopt HIST_IGNORE_SPACE            # Ignore commands with leading spaces.
 setopt HIST_REDUCE_BLANKS           # Tidy up commands before comitting them to history.
 setopt HIST_VERIFY                  # Verify commands that use a history expansion.
+setopt INC_APPEND_HISTORY_TIME      # Record how long each command took (use `history -D` to view)
 setopt INTERACTIVE_COMMENTS         # Allow me to comment lines in an interactive shell.
 setopt LOCAL_OPTIONS                # Options set/unset inside functions, stay within the function.
 setopt NO_BEEP                      # Never, ever, beep at me.
