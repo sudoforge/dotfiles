@@ -17,6 +17,7 @@ export MANPAGER="nvr -s -c 'Man!' -"
 # UTILIES AND TOOLS
 #########################
 
+export AUR_PAGER="nvr -s"
 export CHROME_EXECUTABLE=chromium
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
 export GIT_EDITOR='nvr -s --remote-wait'
