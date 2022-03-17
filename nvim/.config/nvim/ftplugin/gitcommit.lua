@@ -10,9 +10,5 @@ vim.api.nvim_define_augroup("GitCommit", true)
 vim.api.nvim_define_autocmd("BufEnter", "<buffer>", "startinsert", "GitCommit")
 vim.api.nvim_define_autocmd("BufNewFile", "<buffer>", ":1s/^Revert:\\?/revert:/e", "GitCommit")
 
--- Delete the buffer upon losing visibility
--- This exists to support terminating the buffer so that GIT_EDITOR completes
-vim.bo.bufhidden = "delete"
-
 -- Signal that the plugin has completed
 vim.b.did_local_ftplugin = true
