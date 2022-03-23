@@ -5,6 +5,10 @@
 --
 -------------------------------------------------------------------------------
 
+-- Set the leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Disable arrow key movement
 for _, mode in ipairs({ "i", "n" }) do
 	for _, key in ipairs({ "Down", "Left", "Right", "Up" }) do
