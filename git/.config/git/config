@@ -1,132 +1,132 @@
 [user]
-  name = Benjamin Denhartog
-  email = ben@sudoforge.com
-  signingkey = C2631F793A698827
+	name = Benjamin Denhartog
+	email = ben@sudoforge.com
+	signingkey = C2631F793A698827
 [init]
-  defaultBranch = trunk
+	defaultBranch = trunk
 [blame]
-  showEmail = true
+	showEmail = true
 [branch]
-  autoSetupRebase = always
+	autoSetupRebase = always
 [core]
-  editor = nvim
-  sparseCheckout = true
+	editor = nvim
+	sparseCheckout = true
 [color "diff"]
-  meta = 11
-  frag = magenta bold
-  func = 146 bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [commit]
-  gpgsign = true
+	gpgsign = true
 [difftool]
-  prompt = 0
+	prompt = 0
 [fetch]
-  pruneTags = true
+	pruneTags = true
 [http]
-  cookiefile = ~/.gitcookies
+	cookiefile = ~/.gitcookies
 [pager]
-  log  = /usr/share/git/diff-highlight/diff-highlight | less
-  show = /usr/share/git/diff-highlight/diff-highlight | less
-  diff = /usr/share/git/diff-highlight/diff-highlight | less
+	log	= /usr/share/git/diff-highlight/diff-highlight | less
+	show = /usr/share/git/diff-highlight/diff-highlight | less
+	diff = /usr/share/git/diff-highlight/diff-highlight | less
 [push]
-  default = simple
+	default = simple
 [pull]
-  rebase = true
+	rebase = true
 [log]
-  mailmap = true
+	mailmap = true
 [merge]
-  ff = false
-  tool = vimdiff
+	ff = false
+	tool = vimdiff
 [mergetool "vimdiff"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [gpg]
-  program = /usr/bin/gpg2
+	program = /usr/bin/gpg2
 [color]
-  ui = auto
+	ui = auto
 [filter "lfs"]
-  required = true
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  clean = git-lfs clean -- %f
+	required = true
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
 [url "ssh://aur@aur.archlinux.org/"]
-  insteadOf = aur:
-  insteadOf = aur@archlinux.org:
-  insteadOf = git://aur.archlinux.org/
-  insteadOf = http://aur.archlinux.org/
-  insteadOf = https://aur.archlinux.org/
+	insteadOf = aur:
+	insteadOf = aur@archlinux.org:
+	insteadOf = git://aur.archlinux.org/
+	insteadOf = http://aur.archlinux.org/
+	insteadOf = https://aur.archlinux.org/
 [url "ssh://git@bitbucket.org/"]
-  insteadOf = bb:
-  insteadOf = git://bitbucket.org/
-  insteadOf = git@bitbucket.org:
-  insteadOf = http://bitbucket.org/
-  insteadOf = https://bitbucket.org/
+	insteadOf = bb:
+	insteadOf = git://bitbucket.org/
+	insteadOf = git@bitbucket.org:
+	insteadOf = http://bitbucket.org/
+	insteadOf = https://bitbucket.org/
 [url "ssh://git@github.com/"]
-  insteadOf = gh:
-  insteadOf = git://github.com/
-  insteadOf = git@github.com:
-  insteadOf = http://github.com/
-  insteadOf = https://github.com/
+	insteadOf = gh:
+	insteadOf = git://github.com/
+	insteadOf = git@github.com:
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
 [url "ssh://git@gitlab.com/"]
-  insteadOf = git://gitlab.com/
-  insteadOf = git@gitlab.com:
-  insteadOf = gl:
-  insteadOf = http://gitlab.com/
-  insteadOf = https://gitlab.com/
+	insteadOf = git://gitlab.com/
+	insteadOf = git@gitlab.com:
+	insteadOf = gl:
+	insteadOf = http://gitlab.com/
+	insteadOf = https://gitlab.com/
 [alias]
-  aerc = !git add -A && git commit -a --amend
-  aerp = !git add -A && git commit -u --amend && git push --force
-  arec = !git add . && git rebase --continue
-  arc = !git add -A && git commit -a --amend --no-edit
-  arp = !git add -A && git commit -a --amend --no-edit && git push --force
-  b = branch
-  co = checkout
-  cob = checkout -b
-  cp = cherry-pick
-  d = diff
-  dc = diff --cached
-  e = config -e
-  ec = config --global -e
-  el = config --file ~/.gitconfig.local -e
-  erc = commit --amend
-  erp = !git commit --amend && git push --force
-  hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %ae, %ar%Creset'
-  ll = log --show-signature --stat --format=fuller
-  llp = log --show-signature --stat --patch --format=fuller
-  lp = log --patch --format=medium
-  lr = log --format='%H'
-  ls = log --stat --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  p = push
-  pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
-  pf = push --force
-  pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-  rc = commit --amend --no-edit
-  rea = rebase --abort
-  rec = rebase --continue
-  redo = reset 'HEAD@{1}'
-  rp = !git commit --amend --no-edit && git push --force
-  rv = remote --verbose
-  s = status -sbu
-  sc = sparse-checkout
-  sd = stash drop
-  sl = stash list --pretty=format:'%C(yellow)%H %C(cyan)%gd%C(cyan):%Creset %s'
-  sp = stash pop
-  ss = status -sb
-  st = -c commit.gpgsign=false stash save -u
-  submit = push origin HEAD:refs/for/master
-  undo = reset HEAD~1 --mixed
-  up = !git fetch --all --prune $@ && git rebase @{u}
+	aerc = !git add -A && git commit -a --amend
+	aerp = !git add -A && git commit -u --amend && git push --force
+	arec = !git add . && git rebase --continue
+	arc = !git add -A && git commit -a --amend --no-edit
+	arp = !git add -A && git commit -a --amend --no-edit && git push --force
+	b = branch
+	co = checkout
+	cob = checkout -b
+	cp = cherry-pick
+	d = diff
+	dc = diff --cached
+	e = config -e
+	ec = config --global -e
+	el = config --file ~/.gitconfig.local -e
+	erc = commit --amend
+	erp = !git commit --amend && git push --force
+	hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %ae, %ar%Creset'
+	ll = log --show-signature --stat --format=fuller
+	llp = log --show-signature --stat --patch --format=fuller
+	lp = log --patch --format=medium
+	lr = log --format='%H'
+	ls = log --stat --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	p = push
+	pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
+	pf = push --force
+	pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	rc = commit --amend --no-edit
+	rea = rebase --abort
+	rec = rebase --continue
+	redo = reset 'HEAD@{1}'
+	rp = !git commit --amend --no-edit && git push --force
+	rv = remote --verbose
+	s = status -sbu
+	sc = sparse-checkout
+	sd = stash drop
+	sl = stash list --pretty=format:'%C(yellow)%H %C(cyan)%gd%C(cyan):%Creset %s'
+	sp = stash pop
+	ss = status -sb
+	st = -c commit.gpgsign=false stash save -u
+	submit = push origin HEAD:refs/for/master
+	undo = reset HEAD~1 --mixed
+	up = !git fetch --all --prune $@ && git rebase @{u}
 [advice]
-  addEmptyPathspec = false
-  detachedHead = false
-  ignoredHook = false
+	addEmptyPathspec = false
+	detachedHead = false
+	ignoredHook = false
 [include]
-  path = ~/.config/git/config.local
+	path = ~/.config/git/config.local
