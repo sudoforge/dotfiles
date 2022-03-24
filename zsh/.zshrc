@@ -199,6 +199,7 @@ alias ..=../
 alias ...=../../
 alias ....=../../../
 alias b='bazel'
+alias cdd='cd $(mktemp -d)'
 alias chat='weechat'
 alias cls="unset NEWLINE_BEFORE_PROMPT && clear"
 alias copybara="copybara --output-root ~/.cache/copybara"
