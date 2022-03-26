@@ -46,12 +46,12 @@ vim.api.nvim_set_keymap("n", "<S-tab>", ":bprev<CR>", { noremap = true, silent =
 vim.api.nvim_set_keymap("n", "<tab>", ":bnext<CR>", { noremap = true, silent = true })
 
 -- Close the current buffer
-vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>bq", ":bd<cr>", { noremap = true, silent = true})
 
 -- Close the current buffer and move to the previous one
 -- This is especially useful for longstanding sessions as it replicates the idea of closing a tab
 -- found in other editors (where the file closes, but the program stays active)
-vim.api.nvim_set_keymap("n", "<leader>bq", ":b#<bar>bd#<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>bd", ":b#<bar>bd#<cr>", { noremap = true, silent = true })
 
 -- Exit terminal insert mode with C-j
 vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-n>", { noremap = true })
