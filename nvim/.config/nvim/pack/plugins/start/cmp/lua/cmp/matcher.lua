@@ -1,9 +1,8 @@
 local char = require('cmp.utils.char')
-local str = require('cmp.utils.str')
 
 local matcher = {}
 
-matcher.WORD_BOUNDALY_ORDER_FACTOR = 5
+matcher.WORD_BOUNDALY_ORDER_FACTOR = 10
 
 matcher.PREFIX_FACTOR = 8
 matcher.NOT_FUZZY_FACTOR = 6
@@ -73,20 +72,29 @@ end
 ---Match entry
 ---@param input string
 ---@param word string
----@param words string[]
+---@param option { synonyms: string[], disallow_fuzzy_matching: boolean, disallow_partial_matching: boolean, disallow_prefix_unmatching: boolean }
 ---@return number
-matcher.match = function(input, word, words)
+matcher.match = function(input, word, option)
+  option = option or {}
+
   -- Empty input
   if #input == 0 then
-    return matcher.PREFIX_FACTOR + matcher.NOT_FUZZY_FACTOR
+    return matcher.PREFIX_FACTOR + matcher.NOT_FUZZY_FACTOR, {}
   end
 
   -- Ignore if input is long than word
   if #input > #word then
-    return 0
+    return 0, {}
   end
 
-  --- Gather matched regions
+  -- Check prefix matching.
+  if option.disallow_prefix_unmatching then
+    if not char.match(string.byte(input, 1), string.byte(word, 1)) then
+      return 0, {}
+    end
+  end
+
+  -- Gather matched regions
   local matches = {}
   local input_start_index = 1
   local input_end_index = 1
@@ -106,18 +114,33 @@ matcher.match = function(input, word, words)
     word_bound_index = word_bound_index + 1
   end
 
-  if #matches == 0 then
-    return 0
+  -- Check partial matching.
+  if option.disallow_partial_matching and #matches > 1 then
+    return 0, {}
   end
+
+  if #matches == 0 then
+    return 0, {}
+  end
+
+  matcher.debug(word, matches)
 
   -- Add prefix bonus
   local prefix = false
   if matches[1].input_match_start == 1 and matches[1].word_match_start == 1 then
     prefix = true
   else
-    for _, w in ipairs(words or {}) do
-      if str.has_prefix(w, string.sub(input, matches[1].input_match_start, matches[1].input_match_end)) then
-        prefix = true
+    for _, synonym in ipairs(option.synonyms or {}) do
+      prefix = true
+      local o = 1
+      for i = matches[1].input_match_start, matches[1].input_match_end do
+        if not char.match(string.byte(synonym, o), string.byte(input, i)) then
+          prefix = false
+          break
+        end
+        o = o + 1
+      end
+      if prefix then
         break
       end
     end
@@ -125,7 +148,7 @@ matcher.match = function(input, word, words)
 
   -- Compute prefix match score
   local score = prefix and matcher.PREFIX_FACTOR or 0
-  local boundary_fixer = prefix and matches[1].index - 1 or 0
+  local offset = prefix and matches[1].index - 1 or 0
   local idx = 1
   for _, m in ipairs(matches) do
     local s = 0
@@ -135,20 +158,23 @@ matcher.match = function(input, word, words)
     end
     idx = idx + 1
     if s > 0 then
-      s = s * (m.strict_match and 1.2 or 1)
-      score = score + (s * (1 + math.max(0, matcher.WORD_BOUNDALY_ORDER_FACTOR - (m.index - boundary_fixer)) / matcher.WORD_BOUNDALY_ORDER_FACTOR))
+      s = s * (1 + m.strict_ratio)
+      s = s * (1 + math.max(0, matcher.WORD_BOUNDALY_ORDER_FACTOR - (m.index - offset)) / matcher.WORD_BOUNDALY_ORDER_FACTOR)
+      score = score + s
     end
   end
 
   -- Check remaining input as fuzzy
   if matches[#matches].input_match_end < #input then
-    if matcher.fuzzy(input, word, matches) then
-      return score
+    if not option.disallow_fuzzy_matching then
+      if prefix and matcher.fuzzy(input, word, matches) then
+        return score, matches
+      end
     end
-    return 0
+    return 0, {}
   end
 
-  return score + matcher.NOT_FUZZY_FACTOR
+  return score + matcher.NOT_FUZZY_FACTOR, matches
 end
 
 --- fuzzy
@@ -178,16 +204,37 @@ matcher.fuzzy = function(input, word, matches)
   local matched = false
   local word_offset = 0
   local word_index = last_match.word_match_end + 1
+  local input_match_start = -1
+  local input_match_end = -1
+  local word_match_start = -1
+  local strict_count = 0
+  local match_count = 0
   while word_offset + word_index <= #word and input_index <= #input do
-    if char.match(string.byte(word, word_index + word_offset), string.byte(input, input_index)) then
+    local c1, c2 = string.byte(word, word_index + word_offset), string.byte(input, input_index)
+    if char.match(c1, c2) then
+      if not matched then
+        input_match_start = input_index
+        word_match_start = word_index + word_offset
+      end
       matched = true
       input_index = input_index + 1
+      strict_count = strict_count + (c1 == c2 and 1 or 0)
+      match_count = match_count + 1
     elseif matched then
       input_index = last_input_index
+      input_match_end = input_index - 1
     end
     word_offset = word_offset + 1
   end
   if input_index > #input then
+    table.insert(matches, {
+      input_match_start = input_match_start,
+      input_match_end = input_match_end,
+      word_match_start = word_match_start,
+      word_match_end = word_index + word_offset - 1,
+      strict_ratio = strict_count / match_count,
+      fuzzy = true,
+    })
     return true
   end
   return false
@@ -208,10 +255,11 @@ matcher.find_match_region = function(input, input_start_index, input_end_index, 
     return nil
   end
 
-  local strict_match_count = 0
   local input_match_start = -1
   local input_index = input_end_index
   local word_offset = 0
+  local strict_count = 0
+  local match_count = 0
   while input_index <= #input and word_index + word_offset <= #word do
     local c1 = string.byte(input, input_index)
     local c2 = string.byte(word, word_index + word_offset)
@@ -221,11 +269,8 @@ matcher.find_match_region = function(input, input_start_index, input_end_index, 
         input_match_start = input_index
       end
 
-      -- Increase strict_match_count
-      if c1 == c2 then
-        strict_match_count = strict_match_count + 1
-      end
-
+      strict_count = strict_count + (c1 == c2 and 1 or 0)
+      match_count = match_count + 1
       word_offset = word_offset + 1
     else
       -- Match end (partial region)
@@ -235,7 +280,8 @@ matcher.find_match_region = function(input, input_start_index, input_end_index, 
           input_match_end = input_index - 1,
           word_match_start = word_index,
           word_match_end = word_index + word_offset - 1,
-          strict_match = strict_match_count == input_index - input_match_start,
+          strict_ratio = strict_count / match_count,
+          fuzzy = false,
         }
       else
         return nil
@@ -251,7 +297,8 @@ matcher.find_match_region = function(input, input_start_index, input_end_index, 
       input_match_end = input_index - 1,
       word_match_start = word_index,
       word_match_end = word_index + word_offset - 1,
-      strict_match = strict_match_count == input_index - input_match_start,
+      strict_ratio = strict_count / match_count,
+      fuzzy = false,
     }
   end
 

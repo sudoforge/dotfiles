@@ -3,22 +3,29 @@ local pattern = require('cmp.utils.pattern')
 
 local str = {}
 
-local INVALID_CHARS = {}
-INVALID_CHARS[string.byte("'")] = true
-INVALID_CHARS[string.byte('"')] = true
-INVALID_CHARS[string.byte('=')] = true
-INVALID_CHARS[string.byte('$')] = true
-INVALID_CHARS[string.byte('(')] = true
-INVALID_CHARS[string.byte('[')] = true
-INVALID_CHARS[string.byte(' ')] = true
-INVALID_CHARS[string.byte('\t')] = true
-INVALID_CHARS[string.byte('\n')] = true
-INVALID_CHARS[string.byte('\r')] = true
+local INVALIDS = {}
+INVALIDS[string.byte("'")] = true
+INVALIDS[string.byte('"')] = true
+INVALIDS[string.byte('=')] = true
+INVALIDS[string.byte('$')] = true
+INVALIDS[string.byte('(')] = true
+INVALIDS[string.byte('[')] = true
+INVALIDS[string.byte('<')] = true
+INVALIDS[string.byte('{')] = true
+INVALIDS[string.byte(' ')] = true
+INVALIDS[string.byte('\t')] = true
+INVALIDS[string.byte('\n')] = true
+INVALIDS[string.byte('\r')] = true
 
-local PAIR_CHARS = {}
-PAIR_CHARS[string.byte('[')] = string.byte(']')
-PAIR_CHARS[string.byte('(')] = string.byte(')')
-PAIR_CHARS[string.byte('<')] = string.byte('>')
+local NR_BYTE = string.byte('\n')
+
+local PAIRS = {}
+PAIRS[string.byte('<')] = string.byte('>')
+PAIRS[string.byte('[')] = string.byte(']')
+PAIRS[string.byte('(')] = string.byte(')')
+PAIRS[string.byte('{')] = string.byte('}')
+PAIRS[string.byte('"')] = string.byte('"')
+PAIRS[string.byte("'")] = string.byte("'")
 
 ---Return if specified text has prefix or not
 ---@param text string
@@ -34,6 +41,17 @@ str.has_prefix = function(text, prefix)
     end
   end
   return true
+end
+
+---get_common_string
+str.get_common_string = function(text1, text2)
+  local min = math.min(#text1, #text2)
+  for i = 1, min do
+    if not char.match(string.byte(text1, i), string.byte(text2, i)) then
+      return string.sub(text1, 1, i - 1)
+    end
+  end
+  return string.sub(text1, 1, min)
 end
 
 ---Remove suffix
@@ -72,24 +90,6 @@ str.strikethrough = function(text)
   return buffer
 end
 
----omit
----@param text string
----@param width number
----@return string
-str.omit = function(text, width)
-  if width == 0 then
-    return ''
-  end
-
-  if not text then
-    text = ''
-  end
-  if #text > width then
-    return string.sub(text, 1, width + 1) .. '...'
-  end
-  return text
-end
-
 ---trim
 ---@param text string
 ---@return string
@@ -117,32 +117,47 @@ end
 
 ---get_word
 ---@param text string
+---@param stop_char number
+---@param min_length number
 ---@return string
-str.get_word = function(text, stop_char)
-  local valids = {}
-  local has_valid = false
-  for idx = 1, #text do
-    local c = string.byte(text, idx)
-    local invalid = INVALID_CHARS[c] and not (valids[c] and stop_char ~= c)
-    if has_valid and invalid then
-      return string.sub(text, 1, idx - 1)
-    end
-    valids[c] = true
-    if PAIR_CHARS[c] then
-      valids[PAIR_CHARS[c]] = true
-    end
-    has_valid = has_valid or not invalid
-  end
-  return text
-end
+str.get_word = function(text, stop_char, min_length)
+  min_length = min_length or 0
 
----Get character length.
----@param text string
----@param s number
----@param e number
----@return number
-str.chars = function(text, s, e)
-  return vim.fn.strchars(string.sub(text, s, e))
+  local has_alnum = false
+  local stack = {}
+  local word = {}
+  local add = function(c)
+    table.insert(word, string.char(c))
+    if stack[#stack] == c then
+      table.remove(stack, #stack)
+    else
+      if PAIRS[c] then
+        table.insert(stack, c)
+      end
+    end
+  end
+  for i = 1, #text do
+    local c = string.byte(text, i, i)
+    if #word < min_length then
+      table.insert(word, string.char(c))
+    elseif not INVALIDS[c] then
+      add(c)
+      has_alnum = has_alnum or char.is_alnum(c)
+    elseif not has_alnum then
+      add(c)
+    elseif #stack ~= 0 then
+      add(c)
+      if has_alnum and #stack == 0 then
+        break
+      end
+    else
+      break
+    end
+  end
+  if stop_char and word[#word] == string.char(stop_char) then
+    table.remove(word, #word)
+  end
+  return table.concat(word, '')
 end
 
 ---Oneline
@@ -150,7 +165,7 @@ end
 ---@return string
 str.oneline = function(text)
   for i = 1, #text do
-    if string.byte(text, i) == string.byte('\n', 1) then
+    if string.byte(text, i) == NR_BYTE then
       return string.sub(text, 1, i - 1)
     end
   end

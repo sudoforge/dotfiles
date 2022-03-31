@@ -1,19 +1,31 @@
-local misc = require('cmp.utils.misc')
-
-local mapping = setmetatable({}, {
+local mapping
+mapping = setmetatable({}, {
   __call = function(_, invoke, modes)
-    return {
-      invoke = function(...)
-        invoke(...)
-      end,
-      modes = modes or { 'i' },
-    }
+    if type(invoke) == 'function' then
+      local map = {}
+      for _, mode in ipairs(modes or { 'i' }) do
+        map[mode] = invoke
+      end
+      return map
+    end
+    return invoke
   end,
 })
+
 ---Invoke completion
-mapping.complete = function()
+---@param option cmp.CompleteParams
+mapping.complete = function(option)
   return function(fallback)
-    if not require('cmp').complete() then
+    if not require('cmp').complete(option) then
+      fallback()
+    end
+  end
+end
+
+---Complete common string.
+mapping.complete_common_string = function()
+  return function(fallback)
+    if not require('cmp').complete_common_string() then
       fallback()
     end
   end
@@ -45,27 +57,28 @@ mapping.scroll_docs = function(delta)
     end
   end
 end
-mapping.scroll = misc.deprecated(mapping.scroll_docs, '`cmp.mapping.scroll` is deprecated. Please change it to `cmp.mapping.scroll_docs` instead.')
 
 ---Select next completion item.
-mapping.select_next_item = function()
+mapping.select_next_item = function(option)
   return function(fallback)
-    if not require('cmp').select_next_item() then
+    if not require('cmp').select_next_item(option) then
+      local release = require('cmp').core:suspend()
       fallback()
+      vim.schedule(release)
     end
   end
 end
-mapping.next_item = misc.deprecated(mapping.select_next_item, '`cmp.mapping.next_item` is deprecated. Please change it to `cmp.mapping.select_next_item` instead.')
 
 ---Select prev completion item.
-mapping.select_prev_item = function()
+mapping.select_prev_item = function(option)
   return function(fallback)
-    if not require('cmp').select_prev_item() then
+    if not require('cmp').select_prev_item(option) then
+      local release = require('cmp').core:suspend()
       fallback()
+      vim.schedule(release)
     end
   end
 end
-mapping.prev_item = misc.deprecated(mapping.select_prev_item, '`cmp.mapping.prev_item` is deprecated. Please change it to `cmp.mapping.select_prev_item` instead.')
 
 ---Confirm selection
 mapping.confirm = function(option)
