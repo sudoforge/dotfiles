@@ -211,6 +211,7 @@ alias gcp="gcloud"
 alias gcs="gsutil"
 alias gpgl="gpg --list-keys --keyid-format long --with-fingerprint"
 alias gpgll="gpg --list-keys --keyid-format long --with-fingerprint --with-subkey-fingerprint"
+alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
 alias ku='kubectl'
