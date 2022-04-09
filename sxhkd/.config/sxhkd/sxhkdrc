@@ -50,20 +50,6 @@ ctrl + shift + backslash
 super + b
     qutebrowser
 
-super + ctrl + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/profiles/2e4dee6132d6/config.py \
-        --basedir ~/.config/qutebrowser/profiles/2e4dee6132d6
-
-super + shift + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/profiles/38a3142e72ee/config.py \
-        --basedir ~/.config/qutebrowser/profiles/38a3142e72ee
-
-super + alt + b
-    qutebrowser \
-        --config-py ~/.config/qutebrowser/config.py \
-        --basedir ~/.config/qutebrowser/profiles/3272ec796e2a
 
 # screenshots
 # ------------------------------------------------------------------------------
