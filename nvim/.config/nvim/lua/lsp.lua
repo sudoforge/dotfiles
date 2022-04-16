@@ -3,15 +3,20 @@
 require("utils")
 
 -- AUTOCOMMANDS
+-- Autocommands are defined in a local function and propagated to the different LSP client
+-- configuration via `on_attach`, which means that the commands will run (be defined) when an LSP
+-- client attaches to a buffer.
 -------------------------------------------------------------------------------
-vim.api.nvim_define_augroup("Lsp", true)
 
--- Show diagnostic information on CursorHold
-vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.diagnostic.open_float()", "Lsp")
+local function on_attach()
+	vim.api.nvim_define_augroup("Lsp", true)
 
+	-- Show diagnostic information on CursorHold
+	vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.diagnostic.open_float()", "Lsp")
 
--- Format on write
-vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.formatting_sync(nil, 200)", "Lsp")
+	-- Format on write
+	vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.formatting_sync()", "Lsp")
+end
 
 -- LANGUAGE SERVER CONFIGURATION
 --------------------------------------------------------------------------------
@@ -21,6 +26,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 -- Rust
 require("rust-tools").setup {
 	capabilities = capabilities,
+	on_attach = on_attach,
 
 	tools = {
 		autoSetHints = true,
@@ -48,6 +54,7 @@ lspconfig.gopls.setup {
 	cmd = { "gopls" },
 	capabilities = capabilities,
 	filetypes = { "go", "gomod" },
+	on_attach = on_attach,
 }
 
 -- Java
@@ -55,6 +62,7 @@ lspconfig.java_language_server.setup {
 	cmd = { "java-language-server" },
 	capabilities = capabilities,
 	filetypes = { "java" },
+	on_attach = on_attach,
 }
 
 -- Lua
@@ -77,16 +85,19 @@ lspconfig.sumneko_lua.setup {
 			},
 		},
 	},
+	on_attach = on_attach,
 }
 
 -- Python
 lspconfig.pyright.setup {
 	cmd = { "pyright-langserver", "--stdio" },
 	capabilities = capabilities,
+	on_attach = on_attach,
 }
 
 -- Terraform
 lspconfig.terraformls.setup {
 	cmd = { "terraform-ls", "serve" },
 	capabilities = capabilities,
+	on_attach = on_attach,
 }
