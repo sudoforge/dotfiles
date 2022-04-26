@@ -53,7 +53,7 @@ NOTIFICATIONS = "content.notifications.enabled"
 #
 # [0]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 HOST_ENABLED_PERMISSIONS = {
-    "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, NOTIFICATIONS],
+    "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
