@@ -21,6 +21,9 @@ local map = {
 	terminal = {
 		"term://*",
 	},
+	terraform = {
+		"*.hcl",
+	},
 }
 
 for f, v in pairs(map) do
