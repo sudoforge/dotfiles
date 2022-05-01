@@ -46,7 +46,7 @@ vim.api.nvim_set_keymap("n", "<S-tab>", ":bprev<CR>", { noremap = true, silent =
 vim.api.nvim_set_keymap("n", "<tab>", ":bnext<CR>", { noremap = true, silent = true })
 
 -- Close the current buffer
-vim.api.nvim_set_keymap("n", "<leader>bc", ":bd<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>bc", ":bd<cr>", { noremap = true, silent = true })
 
 -- Close the current buffer and move to the previous one
 -- This is especially useful for longstanding sessions as it replicates the idea of closing a tab
