@@ -106,7 +106,7 @@ vim.api.nvim_set_keymap("n", "<C-f>", ":Rg<space>", { noremap = true })
 -- Code navigation
 local completion_bindings = {
 	["<c-s>"] = "signature_help",
-	["K"] = "hover",
+	["<c-space>"] = "hover",
 	["g0"] = "document_symbol",
 	["gD"] = "implementation",
 	["gG"] = "type_definition",
