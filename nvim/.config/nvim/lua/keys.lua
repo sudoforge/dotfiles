@@ -119,3 +119,12 @@ local completion_bindings = {
 for k, v in pairs(completion_bindings) do
 	vim.api.nvim_set_keymap("n", k, "<cmd>lua vim.lsp.buf." .. v .. "()<CR>", { noremap = true, silent = true })
 end
+
+-- setup a 3-split workspace
+-- a terminal buffer is always available at buffer 1
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>tr",
+	":term<cr>:aboveleft new<cr>:vnew<cr><c-w>j<bar>:resize 16<bar>:startinsert<cr>",
+	{ noremap = true, silent = true }
+)
