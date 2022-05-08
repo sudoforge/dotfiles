@@ -29,6 +29,35 @@ super + c
 super + l
     /usr/bin/physlock -md
 
+# media keys
+# ------------------------------------------------------------------------------
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+XF86AudioRaiseVolume
+    amixer set Master 5%+
+
+XF86AudioLowerVolume
+    amixer set Master 5%-
+
+XF86AudioMicMute
+    amixer set Capture toggle
+
+XF86MonBrightnessUp
+	brightnessctl -d amdgpu_bl0 set 5%+
+
+super + XF86MonBrightnessUp
+	brightnessctl -d amdgpu_bl0 set 100%
+
+XF86MonBrightnessDown
+	brightnessctl -d amdgpu_bl0 set 5%-
+
+super + XF86MonBrightnessDown
+	brightnessctl -d amdgpu_bl0 set 0%
+
+XF86WLAN
+    rfkill toggle bluetooth wlan
+
 # password manager
 # ------------------------------------------------------------------------------
 
