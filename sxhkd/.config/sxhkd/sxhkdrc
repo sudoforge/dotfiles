@@ -90,6 +90,12 @@ super + period
 super + ctrl + period
   dunstctl history-pop
 
+# Toggle notifications
+# This will either turn notifications off, or on, depending on the current
+# setting
+super + n
+    exec ~/.local/bin/toggle-dnd
+
 # bspwm hotkeys
 # ------------------------------------------------------------------------------
 

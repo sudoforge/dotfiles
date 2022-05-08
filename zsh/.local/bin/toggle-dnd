@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+if paused="$(dunstctl is-paused)"; then
+    urgency="low"
+    sleeptime=0
+
+    if [[ "$paused" == "true" ]]; then
+        message="notifications enabled"
+    elif [[ "$paused" == "false" ]]; then
+        message="notifications disabled"
+        sleeptime=1
+    else
+        message="unknown status: ${paused}"
+        urgency="critical"
+    fi
+
+    notify-send \
+        --urgency "$urgency" \
+        --expire-time 1000 \
+        "$message"
+
+    sleep "$sleeptime"
+    dunstctl set-paused toggle
+else
+    dunstctl set-paused false
+    notify-send \
+        --urgency "critical" \
+        --expire-time 5000 \
+        "error getting current notification status"
+fi
