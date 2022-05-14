@@ -121,7 +121,7 @@
 	sp = stash pop
 	ss = status -sb
 	st = -c commit.gpgsign=false stash save -u
-	submit = push origin HEAD:refs/for/master
+	submit = push origin HEAD:refs/for/trunk
 	undo = reset HEAD~1 --mixed
 	up = !git fetch --all --prune $@ && git rebase @{u}
 [advice]
