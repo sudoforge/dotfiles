@@ -55,6 +55,7 @@ NOTIFICATIONS = "content.notifications.enabled"
 HOST_ENABLED_PERMISSIONS = {
     "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
+    "https://app.element.io": [NOTIFICATIONS],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
