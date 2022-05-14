@@ -82,10 +82,10 @@
 	insteadOf = https://gitlab.com/
 [alias]
 	aerc = !git add -A && git commit -a --amend
-	aerp = !git add -A && git commit -u --amend && git push --force
+	aerp = !git add -A && git commit -u --amend && git submit
 	arec = !git add . && git rebase --continue
 	arc = !git add -A && git commit -a --amend --no-edit
-	arp = !git add -A && git commit -a --amend --no-edit && git push --force
+	arp = !git add -A && git commit -a --amend --no-edit && git submit
 	b = branch
 	co = checkout
 	cob = checkout -b
@@ -96,7 +96,7 @@
 	ec = config --global -e
 	el = config --file ~/.gitconfig.local -e
 	erc = commit --amend
-	erp = !git commit --amend && git push --force
+	erp = !git commit --amend && git submit
 	hist = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	l = log --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %ae, %ar%Creset'
 	ll = log --show-signature --stat --format=fuller
@@ -112,7 +112,7 @@
 	rea = rebase --abort
 	rec = rebase --continue
 	redo = reset 'HEAD@{1}'
-	rp = !git commit --amend --no-edit && git push --force
+	rp = !git commit --amend --no-edit && git submit
 	rv = remote --verbose
 	s = status -sbu
 	sc = sparse-checkout
