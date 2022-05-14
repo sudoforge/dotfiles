@@ -54,6 +54,7 @@ NOTIFICATIONS = "content.notifications.enabled"
 # [0]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 HOST_ENABLED_PERMISSIONS = {
     "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
+    "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
@@ -64,7 +65,6 @@ HOST_ENABLED_PERMISSIONS = {
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
     "https://tweetdeck.twitter.com": [NOTIFICATIONS],
     "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
-    "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
 }
 
 # Enable permissions for hosts
