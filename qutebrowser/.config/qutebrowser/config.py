@@ -2,6 +2,11 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+from qutebrowser.config.configfiles import ConfigAPI
+from qutebrowser.config.config import ConfigContainer
+config: ConfigAPI = config
+c: ConfigContainer = c
+
 # Don't load autoconfig.yml (this is required as of v2.0.0)
 config.load_autoconfig(False)
 
