@@ -60,6 +60,7 @@ NOTIFICATIONS = "content.notifications.enabled"
 HOST_ENABLED_PERMISSIONS = {
     "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
+    "https://app.chime.aws": [CAPTURE_AUDIO, CAPTURE_DESKTOP],
     "https://app.element.io": [CAPTURE_AUDIO, NOTIFICATIONS],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
@@ -148,6 +149,7 @@ c.url.searchengines = {
     "!fedex": "https://www.fedex.com/fedextrack/?trknbr={}",
     "!gd": "https://domains.google.com/registrar/search?tab=1&searchTerm={}",
     "!gh": "https://github.com/search?q={}",
+    "!ghu": "https://github.com/{}",
     "!gm": "https://play.google.com/store/search?c=movies&q={}",
     "!go": "https://pkg.go.dev/search?q={}",
     "!hub": "https://hub.docker.com/search/?type=image&q={}",
