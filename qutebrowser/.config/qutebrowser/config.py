@@ -27,6 +27,9 @@ c.content.geolocation = False
 # non-static devices (e.g. laptops)
 c.content.blocking.enabled = False
 
+# Disable third-party cookies by default (why is this not the default behavior?)
+c.content.cookies.accept = "no-3rdparty"
+
 # Enable Javascript... because that's how the web works these days
 c.content.javascript.enabled = True
 
