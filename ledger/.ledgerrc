@@ -5,3 +5,4 @@
 --pedantic
 --unrealized-gains equity:unrealized-gains
 --unrealized-losses equity:unrealized-losses
+--unround
