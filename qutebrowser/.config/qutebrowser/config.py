@@ -64,7 +64,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
     "https://app.chime.aws": [CAPTURE_AUDIO, CAPTURE_DESKTOP],
-    "https://app.element.io": [CAPTURE_AUDIO, NOTIFICATIONS],
+    "https://app.element.io": [CAPTURE_AV, CAPTURE_AUDIO, NOTIFICATIONS],
     "https://calendar.google.com": [HANDLER],
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
