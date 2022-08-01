@@ -16,11 +16,11 @@ fi
 # by the same user within the same window will utilize the same address.
 #
 # otherwise, set the address to one that is unique per user.
-if command -v nvr > /dev/null 2>&1 && [ -z "$NVIM_LISTEN_ADDRESS" ]; then
+if command -v nvr > /dev/null 2>&1; then
     if command -v tmux > /dev/null 2>&1 && [ -n "$TMUX" ]; then
-        export NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}.${$(tmux display -p '#{window_id}')#@}"
+        NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}.${$(tmux display -p '#{window_id}')#@}"
     else
-        export NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}"
+        NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}"
     fi
 fi
 
