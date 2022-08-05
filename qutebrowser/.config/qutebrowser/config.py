@@ -69,7 +69,7 @@ HOST_ENABLED_PERMISSIONS = {
     "https://calendar.google.com": [NOTIFICATIONS],
     "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
     "https://drive.google.com": [NOTIFICATIONS],
-    "https://gather.town": [CAPTURE_AUDIO],
+    "https://app.gather.town": [CAPTURE_AUDIO],
     "https://meet.google.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, CAPTURE_VIDEO],
     "https://messages.google.com": [NOTIFICATIONS],
     "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
