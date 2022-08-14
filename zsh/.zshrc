@@ -18,9 +18,9 @@ fi
 # otherwise, set the address to one that is unique per user.
 if command -v nvr > /dev/null 2>&1; then
     if command -v tmux > /dev/null 2>&1 && [ -n "$TMUX" ]; then
-        NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}.${$(tmux display -p '#{window_id}')#@}"
+        export NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}.${$(tmux display -p '#{window_id}')#@}"
     else
-        NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}"
+        export NVIM_LISTEN_ADDRESS="/tmp/nvim.${USER}"
     fi
 fi
 
