@@ -23,6 +23,32 @@ end
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- Dart
+if vim.fn.executable("dart") == 1 then
+	lspconfig.dartls.setup{
+		capabilities = capabilities,
+		cmd = {"dart", "language-server", "--protocol=lsp"},
+		filetypes = { "dart" },
+		on_attach = on_attach,
+		root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
+
+		init_options = {
+			closingLabels = true,
+			flutterOutline = true,
+			onlyAnalyzeProjectsWithOpenFiles = true,
+			outline = true,
+			suggestFromUnimportedLibraries = true,
+		},
+
+		settings = {
+			dart = {
+				completeFunctionCalls = true,
+				showTodos = true,
+			},
+		},
+	}
+end
+
 -- Rust
 if vim.fn.executable("rust-analyzer") == 1 then
 	require("rust-tools").setup {
