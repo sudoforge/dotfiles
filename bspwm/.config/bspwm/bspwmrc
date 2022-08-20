@@ -46,13 +46,13 @@ bspc config presel_feedback_color "#804f4e"
 #
 # TODO(sudoforge): It might make more sense to configure the desktops in an
 # autorandr hook, depending on when autorandr starts up.
-primary_monitor=$(xrandr --query | awk '/\yconnected primary\y/')
+primary_monitor=$(xrandr --query | awk '/\yconnected primary\y/ {print $1}')
 if [ -z "$primary_monitor" ]; then
   notify-send \
     -u critical "BSPWM init failure" \
     "Unable to detect the primary monitor. BSPWM desktops will not be configured."
 else
-  bspc monitor "${primary_monitor%%\ *}" -d term web wallet
+  bspc monitor "$primary_monitor" -d term web wallet
 fi
 
 # Run autorandr in order to execute user-space hooks. We use `--force` here to
