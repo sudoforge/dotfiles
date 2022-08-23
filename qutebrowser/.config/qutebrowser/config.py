@@ -2,6 +2,7 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+import os
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
 
@@ -260,3 +261,8 @@ c.bindings.commands = {
     },
 }
 
+# Load a user-local configuration file, if it exists
+config_local = f"{os.path.abspath(os.path.dirname(__file__))}/config.local.py"
+
+if os.path.exists(config_local):
+    config.source(config_local)
