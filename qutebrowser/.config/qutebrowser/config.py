@@ -198,15 +198,9 @@ c.aliases = {
     "read": "spawn --userscript readability-js",
 }
 
-################################################################################
 # Keybinds
-#
-# The default method for binding keys to different modes is fairly cumbersome
-# when binding lots of keys to different modes. The `keybinds` dict below is
-# has a single top-level key for each supported mode, whose value is another
-# dict of key:command mappings.
-################################################################################
-keybinds = {
+# A map of maps, mapping keys to commands in different modes
+c.bindings.commands = {
     "normal": {
         "<alt+0>": "tab-focus 10",
         "<alt+9>": "tab-focus 9",
@@ -266,9 +260,3 @@ keybinds = {
     },
 }
 
-for mode, binds in keybinds.items():
-    for k, v in binds.items():
-        if v is None:
-            config.unbind(k, mode=f"{mode}")
-        else:
-            config.bind(k, v, mode=f"{mode}")
