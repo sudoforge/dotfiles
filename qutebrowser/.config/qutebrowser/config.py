@@ -32,6 +32,14 @@ c.content.blocking.enabled = False
 # Disable third-party cookies by default (why is this not the default behavior?)
 c.content.cookies.accept = "no-3rdparty"
 
+# Domain-specific cookie acceptance configuration
+HOST_SPECIFIC_COOKIES = {
+    "https://teams.microsoft.com": "all",
+}
+
+for host, value in HOST_SPECIFIC_COOKIES.items():
+    config.set("content.cookies.accept", value, f"{host}/*")
+
 # Enable Javascript... because that's how the web works these days
 c.content.javascript.enabled = True
 
