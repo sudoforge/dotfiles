@@ -15,7 +15,7 @@ alt + Tab
 
 # make sxhkd reload its configuration files:
 super + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd && notify-send -u low -t 1500 "sxhkd reloaded"
 
 # set clipboard using tmux buffer
 super + v
