@@ -177,6 +177,7 @@ c.url.searchengines = {
     "!lim": "https://www.linkedin.com/messaging/?searchTerm={}",
     "!lip": "https://www.linkedin.com/search/results/people/?keywords={}",
     "!lij": "https://www.linkedin.com/jobs/search/?keywords={}",
+    "!maps": "https://www.google.com/maps/search/{}",
     "!mdn": "https://developer.mozilla.org/en-US/search?q={}",
     "!music": "https://music.youtube.com/search?q={}",
     "!poly": "https://polygonscan.com/search?q={}",
