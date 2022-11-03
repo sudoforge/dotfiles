@@ -2,6 +2,7 @@
 
 main() {
   local URI="$1"
+  local BROWSER_ARGS=""
 
   # Error out if the value of URI is empty or nonexistent
   [ -z "$URI" ] && notify-send \
@@ -17,7 +18,7 @@ main() {
     BROWSER="$(xdg-settings get default-web-browser)"
   fi
 
-  command "$BROWSER" "$URI" 2>&1 &&\
+  command $BROWSER $BROWSER_ARGS "$URI" 2>&1 &&\
   notify-send -u normal -t 3000 "Opening URL in $BROWSER" "$URI"
 }
 
