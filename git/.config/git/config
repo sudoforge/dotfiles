@@ -7,6 +7,7 @@
 [core]
 	editor = nvim
 	sparseCheckout = true
+	pager = /usr/share/git/diff-highlight/diff-highlight | less -x4
 [color "diff"]
 	meta = 11
 	frag = magenta bold
@@ -28,10 +29,6 @@
 	pruneTags = true
 [http]
 	cookiefile = ~/.gitcookies
-[pager]
-	log	= /usr/share/git/diff-highlight/diff-highlight | less -x4
-	show = /usr/share/git/diff-highlight/diff-highlight | less -x4
-	diff = /usr/share/git/diff-highlight/diff-highlight | less -x4
 [push]
 	default = simple
 [pull]
