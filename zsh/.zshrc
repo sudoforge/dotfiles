@@ -56,7 +56,7 @@ autoload -Uz wo
 ################################################################################
 PROMPT_CHAR="➜"
 PROMPT="\$(__short_cwd)\$(__git_prompt_status)"
-PROMPT="${PROMPT}"$'\n'"%(?..%{$FX[reset]$FG[203]%})$FX[bold]${PROMPT_CHAR}$FX[no-bold]$FX[reset] "
+PROMPT="${PROMPT}"$'\n'"%(?..%{$FX[reset]$FG[203]%})$FX[reset]${PROMPT_CHAR} "
 
 
 # Options
