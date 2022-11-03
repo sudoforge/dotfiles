@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 pwd | sed -E \
+    -e 's;^'"${WOPATH}"'/git.lan/([^/]+)/(.+);\1::\2;' \
+    -e 's;^'"${WOPATH}"'/git.lan/(.+);git::\1;' \
     -e 's;^'"${WOPATH}"'/github.com/(.+);gh::\1;' \
     -e 's;^'"${WOPATH}"'/bitbucket.org/(.+);bb::\1;' \
     -e 's;^'"${WOPATH}"'/aur.archlinux.org/(.+);aur::\1;' \
