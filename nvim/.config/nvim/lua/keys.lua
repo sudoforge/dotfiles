@@ -66,8 +66,10 @@ local mode_to_escape_binding = {
 
 for mode, escape in pairs(mode_to_escape_binding) do
 	for _, key in pairs({ "h", "j", "k", "l" }) do
-		-- skip C-j for terminal insert mode
-		if mode == "t" and key == "j" then
+		-- skip C-j for the following modes:
+		--   - terminal insert mode
+		--   - visual mode
+		if key == "j" and (mode == "t" or mode == "v") then
 			goto continue
 		end
 
