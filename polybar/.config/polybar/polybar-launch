@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-MONITOR="$(xrandr --query | awk '/connected primary/ {print $1}')" polybar --reload top

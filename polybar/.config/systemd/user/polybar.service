@@ -3,7 +3,7 @@ Description=Polybar
 Documentation=man:polybar(1)
 
 [Service]
-ExecStart=%h/.config/polybar/polybar-launch
+ExecStart=%h/.local/bin/polybar-launch
 KillSignal=SIGHUP
 
 [Install]
