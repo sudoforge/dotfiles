@@ -180,6 +180,7 @@ c.url.searchengines = {
     "!mdn": "https://developer.mozilla.org/en-US/search?q={}",
     "!music": "https://music.youtube.com/search?q={}",
     "!poly": "https://polygonscan.com/search?q={}",
+    "!py": "https://docs.python.org/3/search.html?q={}",
     "!r": "https://www.reddit.com/search?q={}",
     "!rust": "https://doc.rust-lang.org/std/?search={}",
     "!rustn": "https://doc.rust-lang.org/nightly/std/?search={}",
