@@ -230,6 +230,7 @@ c.bindings.commands = {
         "g^": None,
         "po": "open -p -- {clipboard}",
         "pt": "open -t -- {clipboard}",
+        "zn": "spawn --userscript random-gen RANDOM 12",
     },
     "caret": {
         "<ctrl+j>": "mode-leave",
