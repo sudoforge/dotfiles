@@ -273,6 +273,8 @@ c.bindings.commands = {
 
 # Load a user-local configuration file, if it exists
 config_local = f"{os.path.abspath(os.path.dirname(__file__))}/config.local.py"
-
 if os.path.exists(config_local):
     config.source(config_local)
+
+# Color scheme configuration
+config.source("gruvbox.py")
