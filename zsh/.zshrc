@@ -229,6 +229,17 @@ alias userctl='systemctl --user'
 alias userjrnl='journalctl --user'
 alias vim='e'
 
+# MISC
+#
+# This section contains configuration for miscellaneous programs, typically
+# doing things like adding into zsh hooks, sourcing runtime configuration, etc.
+################################################################################
+
+# direnv: conditionally add a hook for zsh
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
 # local configuration
 #
 # To enable configuration on a per-host basis, optionally source ~/.zshrc.local.
