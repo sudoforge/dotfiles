@@ -25,9 +25,9 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 
 -- Dart
 if vim.fn.executable("dart") == 1 then
-	lspconfig.dartls.setup{
+	lspconfig.dartls.setup {
 		capabilities = capabilities,
-		cmd = {"dart", "language-server", "--protocol=lsp"},
+		cmd = { "dart", "language-server", "--protocol=lsp" },
 		filetypes = { "dart" },
 		on_attach = on_attach,
 		root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
