@@ -105,7 +105,7 @@
 	ls = log --stat --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	p = push
 	pd = !git push --delete origin $(git rev-parse --abbrev-ref HEAD) && git branch --unset-upstream
-	pf = push --force-with-lease
+	pf = push --force-with-lease --force-if-includes
 	pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
 	rc = commit --amend --no-edit
 	rea = rebase --abort
