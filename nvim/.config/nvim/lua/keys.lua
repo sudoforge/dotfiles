@@ -51,6 +51,9 @@ vim.api.nvim_set_keymap("n", "<leader>bc", ":bd<cr>", { noremap = true, silent =
 -- Close the current buffer (after moving to the previous one)
 vim.api.nvim_set_keymap("n", "<leader>bd", ":b#<bar>bd#<cr>", { noremap = true, silent = true })
 
+-- Close the current buffer (after moving to the next one)
+vim.api.nvim_set_keymap("n", "<leader>bn", ":bn<bar>bd#<cr>", { noremap = true, silent = true })
+
 -- Exit terminal insert mode with C-j
 vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-n>", { noremap = true })
 
