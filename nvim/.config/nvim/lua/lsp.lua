@@ -140,3 +140,12 @@ if vim.fn.executable("terraform-ls") then
 		on_attach = on_attach,
 	}
 end
+
+-- Typescript
+if vim.fn.executable("typescript-language-server") then
+	lspconfig.tsserver.setup {
+		cmd = { "typescript-language-server", "--stdio" },
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}
+end
