@@ -131,7 +131,7 @@ if [ -n "$1" ]; then
 
     local count matches
     for dir in $(\
-      find "$WOPATH" -mindepth 3 -maxdepth 4 \(\
+      find "$WOPATH" -mindepth 3 -maxdepth 5 \(\
           -name '.git' -o -name '.svn' -o -name '.hg' \
         \) -type d -ipath "${WOPATH}*${arg}*" -exec dirname {} \; |\
         sed -e 's;'"$WOPATH"'/;;');
