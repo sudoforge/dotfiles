@@ -49,6 +49,19 @@ if vim.fn.executable("dart") == 1 then
 	}
 end
 
+-- Docker
+if vim.fn.executable("docker-langserver") == 1 then
+	lspconfig.dockerls.setup {
+		capabilities = capabilities,
+		on_attach = on_attach,
+
+		cmd = { "docker-langserver", "--stdio" },
+		filetypes = { "dockerfile" },
+		root_dir = lspconfig.util.root_pattern("Dockerfile"),
+		single_file_support = true,
+	}
+end
+
 -- Rust
 if vim.fn.executable("rust-analyzer") == 1 then
 	require("rust-tools").setup {
