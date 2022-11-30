@@ -64,7 +64,7 @@ end
 
 -- Rust
 if vim.fn.executable("rust-analyzer") == 1 then
-	require("rust-tools").setup {
+	lspconfig.rust_analyzer.setup {
 		capabilities = capabilities,
 		on_attach = on_attach,
 
