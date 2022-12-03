@@ -162,3 +162,22 @@ if vim.fn.executable("typescript-language-server") then
 		on_attach = on_attach,
 	}
 end
+
+-- YAML
+if vim.fn.executable("yaml-language-server") then
+	lspconfig.yamlls.setup {
+		cmd = { "yaml-language-server", "--stdio" },
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"yaml",
+		},
+		settings = {
+			redhat = {
+				telemetry = {
+					enabled = false,
+				},
+			},
+		},
+	}
+end
