@@ -1,0 +1,11 @@
+[core]
+	parsing = true
+	notifications = false
+	nopager = false
+	cliptimeout = 30
+	autoclip = false
+	showsafecontent = true
+	exportkeys = false
+	autoimport = true
+[age]
+	usekeychain = false
