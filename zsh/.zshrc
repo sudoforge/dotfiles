@@ -222,6 +222,7 @@ alias qb='qutebrowser'
 alias reload=". ~/.zshrc"
 alias rg="\rg --ignore-file ~/.ignore"
 alias se='EDITOR="nvr -s --remote-wait" sudoedit'
+alias sw='shred -n4 --remove=wipe'
 alias tf='terraform'
 alias tg='terragrunt'
 alias top='btm --battery -glT'
