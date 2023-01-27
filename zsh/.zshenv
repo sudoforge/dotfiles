@@ -22,6 +22,7 @@ export CHROME_EXECUTABLE=chromium
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file ${HOME}/.ignore"
 export GIT_EDITOR='nvr -s --remote-wait'
 export GOPATH="${HOME}/.go"
+export KUBE_EDITOR="${EDITOR} --remote-wait"
 export LESS='-XFRi'
 export PIPENV_VENV_IN_PROJECT="enabled"
 export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/ripgreprc"
