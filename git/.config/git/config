@@ -131,5 +131,6 @@
 	addEmptyPathspec = false
 	detachedHead = false
 	ignoredHook = false
+	skippedCherryPicks = false
 [include]
 	path = ~/.config/git/config.local
