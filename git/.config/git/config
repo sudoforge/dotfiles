@@ -74,15 +74,15 @@
 	insteadOf = http://gitlab.com/
 	insteadOf = https://gitlab.com/
 [url "ssh://git@gitlab.archlinux.org/"]
-    insteadOf = arch:
-    insteadOf = git://gitlab.archlinux.org/
-    insteadOf = git@gitlab.archlinux.org:
-    insteadOf = http://gitlab.archlinux.org/
-    insteadOf = https://gitlab.archlinux.org/
+	insteadOf = arch:
+	insteadOf = git://gitlab.archlinux.org/
+	insteadOf = git@gitlab.archlinux.org:
+	insteadOf = http://gitlab.archlinux.org/
+	insteadOf = https://gitlab.archlinux.org/
 [url "https://git.kernel.org/pub/scm/"]
-    insteadOf = kernel:
-    insteadOf = http://git.kernel.org/pub/scm/
-    insteadOf = git://git.kernel.org/pub/scm/
+	insteadOf = kernel:
+	insteadOf = http://git.kernel.org/pub/scm/
+	insteadOf = git://git.kernel.org/pub/scm/
 [alias]
 	aerc = !git add -A && git commit -a --amend
 	aerp = !git add -A && git commit -u --amend && git submit
