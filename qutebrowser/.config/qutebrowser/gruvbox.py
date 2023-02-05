@@ -6,8 +6,8 @@
 #   Gruvbox dark, hard scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
 bg0_hard = "#1d2021"
-bg0_soft = '#32302f'
-bg0_normal = '#282828'
+bg0_soft = "#32302f"
+bg0_normal = "#282828"
 
 bg0 = bg0_normal
 bg1 = "#3c3836"
@@ -73,7 +73,9 @@ c.colors.completion.item.selected.bg = bg4
 c.colors.completion.item.selected.border.top = bg2
 
 # Bottom border color of the selected completion item.
-c.colors.completion.item.selected.border.bottom = c.colors.completion.item.selected.border.top
+c.colors.completion.item.selected.border.bottom = (
+    c.colors.completion.item.selected.border.top
+)
 
 # Foreground color of the matched text in the selected completion item.
 c.colors.completion.item.selected.match.fg = bright_orange
@@ -99,12 +101,12 @@ c.colors.contextmenu.disabled.fg = fg3
 c.colors.contextmenu.menu.bg = bg0
 
 # Foreground color of the context menu. If set to null, the Qt default is used.
-c.colors.contextmenu.menu.fg =  fg2
+c.colors.contextmenu.menu.fg = fg2
 
 # Background color of the context menu’s selected item. If set to null, the Qt default is used.
 c.colors.contextmenu.selected.bg = bg2
 
-#Foreground color of the context menu’s selected item. If set to null, the Qt default is used.
+# Foreground color of the context menu’s selected item. If set to null, the Qt default is used.
 c.colors.contextmenu.selected.fg = c.colors.contextmenu.menu.fg
 
 ### Downloads
@@ -133,7 +135,7 @@ c.colors.downloads.error.fg = bright_red
 c.colors.hints.fg = bg0
 
 # Background color for hints.
-c.colors.hints.bg = 'rgba(250, 191, 47, 200)'  # bright_yellow
+c.colors.hints.bg = "rgba(250, 191, 47, 200)"  # bright_yellow
 
 # Font color for the matched part of hints.
 c.colors.hints.match.fg = bg4
@@ -184,7 +186,7 @@ c.colors.messages.info.border = c.colors.messages.info.bg
 c.colors.prompts.fg = fg2
 
 # Border used around UI elements in prompts.
-c.colors.prompts.border = f'1px solid {bg1}'
+c.colors.prompts.border = f"1px solid {bg1}"
 
 # Background color for prompts.
 c.colors.prompts.bg = bg3
