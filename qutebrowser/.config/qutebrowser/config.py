@@ -32,14 +32,6 @@ c.content.blocking.enabled = False
 # Disable third-party cookies by default (why is this not the default behavior?)
 c.content.cookies.accept = "no-3rdparty"
 
-# Domain-specific cookie acceptance configuration
-HOST_SPECIFIC_COOKIES = {
-    "https://teams.microsoft.com": "all",
-}
-
-for host, value in HOST_SPECIFIC_COOKIES.items():
-    config.set("content.cookies.accept", value, f"{host}/*")
-
 # Enable Javascript... because that's how the web works these days
 c.content.javascript.enabled = True
 
@@ -63,6 +55,7 @@ CAPTURE_AUDIO = "content.media.audio_capture"
 CAPTURE_AV = "content.media.audio_video_capture"
 CAPTURE_DESKTOP = "content.desktop_capture"
 CAPTURE_VIDEO = "content.media.video_capture"
+COOKIES_ACCEPTED = "content.cookies.accept"
 HANDLER = "content.register_protocol_handler"
 NOTIFICATIONS = "content.notifications.enabled"
 
@@ -70,32 +63,72 @@ NOTIFICATIONS = "content.notifications.enabled"
 # information about the matching patterns, see [0].
 #
 # [0]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
-HOST_ENABLED_PERMISSIONS = {
-    "https://*.slack.com": [AUTOPLAY, CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
-    "https://*.zoom.us": [CAPTURE_AUDIO, CAPTURE_VIDEO],
-    "https://app.chime.aws": [CAPTURE_AUDIO, CAPTURE_DESKTOP],
-    "https://app.element.io": [
-        CAPTURE_AV,
-        CAPTURE_AUDIO,
-        CAPTURE_DESKTOP,
-        NOTIFICATIONS,
-    ],
-    "https://calendar.google.com": [HANDLER, NOTIFICATIONS],
-    "https://discord.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, NOTIFICATIONS],
-    "https://drive.google.com": [NOTIFICATIONS],
-    "https://app.gather.town": [CAPTURE_AUDIO],
-    "https://meet.google.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP, CAPTURE_VIDEO],
-    "https://messages.google.com": [NOTIFICATIONS],
-    "https://music.youtube.com": [AUTOPLAY, NOTIFICATIONS],
-    "https://teams.microsoft.com": [CAPTURE_AUDIO, CAPTURE_DESKTOP],
-    "https://tweetdeck.twitter.com": [NOTIFICATIONS],
-    "https://www.fastmail.com": [NOTIFICATIONS, HANDLER],
+HOST_PERMISSIONS = {
+    "https://*.slack.com": {
+        AUTOPLAY: True,
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+        NOTIFICATIONS: True,
+    },
+    "https://*.zoom.us": {
+        CAPTURE_AUDIO: True,
+        CAPTURE_VIDEO: True,
+    },
+    "https://app.chime.aws": {
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+    },
+    "https://app.element.io": {
+        CAPTURE_AV: True,
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+        NOTIFICATIONS: True,
+    },
+    "https://app.gather.town": {
+        CAPTURE_AUDIO: True,
+    },
+    "https://calendar.google.com": {
+        HANDLER: True,
+        NOTIFICATIONS: True,
+    },
+    "https://discord.com": {
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+        NOTIFICATIONS: True,
+    },
+    "https://drive.google.com": {
+        NOTIFICATIONS: True,
+    },
+    "https://meet.google.com": {
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+        CAPTURE_VIDEO: True,
+    },
+    "https://messages.google.com": {
+        NOTIFICATIONS: True,
+    },
+    "https://music.youtube.com": {
+        AUTOPLAY: True,
+        NOTIFICATIONS: True,
+    },
+    "https://teams.microsoft.com": {
+        CAPTURE_AUDIO: True,
+        CAPTURE_DESKTOP: True,
+        COOKIES_ACCEPTED: "all",
+    },
+    "https://tweetdeck.twitter.com": {
+        NOTIFICATIONS: True,
+    },
+    "https://www.fastmail.com": {
+        NOTIFICATIONS: True,
+        HANDLER: True,
+    },
 }
 
 # Enable permissions for hosts
-for host, perms in HOST_ENABLED_PERMISSIONS.items():
-    for p in perms:
-        config.set(p, True, f"{host}/*")
+for host, perms in HOST_PERMISSIONS.items():
+    for key, value in perms.items():
+        config.set(key, value, f"{host}/*")
 
 # Which interfaces to expose via WebRTC
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
