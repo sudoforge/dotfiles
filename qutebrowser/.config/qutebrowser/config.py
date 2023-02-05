@@ -55,6 +55,7 @@ CAPTURE_AUDIO = "content.media.audio_capture"
 CAPTURE_AV = "content.media.audio_video_capture"
 CAPTURE_DESKTOP = "content.desktop_capture"
 CAPTURE_VIDEO = "content.media.video_capture"
+CLIPBOARD = "content.javascript.clipboard"
 COOKIES_ACCEPTED = "content.cookies.accept"
 HANDLER = "content.register_protocol_handler"
 NOTIFICATIONS = "content.notifications.enabled"
@@ -87,6 +88,9 @@ HOST_PERMISSIONS = {
     "https://app.gather.town": {
         CAPTURE_AUDIO: True,
     },
+    "https://app.privacy.com": {
+        CLIPBOARD: "access",
+    },
     "https://calendar.google.com": {
         HANDLER: True,
         NOTIFICATIONS: True,
@@ -99,6 +103,9 @@ HOST_PERMISSIONS = {
     "https://drive.google.com": {
         NOTIFICATIONS: True,
     },
+    "https://github.com": {
+        CLIPBOARD: "access",
+    },
     "https://meet.google.com": {
         CAPTURE_AUDIO: True,
         CAPTURE_DESKTOP: True,
@@ -110,6 +117,9 @@ HOST_PERMISSIONS = {
     "https://music.youtube.com": {
         AUTOPLAY: True,
         NOTIFICATIONS: True,
+    },
+    "https://my.1password.com": {
+        CLIPBOARD: "access",
     },
     "https://teams.microsoft.com": {
         CAPTURE_AUDIO: True,
