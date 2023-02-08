@@ -91,6 +91,9 @@ HOST_PERMISSIONS = {
     "https://app.privacy.com": {
         CLIPBOARD: "access",
     },
+    "https://*.aws.amazon.com": {
+        CLIPBOARD: "access",
+    },
     "https://calendar.google.com": {
         HANDLER: True,
         NOTIFICATIONS: True,
