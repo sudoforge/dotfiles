@@ -224,6 +224,7 @@ c.url.searchengines = {
     "!maps": "https://www.google.com/maps/search/{}",
     "!mdn": "https://developer.mozilla.org/en-US/search?q={}",
     "!music": "https://music.youtube.com/search?q={}",
+    "!nf": "https://search.nixos.org/flakes?query={}",
     "!no": "https://search.nixos.org/options?query={}",
     "!np": "https://search.nixos.org/packages?query={}",
     "!poly": "https://polygonscan.com/search?q={}",
