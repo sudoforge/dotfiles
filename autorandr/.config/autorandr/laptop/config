@@ -1,18 +1,19 @@
-output HDMI-1
-off
 output DP-1
 off
 output DP-2
 off
+output DP-3
+off
+output DP-4
+off
 output eDP-1
 crtc 0
-mode 1920x1080
+mode 2256x1504
 pos 0x0
 primary
-rate 60.02
-x-prop-max_bpc 16
+rate 60.00
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
 x-prop-non_desktop 0
-x-prop-scaling_mode None
-x-prop-underscan off
-x-prop-underscan_hborder 0
-x-prop-underscan_vborder 0
+x-prop-scaling_mode Full aspect

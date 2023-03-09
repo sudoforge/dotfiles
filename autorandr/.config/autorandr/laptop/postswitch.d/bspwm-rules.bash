@@ -4,4 +4,4 @@
 # my machine's native display.
 
 bspc rule -r filepicker:\*
-bspc rule -a filepicker:filepicker:\* state=floating rectangle=1000x600+460+240
+bspc rule -a filepicker:filepicker:\* state=floating rectangle=1200x800+510+352
