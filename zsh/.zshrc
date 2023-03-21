@@ -214,6 +214,7 @@ alias gpgll="gpg --list-keys --keyid-format long --with-fingerprint --with-subke
 alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
+alias krew='kubectl krew'
 alias ku='kubectl'
 alias l="ls --color=tty --group-directories-first -AlFh"
 alias ll="ls --color=tty --group-directories-first -AlFhL"
