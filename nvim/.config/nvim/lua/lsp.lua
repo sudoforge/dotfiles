@@ -15,7 +15,7 @@ local function on_attach()
 	vim.api.nvim_define_autocmd("CursorHold", "<buffer>", "lua vim.diagnostic.open_float()", "Lsp")
 
 	-- Format on write
-	vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.formatting_sync()", "Lsp")
+	vim.api.nvim_define_autocmd("BufWritePre", "<buffer>", "lua vim.lsp.buf.format()", "Lsp")
 end
 
 -- LANGUAGE SERVER CONFIGURATION
