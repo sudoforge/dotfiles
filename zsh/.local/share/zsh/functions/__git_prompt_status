@@ -47,7 +47,7 @@ count_conflict_=$(echo "$INDEX" | grep -c '^[A-Z ]U ')
 if $(echo "$INDEX" | grep '^A' &> /dev/null) || $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
     INDEXED=" +$count_added"
 fi
-if $(echo "$INDEX" | grep '^[MR]' &> /dev/null); then
+if $(echo "$INDEX" | grep '^[TMR]' &> /dev/null); then
     INDEXED="$INDEXED ~$count_modified"
 fi
 if $(echo "$INDEX" | grep '^D' &> /dev/null); then
