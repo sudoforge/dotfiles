@@ -230,6 +230,7 @@ alias top='btm --battery -glT'
 alias userctl='systemctl --user'
 alias userjrnl='journalctl --user'
 alias vim='e'
+alias yt='yt-dlp'
 
 # MISC
 #
