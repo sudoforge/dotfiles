@@ -11,4 +11,4 @@ find . \
     -name '.svn' -o \
     -name '.hg' \
   \) \
-  -exec sh -c "cd {}; out=\$(exec $cmd) ; { [ -n \"\$out\" ] && printf \"[ \$(basename {}) ]\n\$out\n\n\"; }" \;
+  -exec sh -c "printf \"[ \$(basename {}) ]\n\" ; cd {}; out=\$(eval $cmd) ; { { [ -n \"\$out\" ] && printf \"\$out\n\" ; } ; printf \"\n\"; }" \;
