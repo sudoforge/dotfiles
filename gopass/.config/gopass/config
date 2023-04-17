@@ -7,5 +7,6 @@
 	showsafecontent = true
 	exportkeys = false
 	autoimport = true
+	autosync = false
 [age]
 	usekeychain = false
