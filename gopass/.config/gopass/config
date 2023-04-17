@@ -1,13 +1,13 @@
 [core]
-	parsing = true
-	notifications = false
-	nopager = false
-	cliptimeout = 30
 	autoclip = false
-	showsafecontent = true
-	exportkeys = false
 	autoimport = true
 	autopush = true
 	autosync = false
+	cliptimeout = 30
+	exportkeys = false
+	nopager = false
+	notifications = false
+	parsing = true
+	showsafecontent = true
 [age]
 	usekeychain = false
