@@ -129,9 +129,6 @@ HOST_PERMISSIONS = {
         CAPTURE_DESKTOP: True,
         COOKIES_ACCEPTED: "all",
     },
-    "https://tweetdeck.twitter.com": {
-        NOTIFICATIONS: True,
-    },
     "https://www.fastmail.com": {
         NOTIFICATIONS: True,
         HANDLER: True,
