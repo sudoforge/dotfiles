@@ -67,10 +67,10 @@ module-margin-right = 0
 ; that these fonts are installed and available on your system.
 ; -----------------------------------------------------------------------------
 ; Fira Mono: used as the monospace font on the bar
-font-0 = "Fira Mono:style=Regular:antialias=false:pixelsize=10;0"
+font-0 = "Intel One Mono:style=Regular:antialias=false:pixelsize=12;0"
 
 ; Symbols Nerd Font brings in the icons and symbols used on the bar
-font-1 = "Symbols Nerd Font Mono:style=2048-em:antialias=false:pixelsize=14;1"
+font-1 = "Symbols Nerd Font Mono:style=2048-em:antialias=false:pixelsize=12;0"
 
 ; This forces the bar window to be placed above bspwm's root, which is required
 ; in order to ensure that the bar is never drawn above full-screen windows,

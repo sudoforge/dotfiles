@@ -14,11 +14,11 @@ info.
 
 - [`stow`][stow]
 - And these fonts:
-  - [`Fira Mono`][fira-mono]
+  - [`Intel One Mono`][intel-one-mono]
   - [`Symbols Nerd Font`][symbols-nerd-font]
 
 [stow]: https://www.gnu.org/software/stow/ "GNU Stow"
-[fira-mono]: https://fonts.google.com/specimen/Fira+Mono
+[intel-one-mono]: https://github.com/intel/intel-one-mono
 [symbols-nerd-font]: https://github.com/ryanoasis/nerd-fonts
 
 ## Installation
